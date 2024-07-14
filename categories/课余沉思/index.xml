@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+    <channel>
+        <title>课余沉思 on Reina</title>
+        <link>https://ri-nai.github.io/categories/%E8%AF%BE%E4%BD%99%E6%B2%89%E6%80%9D/</link>
+        <description>Recent content in 课余沉思 on Reina</description>
+        <generator>Hugo -- gohugo.io</generator>
+        <language>zh-cn</language>
+        <copyright>Reina</copyright><atom:link href="https://ri-nai.github.io/categories/%E8%AF%BE%E4%BD%99%E6%B2%89%E6%80%9D/index.xml" rel="self" type="application/rss+xml" /><item>
+        <title>0714 Hello</title>
+        <link>https://ri-nai.github.io/p/0714-hello/</link>
+        <pubDate>Sun, 14 Jul 2024 22:58:13 +0800</pubDate>
+        
+        <guid>https://ri-nai.github.io/p/0714-hello/</guid>
+        <description>&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#abb2bf;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-cpp&#34; data-lang=&#34;cpp&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#7f848e&#34;&gt;#include&lt;/span&gt; &lt;span style=&#34;color:#7f848e&#34;&gt;&amp;lt;iostream&amp;gt;&lt;/span&gt;&lt;span style=&#34;color:#7f848e&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#7f848e&#34;&gt;&lt;/span&gt;&lt;span style=&#34;color:#e5c07b&#34;&gt;int&lt;/span&gt; &lt;span style=&#34;color:#61afef;font-weight:bold&#34;&gt;main&lt;/span&gt;()
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;{
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#e06c75&#34;&gt;std&lt;/span&gt;&lt;span style=&#34;color:#56b6c2&#34;&gt;::&lt;/span&gt;&lt;span style=&#34;color:#e06c75&#34;&gt;cout&lt;/span&gt; &lt;span style=&#34;color:#56b6c2&#34;&gt;&amp;lt;&amp;lt;&lt;/span&gt; &lt;span style=&#34;color:#98c379&#34;&gt;&amp;#34;Hello World&amp;#34;&lt;/span&gt; &lt;span style=&#34;color:#56b6c2&#34;&gt;&amp;lt;&amp;lt;&lt;/span&gt; &lt;span style=&#34;color:#e06c75&#34;&gt;std&lt;/span&gt;&lt;span style=&#34;color:#56b6c2&#34;&gt;::&lt;/span&gt;&lt;span style=&#34;color:#e06c75&#34;&gt;endl&lt;/span&gt;;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;}
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;hr&gt;
+</description>
+        </item>
+        
+    </channel>
+</rss>

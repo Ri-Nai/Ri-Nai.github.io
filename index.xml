@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+    <channel>
+        <title>Reina</title>
+        <link>http://localhost:1313/</link>
+        <description>Recent content on Reina</description>
+        <generator>Hugo -- gohugo.io</generator>
+        <language>zh-cn</language>
+        <copyright>Reina</copyright>
+        <lastBuildDate>Sun, 14 Jul 2024 22:58:13 +0800</lastBuildDate><atom:link href="http://localhost:1313/index.xml" rel="self" type="application/rss+xml" /><item>
+        <title>0714 Hello</title>
+        <link>http://localhost:1313/p/0714-hello/</link>
+        <pubDate>Sun, 14 Jul 2024 22:58:13 +0800</pubDate>
+        
+        <guid>http://localhost:1313/p/0714-hello/</guid>
+        <description>&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#abb2bf;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-cpp&#34; data-lang=&#34;cpp&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#7f848e&#34;&gt;#include&lt;/span&gt; &lt;span style=&#34;color:#7f848e&#34;&gt;&amp;lt;iostream&amp;gt;&lt;/span&gt;&lt;span style=&#34;color:#7f848e&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#7f848e&#34;&gt;&lt;/span&gt;&lt;span style=&#34;color:#e5c07b&#34;&gt;int&lt;/span&gt; &lt;span style=&#34;color:#61afef;font-weight:bold&#34;&gt;main&lt;/span&gt;()
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;{
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#e06c75&#34;&gt;std&lt;/span&gt;&lt;span style=&#34;color:#56b6c2&#34;&gt;::&lt;/span&gt;&lt;span style=&#34;color:#e06c75&#34;&gt;cout&lt;/span&gt; &lt;span style=&#34;color:#56b6c2&#34;&gt;&amp;lt;&amp;lt;&lt;/span&gt; &lt;span style=&#34;color:#98c379&#34;&gt;&amp;#34;Hello World&amp;#34;&lt;/span&gt; &lt;span style=&#34;color:#56b6c2&#34;&gt;&amp;lt;&amp;lt;&lt;/span&gt; &lt;span style=&#34;color:#e06c75&#34;&gt;std&lt;/span&gt;&lt;span style=&#34;color:#56b6c2&#34;&gt;::&lt;/span&gt;&lt;span style=&#34;color:#e06c75&#34;&gt;endl&lt;/span&gt;;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;}
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;hr&gt;
+</description>
+        </item>
+        <item>
+        <title>Archives</title>
+        <link>http://localhost:1313/archives/</link>
+        <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+        
+        <guid>http://localhost:1313/archives/</guid>
+        <description></description>
+        </item>
+        <item>
+        <title>Search</title>
+        <link>http://localhost:1313/search/</link>
+        <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+        
+        <guid>http://localhost:1313/search/</guid>
+        <description></description>
+        </item>
+        <item>
+        <title>关于我的，这些那些</title>
+        <link>http://localhost:1313/about/</link>
+        <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+        
+        <guid>http://localhost:1313/about/</guid>
+        <description>&lt;img src="http://localhost:1313/about/img/About.jpg" alt="Featured image of post 关于我的，这些那些" /&gt;&lt;h2 id=&#34;前言&#34;&gt;⏲️前言
+&lt;/h2&gt;&lt;p&gt;看到一位大佬搭了一个于是自己也很想搭，于是就有了这个博客&lt;br&gt;
+搭了我挺久的，感觉搭了一个晚上加上一个夜晚🛏️&lt;br&gt;
+主要是右下角可爱的彩彩折腾我太久时间了，调试的时候出了很多问题，但是看到自家的女儿呆在这里还是很幸福啊🥰&lt;br&gt;&lt;/p&gt;
+&lt;h2 id=&#34;这里用来干什么&#34;&gt;✍️这里用来干什么
+&lt;/h2&gt;&lt;p&gt;鉴于我是一个不喜欢做笔记的人，也许这里可以放一些平时不敢往QQ空间的玉玉犯病小作文&lt;/p&gt;
+&lt;h2 id=&#34;关于我&#34;&gt;👤关于我
+&lt;/h2&gt;&lt;h3 id=&#34;我是谁&#34;&gt;❓我是谁
+&lt;/h3&gt;&lt;p&gt;我在&lt;a class=&#34;link&#34; href=&#34;https://github.com/Ri-Nai/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;GitHub&lt;/a&gt;上的id是&lt;strong&gt;Ri-Nai&lt;/strong&gt;，是我用了好几年的id，中文写作&lt;strong&gt;日奈&lt;/strong&gt;
+关于这个id是怎么来的，有很多人问过很多次，包括且不限于&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;&lt;strong&gt;日奈&lt;/strong&gt;是来自于“结城明&lt;strong&gt;日奈&lt;/strong&gt;”的&lt;strong&gt;日奈&lt;/strong&gt;吗&lt;br&gt;
+&lt;strong&gt;日奈&lt;/strong&gt;是你很喜欢的某个&lt;strong&gt;动画角色&lt;/strong&gt;的名称吗&lt;br&gt;
+为什么中文叫做&lt;strong&gt;日奈&lt;/strong&gt;，却英文名不是“&lt;strong&gt;hina&lt;/strong&gt;”而是“&lt;strong&gt;Ri-Nai&lt;/strong&gt;”呢&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;觉得还是可以稍微解释一下，毕竟以前别人问起的时候只会尴尬的笑笑&lt;br&gt;
+有一次我回答过，&lt;strong&gt;日&lt;/strong&gt;就是&lt;strong&gt;日&lt;/strong&gt;，&lt;strong&gt;奈&lt;/strong&gt;就是&lt;strong&gt;ない&lt;/strong&gt;表示&lt;strong&gt;日/无&lt;/strong&gt;的意思，取时间消逝的意思，所以是不能被简单的“&lt;strong&gt;hina&lt;/strong&gt;”代替  &lt;del&gt;妈呀好幼稚&lt;/del&gt;&lt;br&gt;
+&lt;strong&gt;日奈&lt;/strong&gt;这一id应该最早出现于&lt;a class=&#34;link&#34; href=&#34;https://www.luogu.com.cn/user/164323&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;2018年&lt;/a&gt;而广泛运用于2020年&lt;/p&gt;
+&lt;p&gt;而&lt;strong&gt;日/无&lt;/strong&gt;出自于主播另一早期id&lt;strong&gt;无聊之日不可留&lt;/strong&gt;&lt;br&gt;
+这个id一直没有人问过，我也没答过，来源其实比较简单&lt;br&gt;
+来自于主播2016年比较喜欢的两个&lt;strong&gt;阴阳师&lt;/strong&gt;主播/up主&lt;a class=&#34;link&#34; href=&#34;https://space.bilibili.com/309435&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;鸽海成路之日&lt;/a&gt;和&lt;a class=&#34;link&#34; href=&#34;https://space.bilibili.com/1683672&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;无聊到底&lt;/a&gt;&lt;del&gt;怎么这位都变成管人了&lt;/del&gt;&lt;br&gt;
+&lt;strong&gt;无聊&lt;/strong&gt;+&lt;strong&gt;之日&lt;/strong&gt;然后加上输入法自动补全的&lt;strong&gt;不可留&lt;/strong&gt;，就是我2017~2019的id&lt;br&gt;
+挺怀念的，这种东西在很多地方都给我留下了烙印但是我一直没有好好的去品味他&lt;br&gt;
+譬如&lt;strong&gt;阴阳师&lt;/strong&gt;曾经是主播最喜欢的游戏但是已经很久没有玩过了&lt;br&gt;&lt;/p&gt;
+&lt;p&gt;后来有一天主播逐渐意识到拼音的名称很蠢，而那时候主播刚好看了《&lt;strong&gt;吹响吧！上低音号&lt;/strong&gt;》，这也是我至今&lt;strong&gt;最喜欢&lt;/strong&gt;的动画之一，那时候觉得剧中的&lt;strong&gt;高坂丽奈&lt;/strong&gt;（Kousaka &lt;strong&gt;Reina&lt;/strong&gt;）很&lt;strong&gt;涩&lt;/strong&gt;，而&lt;strong&gt;Reina&lt;/strong&gt;和&lt;strong&gt;Ri-Nai&lt;/strong&gt;很像，&lt;strong&gt;丽奈&lt;/strong&gt;和&lt;strong&gt;日奈&lt;/strong&gt;很像，于是现在的我诞生了&lt;br&gt;
+京吹3播出后，高坂丽奈的形象急速下滑，已经成为高÷了。但是上了大学之后很多人都叫我&lt;strong&gt;Reina&lt;/strong&gt;，现在也不好改了。&lt;/p&gt;
+&lt;p&gt;顺带一提如果叫我&lt;strong&gt;nnjj&lt;/strong&gt;可能是因为&lt;strong&gt;奈奈&lt;/strong&gt;变过来的。&lt;br&gt;
+这个称呼其实是大学才有的，虽然还是高中的人起的，对人发电的人终被反噬了。&lt;/p&gt;
+</description>
+        </item>
+        
+    </channel>
+</rss>

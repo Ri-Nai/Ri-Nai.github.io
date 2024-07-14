@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+    <channel>
+        <title>Categories on Reina</title>
+        <link>http://localhost:1313/categories/</link>
+        <description>Recent content in Categories on Reina</description>
+        <generator>Hugo -- gohugo.io</generator>
+        <language>zh-cn</language>
+        <copyright>Reina</copyright>
+        <lastBuildDate>Sun, 14 Jul 2024 22:58:13 +0800</lastBuildDate><atom:link href="http://localhost:1313/categories/index.xml" rel="self" type="application/rss+xml" /><item>
+        <title>课余沉思</title>
+        <link>http://localhost:1313/categories/%E8%AF%BE%E4%BD%99%E6%B2%89%E6%80%9D/</link>
+        <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+        
+        <guid>http://localhost:1313/categories/%E8%AF%BE%E4%BD%99%E6%B2%89%E6%80%9D/</guid>
+        <description></description>
+        </item>
+        <item>
+        <title>学习笔记</title>
+        <link>http://localhost:1313/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/</link>
+        <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+        
+        <guid>http://localhost:1313/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/</guid>
+        <description></description>
+        </item>
+        
+    </channel>
+</rss>
