@@ -2,48 +2,44 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
     <channel>
         <title>Reina</title>
-        <link>http://localhost:1313/</link>
+        <link>https://ri-nai.github.io/</link>
         <description>Recent content on Reina</description>
         <generator>Hugo -- gohugo.io</generator>
         <language>zh-cn</language>
         <copyright>Reina</copyright>
-        <lastBuildDate>Sun, 14 Jul 2024 22:58:13 +0800</lastBuildDate><atom:link href="http://localhost:1313/index.xml" rel="self" type="application/rss+xml" /><item>
-        <title>0714 Hello</title>
-        <link>http://localhost:1313/p/0714-hello/</link>
-        <pubDate>Sun, 14 Jul 2024 22:58:13 +0800</pubDate>
+        <lastBuildDate>Mon, 15 Jul 2024 06:00:25 +0800</lastBuildDate><atom:link href="https://ri-nai.github.io/index.xml" rel="self" type="application/rss+xml" /><item>
+        <title>信科大一求生指南</title>
+        <link>https://ri-nai.github.io/p/07-15-%E4%BF%A1%E7%A7%91%E5%A4%A7%E4%B8%80%E6%B1%82%E7%94%9F%E6%8C%87%E5%8D%97/</link>
+        <pubDate>Mon, 15 Jul 2024 06:00:25 +0800</pubDate>
         
-        <guid>http://localhost:1313/p/0714-hello/</guid>
-        <description>&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#abb2bf;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-cpp&#34; data-lang=&#34;cpp&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#7f848e&#34;&gt;#include&lt;/span&gt; &lt;span style=&#34;color:#7f848e&#34;&gt;&amp;lt;iostream&amp;gt;&lt;/span&gt;&lt;span style=&#34;color:#7f848e&#34;&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#7f848e&#34;&gt;&lt;/span&gt;&lt;span style=&#34;color:#e5c07b&#34;&gt;int&lt;/span&gt; &lt;span style=&#34;color:#61afef;font-weight:bold&#34;&gt;main&lt;/span&gt;()
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;{
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#e06c75&#34;&gt;std&lt;/span&gt;&lt;span style=&#34;color:#56b6c2&#34;&gt;::&lt;/span&gt;&lt;span style=&#34;color:#e06c75&#34;&gt;cout&lt;/span&gt; &lt;span style=&#34;color:#56b6c2&#34;&gt;&amp;lt;&amp;lt;&lt;/span&gt; &lt;span style=&#34;color:#98c379&#34;&gt;&amp;#34;Hello World&amp;#34;&lt;/span&gt; &lt;span style=&#34;color:#56b6c2&#34;&gt;&amp;lt;&amp;lt;&lt;/span&gt; &lt;span style=&#34;color:#e06c75&#34;&gt;std&lt;/span&gt;&lt;span style=&#34;color:#56b6c2&#34;&gt;::&lt;/span&gt;&lt;span style=&#34;color:#e06c75&#34;&gt;endl&lt;/span&gt;;
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;}
-&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;hr&gt;
+        <guid>https://ri-nai.github.io/p/07-15-%E4%BF%A1%E7%A7%91%E5%A4%A7%E4%B8%80%E6%B1%82%E7%94%9F%E6%8C%87%E5%8D%97/</guid>
+        <description>&lt;p&gt;🚜可能没有施工&lt;br&gt;
+只是不发一篇文章主页很难看&lt;/p&gt;
 </description>
         </item>
         <item>
         <title>Archives</title>
-        <link>http://localhost:1313/archives/</link>
+        <link>https://ri-nai.github.io/archives/</link>
         <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
         
-        <guid>http://localhost:1313/archives/</guid>
+        <guid>https://ri-nai.github.io/archives/</guid>
         <description></description>
         </item>
         <item>
         <title>Search</title>
-        <link>http://localhost:1313/search/</link>
+        <link>https://ri-nai.github.io/search/</link>
         <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
         
-        <guid>http://localhost:1313/search/</guid>
+        <guid>https://ri-nai.github.io/search/</guid>
         <description></description>
         </item>
         <item>
         <title>关于我的，这些那些</title>
-        <link>http://localhost:1313/about/</link>
+        <link>https://ri-nai.github.io/about/</link>
         <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
         
-        <guid>http://localhost:1313/about/</guid>
-        <description>&lt;img src="http://localhost:1313/about/img/About.jpg" alt="Featured image of post 关于我的，这些那些" /&gt;&lt;h2 id=&#34;前言&#34;&gt;⏲️前言
+        <guid>https://ri-nai.github.io/about/</guid>
+        <description>&lt;img src="https://ri-nai.github.io/about/img/About.jpg" alt="Featured image of post 关于我的，这些那些" /&gt;&lt;h2 id=&#34;前言&#34;&gt;⏲️前言
 &lt;/h2&gt;&lt;p&gt;看到一位大佬搭了一个于是自己也很想搭，于是就有了这个博客&lt;br&gt;
 搭了我挺久的，感觉搭了一个晚上加上一个夜晚🛏️&lt;br&gt;
 主要是右下角可爱的彩彩折腾我太久时间了，调试的时候出了很多问题，但是看到自家的女儿呆在这里还是很幸福啊🥰&lt;br&gt;&lt;/p&gt;

@@ -2,33 +2,33 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
     <channel>
         <title>Pages on Reina</title>
-        <link>http://localhost:1313/page/</link>
+        <link>https://ri-nai.github.io/page/</link>
         <description>Recent content in Pages on Reina</description>
         <generator>Hugo -- gohugo.io</generator>
         <language>zh-cn</language>
-        <copyright>Reina</copyright><atom:link href="http://localhost:1313/page/index.xml" rel="self" type="application/rss+xml" /><item>
+        <copyright>Reina</copyright><atom:link href="https://ri-nai.github.io/page/index.xml" rel="self" type="application/rss+xml" /><item>
         <title>Archives</title>
-        <link>http://localhost:1313/archives/</link>
+        <link>https://ri-nai.github.io/archives/</link>
         <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
         
-        <guid>http://localhost:1313/archives/</guid>
+        <guid>https://ri-nai.github.io/archives/</guid>
         <description></description>
         </item>
         <item>
         <title>Search</title>
-        <link>http://localhost:1313/search/</link>
+        <link>https://ri-nai.github.io/search/</link>
         <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
         
-        <guid>http://localhost:1313/search/</guid>
+        <guid>https://ri-nai.github.io/search/</guid>
         <description></description>
         </item>
         <item>
         <title>关于我的，这些那些</title>
-        <link>http://localhost:1313/about/</link>
+        <link>https://ri-nai.github.io/about/</link>
         <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
         
-        <guid>http://localhost:1313/about/</guid>
-        <description>&lt;img src="http://localhost:1313/about/img/About.jpg" alt="Featured image of post 关于我的，这些那些" /&gt;&lt;h2 id=&#34;前言&#34;&gt;⏲️前言
+        <guid>https://ri-nai.github.io/about/</guid>
+        <description>&lt;img src="https://ri-nai.github.io/about/img/About.jpg" alt="Featured image of post 关于我的，这些那些" /&gt;&lt;h2 id=&#34;前言&#34;&gt;⏲️前言
 &lt;/h2&gt;&lt;p&gt;看到一位大佬搭了一个于是自己也很想搭，于是就有了这个博客&lt;br&gt;
 搭了我挺久的，感觉搭了一个晚上加上一个夜晚🛏️&lt;br&gt;
 主要是右下角可爱的彩彩折腾我太久时间了，调试的时候出了很多问题，但是看到自家的女儿呆在这里还是很幸福啊🥰&lt;br&gt;&lt;/p&gt;
