@@ -392,7 +392,7 @@
                 data-version="3.26.0">Stack</a></b> مصمم من <a href="https://jimmycai.com" target="_blank" rel="noopener">Jimmy</a>
     </section>
     <canvas id="live2d-container"
-        style="position: fixed; bottom: 0; right: 0; width: 300px; height: 400px; pointer-events: auto; z-index: 1;">
+        style="position: fixed; bottom: 0; right: 0; width: 250px; height: 380px; pointer-events: auto; z-index: 1;">
     </canvas>
 
     <script>
@@ -401,15 +401,16 @@
                 view: document.getElementById('live2d-container'),
                 autoStart: true,
                 transparent: true,
-                width: 300,
-                height: 400
+                width: 250,
+                height: 380
             });
 
             try {
                 const model2 = await PIXI.live2d.Live2DModel.from("/aya_event217/aya_event217.model.json");
                 app.stage.addChild(model2);
-                model2.scale.set(0.2);
-
+                model2.scale.set(0.15);
+                model2.x = -25
+                model2.y = -40
                 
                 model2.interactive = true;
                 model2.buttonMode = true;
