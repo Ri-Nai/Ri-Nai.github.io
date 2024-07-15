@@ -331,7 +331,7 @@
                 data-version="3.26.0">Stack</a></b> 由 <a href="https://jimmycai.com" target="_blank" rel="noopener">Jimmy</a> 设计
     </section>
     <canvas id="live2d-container"
-        style="position: fixed; bottom: 0; right: 0; width: 250px; height: 380px; pointer-events: auto; z-index: 1;">
+        style="position: fixed; bottom: 0; right: 0; width: 250px; height: 400px; pointer-events: auto; z-index: 1;">
     </canvas>
 
     <script>
@@ -341,7 +341,7 @@
                 autoStart: true,
                 transparent: true,
                 width: 250,
-                height: 380
+                height: 400
             });
 
             try {
@@ -349,7 +349,7 @@
                 app.stage.addChild(model2);
                 model2.scale.set(0.15);
                 model2.x = -25
-                model2.y = -40
+                model2.y = -20
                 
                 model2.interactive = true;
                 model2.buttonMode = true;
