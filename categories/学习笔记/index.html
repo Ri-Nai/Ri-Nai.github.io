@@ -492,10 +492,11 @@
             transition: 600ms;
 
         }
-        #toggle-button:hover
-        {
+
+        #toggle-button:hover {
             opacity: 1;
         }
+
         @keyframes bubble-animation {
             0% {
                 opacity: 1;
@@ -557,7 +558,7 @@
                     const mouseX = event.clientX - rect.left;
                     const mouseY = event.clientY - rect.top;
 
-                    if (model2.hitTest('head', mouseX, mouseY) && toggleButton.innerHTML == '✖') {
+                    if (model2.hitTest('head', mouseX, mouseY) && toggleButton.innerHTML != '🞅') {
                         console.log('Head area clicked!');
                         console.log(rect, mouseX, mouseY)
                         showTextBubble(rect.left + mouseX / 2 - 25, 420);
@@ -566,11 +567,14 @@
                     }
                 });
                 const toggleButton = document.getElementById('toggle-button');
+                const container = document.getElementById('live2d-container');
                 toggleButton.addEventListener('click', () => {
                     if (model2.parent) {
                         app.stage.removeChild(model2);
+                        
                         toggleButton.innerHTML = '🞅'; 
                     } else {
+                        
                         app.stage.addChild(model2);
                         toggleButton.innerHTML = '✖'; 
                     }
@@ -580,6 +584,10 @@
                 console.error('Error loading Live2D model:', error);
             }
         });
+    </script>
+    <script>
+        document.getElementById('toggle-button').click();
+        document.getElementById('toggle-button').click();
     </script>
 </footer>
 
