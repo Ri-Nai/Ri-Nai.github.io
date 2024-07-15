@@ -10,7 +10,7 @@
 <meta property='og:description' content="演示说明">
 <meta property='og:url' content='https://ri-nai.github.io/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/'>
 <meta property='og:site_name' content='Reina'>
-<meta property='og:type' content='website'><meta property='og:updated_time' content=' 2024-07-15T15:07:47&#43;08:00 '/>
+<meta property='og:type' content='website'><meta property='og:updated_time' content=' 2024-07-15T17:03:46&#43;08:00 '/>
 <meta name="twitter:title" content="Category: 学习笔记 - Reina">
 <meta name="twitter:description" content="演示说明"><link rel="alternate" type="application/rss&#43;xml" href="https://ri-nai.github.io/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/index.xml">
     <link rel="shortcut icon" href="/favicon.ico" />
@@ -462,97 +462,125 @@
                 data-version="3.26.0">Stack</a></b> 由 <a href="https://jimmycai.com" target="_blank" rel="noopener">Jimmy</a> 设计
     </section>
     <canvas id="live2d-container"
-    style="position: fixed; bottom: 0; right: 0; width: 250px; height: 400px; pointer-events: auto; z-index: 1;">
-</canvas>
+        style="position: fixed; bottom: 0; right: 0; width: 250px; height: 400px; pointer-events: auto; z-index: 1;">
+    </canvas>
+    <div id="toggle-button"
+        style="position: fixed; bottom: 400px; right: 0; width: 30px; height: 30px; cursor: pointer; z-index: 2;">
+        ✖
+    </div>
+    <style>
+        .text-bubble {
+            position: fixed;
+            background-color: #ffe4e1;
+            border: 2px solid #ff69b4;
+            border-radius: 10px;
+            padding: 10px;
+            font-size: 14px;
+            color: #ff69b4;
+            z-index: 2;
+            opacity: 1;
+        }
 
-<style>
-.text-bubble {
-    position: fixed;
-    background-color: #ffe4e1;
-    border: 2px solid #ff69b4;
-    border-radius: 10px;
-    padding: 10px;
-    font-size: 14px;
-    color: #ff69b4;
-    z-index: 2;
-    opacity: 1;
-}
+        #toggle-button {
+            font-size: 16px;
+            text-align: center;
+            line-height: 28px;
+            background-color: #ff69b4;
+            opacity: 0.3;
+            color: white;
+            border-radius: 50%;
+            transition: 600ms;
 
-@keyframes bubble-animation {
-    0% {
-        opacity: 1;
-        transform: translateY(0);
-    }
-    100% {
-        opacity: 0;
-        transform: translateY(-50px);
-    }
-}
-</style>
+        }
+        #toggle-button:hover
+        {
+            opacity: 1;
+        }
+        @keyframes bubble-animation {
+            0% {
+                opacity: 1;
+                transform: translateY(0);
+            }
 
-<script src="https://unpkg.com/pixi-live2d-display"></script>
-<script>
-document.addEventListener('DOMContentLoaded', async function () {
-    const app = new PIXI.Application({
-        view: document.getElementById('live2d-container'),
-        autoStart: true,
-        transparent: true,
-        width: 250,
-        height: 400
-    });
+            100% {
+                opacity: 0;
+                transform: translateY(-50px);
+            }
+        }
+    </style>
 
-    try {
-        const model2 = await PIXI.live2d.Live2DModel.from("/aya_event217/aya_event217.model.json");
-        app.stage.addChild(model2);
-        model2.scale.set(0.15);
-        model2.x = -25;
-        model2.y = -20;
-        
-        model2.interactive = true;
-        model2.buttonMode = true;
-
-        
-        const showTextBubble = (x, y) => {
-            const textBubble = document.createElement('div');
-            textBubble.className = 'text-bubble';
-            let Texts = ["丸山之上缤纷彩，老娘就是丸山彩！","修哇修哇","A to Z！A to Z！　天下を","A to Z！A to Z！　取ります！","PasPale入魂！Bang！！！！！","一拳一个彩黑"]
-            let l = Texts.length
-            textBubble.innerText = Texts[Math.floor(Math.random() * l)];
-
-            const randomOffsetX = (Math.random() - 0.5) * 100 - 50; 
-            const randomOffsetY = Math.random() * 100 - 100; 
-
-            textBubble.style.left = (x + randomOffsetX) + 'px';
-            textBubble.style.bottom = (y + randomOffsetY) + 'px';
-            textBubble.style.animation = "bubble-animation " + (Math.random() + 0.2) * 2.5 + "s forwards";
-            document.body.appendChild(textBubble);
-
-            
-            textBubble.addEventListener('animationend', () => {
-                textBubble.remove();
+    <script>
+        document.addEventListener('DOMContentLoaded', async function () {
+            const app = new PIXI.Application({
+                view: document.getElementById('live2d-container'),
+                autoStart: true,
+                transparent: true,
+                width: 250,
+                height: 400
             });
-        };
 
-        
-        app.view.addEventListener('click', (event) => {
-            const rect = app.view.getBoundingClientRect();
-            const mouseX = event.clientX - rect.left;
-            const mouseY = event.clientY - rect.top;
+            try {
+                const model2 = await PIXI.live2d.Live2DModel.from("/aya_event217/aya_event217.model.json");
+                app.stage.addChild(model2);
+                model2.scale.set(0.15);
+                model2.x = -25;
+                model2.y = -20;
+                
+                model2.interactive = true;
+                model2.buttonMode = true;
 
-            if (model2.hitTest('head', mouseX, mouseY)) {
-                console.log('Head area clicked!');
-                console.log(rect, mouseX, mouseY)
-                showTextBubble(rect.left + mouseX / 2 - 25, 420);
+                
+                const showTextBubble = (x, y) => {
+                    const textBubble = document.createElement('div');
+                    textBubble.className = 'text-bubble';
+                    let Texts = ["丸山之上缤纷彩，老娘就是丸山彩！", "修哇修哇", "A to Z！A to Z！　天下を", "A to Z！A to Z！　取ります！", "PasPale入魂！Bang！！！！！", "一拳一个彩黑"]
+                    let l = Texts.length
+                    textBubble.innerText = Texts[Math.floor(Math.random() * l)];
+
+                    const randomOffsetX = (Math.random() - 0.5) * 100 - 50; 
+                    const randomOffsetY = Math.random() * 100 - 100; 
+
+                    textBubble.style.left = (x + randomOffsetX) + 'px';
+                    textBubble.style.bottom = (y + randomOffsetY) + 'px';
+                    textBubble.style.animation = "bubble-animation " + (Math.random() + 0.2) * 2.5 + "s forwards";
+                    document.body.appendChild(textBubble);
+
+                    
+                    textBubble.addEventListener('animationend', () => {
+                        textBubble.remove();
+                    });
+                };
+
+                
+                app.view.addEventListener('click', (event) => {
+                    const rect = app.view.getBoundingClientRect();
+                    const mouseX = event.clientX - rect.left;
+                    const mouseY = event.clientY - rect.top;
+
+                    if (model2.hitTest('head', mouseX, mouseY) && toggleButton.innerHTML == '✖') {
+                        console.log('Head area clicked!');
+                        console.log(rect, mouseX, mouseY)
+                        showTextBubble(rect.left + mouseX / 2 - 25, 420);
                         
                         model2.motion('idle');  
-                }
-            });
+                    }
+                });
+                const toggleButton = document.getElementById('toggle-button');
+                toggleButton.addEventListener('click', () => {
+                    if (model2.parent) {
+                        app.stage.removeChild(model2);
+                        toggleButton.innerHTML = '🞅'; 
+                    } else {
+                        app.stage.addChild(model2);
+                        toggleButton.innerHTML = '✖'; 
+                    }
+                });
 
-        } catch (error) {
-            console.error('Error loading Live2D model:', error);
-        }
-    });
-</script>
+            } catch (error) {
+                console.error('Error loading Live2D model:', error);
+            }
+        });
+    </script>
 </footer>
 
 

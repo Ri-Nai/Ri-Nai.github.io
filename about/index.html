@@ -10,7 +10,7 @@
 <meta property='og:description' content="我的过去和展望">
 <meta property='og:url' content='https://ri-nai.github.io/about/'>
 <meta property='og:site_name' content='Reina'>
-<meta property='og:type' content='article'><meta property='article:section' content='Page' /><meta property='article:modified_time' content='2024-07-15T15:07:47&#43;08:00'/><meta property='og:image' content='https://ri-nai.github.io/about/img/About.jpg' />
+<meta property='og:type' content='article'><meta property='article:section' content='Page' /><meta property='article:modified_time' content='2024-07-15T17:03:46&#43;08:00'/><meta property='og:image' content='https://ri-nai.github.io/about/img/About.jpg' />
 <meta name="twitter:title" content="关于我的，这些那些">
 <meta name="twitter:description" content="我的过去和展望"><meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:image" content='https://ri-nai.github.io/about/img/About.jpg' />
@@ -356,6 +356,7 @@
             <li><a href="#氛围比较沉重的">氛围比较沉重的</a></li>
             <li><a href="#贴近生活的">贴近生活的</a></li>
             <li><a href="#剧情构思精妙的">剧情构思精妙的</a></li>
+            <li><a href="#制作层面独特的">制作层面独特的</a></li>
             <li><a href="#情感很丰富很靠近我的">情感很丰富很靠近我的</a></li>
           </ol>
         </li>
@@ -418,7 +419,7 @@
   <path d="M9 13h6"></path>
 </svg>
 
-            <p>1672字</p>
+            <p>1698字</p>
         </div>
         
             <div>
@@ -523,6 +524,8 @@
 <h4 id="剧情构思精妙的">剧情构思精妙的
 </h4><p>这种就不用多说了，脑子被强健的感觉真的很爽<br>
 《命运石之门》《寒蝉》《死亡笔记》《只有我不在的街道》《重启咲良田》</p>
+<h4 id="制作层面独特的">制作层面独特的
+</h4><p>《物语系列》至今都是我最喜欢的那一梯队</p>
 <h4 id="情感很丰富很靠近我的">情感很丰富很靠近我的
 </h4><p>《来自风平浪静的明天》这部动画我一直很喜欢，但是他评分不怎么高，我很喜欢这部动画里的浓郁的情感，以及看到每一帧的画面都会让我觉得<strong>像大海一样</strong><br>
 《BanG Dream! It's MyGO!!!!!》今年<strong>最喜欢</strong>的动画，在各个角度完成度都特别高的动画，人物塑造得特别丰满，尤其是里面还有能让我觉得感同身受的形象<br>
@@ -577,7 +580,7 @@
 
 
         <span>
-            最后更新于 Jul 15, 2024 15:07 CST
+            最后更新于 Jul 15, 2024 17:03 CST
         </span>
     </section></footer>
 
@@ -648,97 +651,125 @@
                 data-version="3.26.0">Stack</a></b> 由 <a href="https://jimmycai.com" target="_blank" rel="noopener">Jimmy</a> 设计
     </section>
     <canvas id="live2d-container"
-    style="position: fixed; bottom: 0; right: 0; width: 250px; height: 400px; pointer-events: auto; z-index: 1;">
-</canvas>
+        style="position: fixed; bottom: 0; right: 0; width: 250px; height: 400px; pointer-events: auto; z-index: 1;">
+    </canvas>
+    <div id="toggle-button"
+        style="position: fixed; bottom: 400px; right: 0; width: 30px; height: 30px; cursor: pointer; z-index: 2;">
+        ✖
+    </div>
+    <style>
+        .text-bubble {
+            position: fixed;
+            background-color: #ffe4e1;
+            border: 2px solid #ff69b4;
+            border-radius: 10px;
+            padding: 10px;
+            font-size: 14px;
+            color: #ff69b4;
+            z-index: 2;
+            opacity: 1;
+        }
 
-<style>
-.text-bubble {
-    position: fixed;
-    background-color: #ffe4e1;
-    border: 2px solid #ff69b4;
-    border-radius: 10px;
-    padding: 10px;
-    font-size: 14px;
-    color: #ff69b4;
-    z-index: 2;
-    opacity: 1;
-}
+        #toggle-button {
+            font-size: 16px;
+            text-align: center;
+            line-height: 28px;
+            background-color: #ff69b4;
+            opacity: 0.3;
+            color: white;
+            border-radius: 50%;
+            transition: 600ms;
 
-@keyframes bubble-animation {
-    0% {
-        opacity: 1;
-        transform: translateY(0);
-    }
-    100% {
-        opacity: 0;
-        transform: translateY(-50px);
-    }
-}
-</style>
+        }
+        #toggle-button:hover
+        {
+            opacity: 1;
+        }
+        @keyframes bubble-animation {
+            0% {
+                opacity: 1;
+                transform: translateY(0);
+            }
 
-<script src="https://unpkg.com/pixi-live2d-display"></script>
-<script>
-document.addEventListener('DOMContentLoaded', async function () {
-    const app = new PIXI.Application({
-        view: document.getElementById('live2d-container'),
-        autoStart: true,
-        transparent: true,
-        width: 250,
-        height: 400
-    });
+            100% {
+                opacity: 0;
+                transform: translateY(-50px);
+            }
+        }
+    </style>
 
-    try {
-        const model2 = await PIXI.live2d.Live2DModel.from("/aya_event217/aya_event217.model.json");
-        app.stage.addChild(model2);
-        model2.scale.set(0.15);
-        model2.x = -25;
-        model2.y = -20;
-        
-        model2.interactive = true;
-        model2.buttonMode = true;
-
-        
-        const showTextBubble = (x, y) => {
-            const textBubble = document.createElement('div');
-            textBubble.className = 'text-bubble';
-            let Texts = ["丸山之上缤纷彩，老娘就是丸山彩！","修哇修哇","A to Z！A to Z！　天下を","A to Z！A to Z！　取ります！","PasPale入魂！Bang！！！！！","一拳一个彩黑"]
-            let l = Texts.length
-            textBubble.innerText = Texts[Math.floor(Math.random() * l)];
-
-            const randomOffsetX = (Math.random() - 0.5) * 100 - 50; 
-            const randomOffsetY = Math.random() * 100 - 100; 
-
-            textBubble.style.left = (x + randomOffsetX) + 'px';
-            textBubble.style.bottom = (y + randomOffsetY) + 'px';
-            textBubble.style.animation = "bubble-animation " + (Math.random() + 0.2) * 2.5 + "s forwards";
-            document.body.appendChild(textBubble);
-
-            
-            textBubble.addEventListener('animationend', () => {
-                textBubble.remove();
+    <script>
+        document.addEventListener('DOMContentLoaded', async function () {
+            const app = new PIXI.Application({
+                view: document.getElementById('live2d-container'),
+                autoStart: true,
+                transparent: true,
+                width: 250,
+                height: 400
             });
-        };
 
-        
-        app.view.addEventListener('click', (event) => {
-            const rect = app.view.getBoundingClientRect();
-            const mouseX = event.clientX - rect.left;
-            const mouseY = event.clientY - rect.top;
+            try {
+                const model2 = await PIXI.live2d.Live2DModel.from("/aya_event217/aya_event217.model.json");
+                app.stage.addChild(model2);
+                model2.scale.set(0.15);
+                model2.x = -25;
+                model2.y = -20;
+                
+                model2.interactive = true;
+                model2.buttonMode = true;
 
-            if (model2.hitTest('head', mouseX, mouseY)) {
-                console.log('Head area clicked!');
-                console.log(rect, mouseX, mouseY)
-                showTextBubble(rect.left + mouseX / 2 - 25, 420);
+                
+                const showTextBubble = (x, y) => {
+                    const textBubble = document.createElement('div');
+                    textBubble.className = 'text-bubble';
+                    let Texts = ["丸山之上缤纷彩，老娘就是丸山彩！", "修哇修哇", "A to Z！A to Z！　天下を", "A to Z！A to Z！　取ります！", "PasPale入魂！Bang！！！！！", "一拳一个彩黑"]
+                    let l = Texts.length
+                    textBubble.innerText = Texts[Math.floor(Math.random() * l)];
+
+                    const randomOffsetX = (Math.random() - 0.5) * 100 - 50; 
+                    const randomOffsetY = Math.random() * 100 - 100; 
+
+                    textBubble.style.left = (x + randomOffsetX) + 'px';
+                    textBubble.style.bottom = (y + randomOffsetY) + 'px';
+                    textBubble.style.animation = "bubble-animation " + (Math.random() + 0.2) * 2.5 + "s forwards";
+                    document.body.appendChild(textBubble);
+
+                    
+                    textBubble.addEventListener('animationend', () => {
+                        textBubble.remove();
+                    });
+                };
+
+                
+                app.view.addEventListener('click', (event) => {
+                    const rect = app.view.getBoundingClientRect();
+                    const mouseX = event.clientX - rect.left;
+                    const mouseY = event.clientY - rect.top;
+
+                    if (model2.hitTest('head', mouseX, mouseY) && toggleButton.innerHTML == '✖') {
+                        console.log('Head area clicked!');
+                        console.log(rect, mouseX, mouseY)
+                        showTextBubble(rect.left + mouseX / 2 - 25, 420);
                         
                         model2.motion('idle');  
-                }
-            });
+                    }
+                });
+                const toggleButton = document.getElementById('toggle-button');
+                toggleButton.addEventListener('click', () => {
+                    if (model2.parent) {
+                        app.stage.removeChild(model2);
+                        toggleButton.innerHTML = '🞅'; 
+                    } else {
+                        app.stage.addChild(model2);
+                        toggleButton.innerHTML = '✖'; 
+                    }
+                });
 
-        } catch (error) {
-            console.error('Error loading Live2D model:', error);
-        }
-    });
-</script>
+            } catch (error) {
+                console.error('Error loading Live2D model:', error);
+            }
+        });
+    </script>
 </footer>
 
 
