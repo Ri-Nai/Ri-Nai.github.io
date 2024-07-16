@@ -10,7 +10,7 @@
 <meta property='og:description' content="演示说明">
 <meta property='og:url' content='https://ri-nai.github.io/404.html'>
 <meta property='og:site_name' content='Reina'>
-<meta property='og:type' content='website'><meta property='og:updated_time' content=' 2024-07-15T17:03:46&#43;08:00 '/>
+<meta property='og:type' content='website'><meta property='og:updated_time' content=' 2024-07-15T22:36:41&#43;08:00 '/>
 <meta name="twitter:title" content="404 Page not found">
 <meta name="twitter:description" content="演示说明">
     <link rel="shortcut icon" href="/favicon.ico" />
@@ -349,7 +349,7 @@
         style="position: fixed; bottom: 0; right: 0; width: 250px; height: 400px; pointer-events: auto; z-index: 1;">
     </canvas>
     <div id="toggle-button"
-        style="position: fixed; bottom: 400px; right: 0; width: 30px; height: 30px; cursor: pointer; z-index: 2;">
+        style="position: fixed; bottom: 400px; right: -22px; width: 30px; height: 30px; cursor: pointer; z-index: 2;">
         ✖
     </div>
     <style>
@@ -374,10 +374,12 @@
             color: white;
             border-radius: 50%;
             transition: 600ms;
+            user-select:none;
 
         }
 
         #toggle-button:hover {
+            transform: translate(-22px, 0);
             opacity: 1;
         }
 
@@ -455,9 +457,10 @@
                 toggleButton.addEventListener('click', () => {
                     if (model2.parent) {
                         app.stage.removeChild(model2);
-                        
+                        container.style.visibility = 'hidden';
                         toggleButton.innerHTML = '🞅'; 
                     } else {
+                        container.style.visibility = 'visible'
                         
                         app.stage.addChild(model2);
                         toggleButton.innerHTML = '✖'; 

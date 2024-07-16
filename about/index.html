@@ -10,7 +10,7 @@
 <meta property='og:description' content="我的过去和展望">
 <meta property='og:url' content='https://ri-nai.github.io/about/'>
 <meta property='og:site_name' content='Reina'>
-<meta property='og:type' content='article'><meta property='article:section' content='Page' /><meta property='article:modified_time' content='2024-07-15T17:03:46&#43;08:00'/><meta property='og:image' content='https://ri-nai.github.io/about/img/About.jpg' />
+<meta property='og:type' content='article'><meta property='article:section' content='Page' /><meta property='article:modified_time' content='2024-07-15T22:36:41&#43;08:00'/><meta property='og:image' content='https://ri-nai.github.io/about/img/About.jpg' />
 <meta name="twitter:title" content="关于我的，这些那些">
 <meta name="twitter:description" content="我的过去和展望"><meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:image" content='https://ri-nai.github.io/about/img/About.jpg' />
@@ -419,7 +419,7 @@
   <path d="M9 13h6"></path>
 </svg>
 
-            <p>1698字</p>
+            <p>1745字</p>
         </div>
         
             <div>
@@ -506,7 +506,7 @@
 <h4 id="氛围比较沉重的">氛围比较沉重的
 </h4><p>譬如《冰海战记》《进击的巨人》《赛博朋克：边缘行者》《来自深渊》，可以感觉到剧中世界的无力的，对人性和社会产生思考的</p>
 <h4 id="贴近生活的">贴近生活的
-</h4><p>以前很喜欢P.A.Works的动画，包括且不限于《白箱》《花开伊吕波》《来自风平浪静的明天》，我应该挂了快三年的松前绪花的头像，同时《白箱》也是我至今为止最喜欢的动画之一，主要是因为P.A.Works的动画都很贴近现实<br><img src="/about/img/Ohana.jpg"
+</h4><p>以前很喜欢P.A.Works的动画，包括且不限于《白箱》《花开伊吕波》《来自风平浪静的明天》，我应该挂了快三年的松前绪花的头像，同时《白箱》也是我至今为止最喜欢的动画之一，主要是因为P.A.Works的动画都很贴近现实，看见她们清新如水的生活会心生愉悦<br><img src="/about/img/Ohana.jpg"
 	width="806"
 	height="805"
 	srcset="/about/img/Ohana_huadd75bb261a5e4379fcff69b5e23e69b_74361_480x0_resize_q75_box.jpg 480w, /about/img/Ohana_huadd75bb261a5e4379fcff69b5e23e69b_74361_1024x0_resize_q75_box.jpg 1024w"
@@ -520,12 +520,14 @@
 ><br>
 这种动画可以写的轻飘飘但是得让人对生活充满希望，比起别的题材会更喜欢一些<br>
 《吹响吧！上低音号》《白箱》《强风吹拂》《春宵苦短，少女前进吧！》《四叠半神话大系》这些都是我很喜欢的<br>
+比较轻松的《摇曳露营》也是<br>
 不知道放在那里也放在这里吧《葬送的芙莉莲》《无职转生》这些</p>
 <h4 id="剧情构思精妙的">剧情构思精妙的
 </h4><p>这种就不用多说了，脑子被强健的感觉真的很爽<br>
 《命运石之门》《寒蝉》《死亡笔记》《只有我不在的街道》《重启咲良田》</p>
 <h4 id="制作层面独特的">制作层面独特的
-</h4><p>《物语系列》至今都是我最喜欢的那一梯队</p>
+</h4><p>至今印象深刻的监督主要，新房昭之和
+《物语系列》至今都是我最喜欢的那一梯队</p>
 <h4 id="情感很丰富很靠近我的">情感很丰富很靠近我的
 </h4><p>《来自风平浪静的明天》这部动画我一直很喜欢，但是他评分不怎么高，我很喜欢这部动画里的浓郁的情感，以及看到每一帧的画面都会让我觉得<strong>像大海一样</strong><br>
 《BanG Dream! It's MyGO!!!!!》今年<strong>最喜欢</strong>的动画，在各个角度完成度都特别高的动画，人物塑造得特别丰满，尤其是里面还有能让我觉得感同身受的形象<br>
@@ -580,7 +582,7 @@
 
 
         <span>
-            最后更新于 Jul 15, 2024 17:03 CST
+            最后更新于 Jul 15, 2024 22:36 CST
         </span>
     </section></footer>
 
@@ -654,7 +656,7 @@
         style="position: fixed; bottom: 0; right: 0; width: 250px; height: 400px; pointer-events: auto; z-index: 1;">
     </canvas>
     <div id="toggle-button"
-        style="position: fixed; bottom: 400px; right: 0; width: 30px; height: 30px; cursor: pointer; z-index: 2;">
+        style="position: fixed; bottom: 400px; right: -22px; width: 30px; height: 30px; cursor: pointer; z-index: 2;">
         ✖
     </div>
     <style>
@@ -679,10 +681,12 @@
             color: white;
             border-radius: 50%;
             transition: 600ms;
+            user-select:none;
 
         }
 
         #toggle-button:hover {
+            transform: translate(-22px, 0);
             opacity: 1;
         }
 
@@ -760,9 +764,10 @@
                 toggleButton.addEventListener('click', () => {
                     if (model2.parent) {
                         app.stage.removeChild(model2);
-                        
+                        container.style.visibility = 'hidden';
                         toggleButton.innerHTML = '🞅'; 
                     } else {
+                        container.style.visibility = 'visible'
                         
                         app.stage.addChild(model2);
                         toggleButton.innerHTML = '✖'; 
