@@ -2,29 +2,11 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
-    <loc>https://ri-nai.github.io/tags/</loc>
-    <lastmod>2024-07-20T02:38:42+08:00</lastmod>
-    <xhtml:link
-                rel="alternate"
-                hreflang="en"
-                href="https://ri-nai.github.io/en/tags/"
-                />
-    <xhtml:link
-                rel="alternate"
-                hreflang="ar"
-                href="https://ri-nai.github.io/ar/tags/"
-                />
-    <xhtml:link
-                rel="alternate"
-                hreflang="zh-cn"
-                href="https://ri-nai.github.io/tags/"
-                />
-  </url><url>
-    <loc>https://ri-nai.github.io/tags/%E7%AE%97%E6%B3%95%E7%AB%9E%E8%B5%9B/</loc>
-    <lastmod>2024-07-20T01:34:20+08:00</lastmod>
+    <loc>https://ri-nai.github.io/p/07-20-2024%E6%9D%AD%E7%94%B5%E5%A4%9A%E6%A0%A1%E7%AC%AC%E4%B8%80%E5%9C%BA/</loc>
+    <lastmod>2024-07-20T03:29:23+08:00</lastmod>
   </url><url>
     <loc>https://ri-nai.github.io/categories/</loc>
-    <lastmod>2024-07-20T02:38:42+08:00</lastmod>
+    <lastmod>2024-07-20T03:29:23+08:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
@@ -42,10 +24,10 @@
                 />
   </url><url>
     <loc>https://ri-nai.github.io/post/</loc>
-    <lastmod>2024-07-20T02:38:42+08:00</lastmod>
+    <lastmod>2024-07-20T03:29:23+08:00</lastmod>
   </url><url>
     <loc>https://ri-nai.github.io/</loc>
-    <lastmod>2024-07-20T02:38:42+08:00</lastmod>
+    <lastmod>2024-07-20T03:29:23+08:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
@@ -62,8 +44,29 @@
                 href="https://ri-nai.github.io/"
                 />
   </url><url>
+    <loc>https://ri-nai.github.io/tags/</loc>
+    <lastmod>2024-07-20T03:29:23+08:00</lastmod>
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://ri-nai.github.io/en/tags/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="ar"
+                href="https://ri-nai.github.io/ar/tags/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="zh-cn"
+                href="https://ri-nai.github.io/tags/"
+                />
+  </url><url>
+    <loc>https://ri-nai.github.io/tags/%E7%AE%97%E6%B3%95%E7%AB%9E%E8%B5%9B/</loc>
+    <lastmod>2024-07-20T02:56:39+08:00</lastmod>
+  </url><url>
     <loc>https://ri-nai.github.io/p/07-19-sa%E5%90%8E%E7%BC%80%E6%95%B0%E7%BB%84%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/</loc>
-    <lastmod>2024-07-20T02:38:42+08:00</lastmod>
+    <lastmod>2024-07-20T02:56:49+08:00</lastmod>
   </url><url>
     <loc>https://ri-nai.github.io/p/07-18-%E5%85%B3%E4%BA%8E%E8%B0%B7%E5%AD%90%E4%B8%8E%E6%B6%88%E8%B4%B9%E4%B8%BB%E4%B9%89/</loc>
     <lastmod>2024-07-19T03:11:04+08:00</lastmod>

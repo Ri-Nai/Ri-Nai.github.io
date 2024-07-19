@@ -1,0 +1,989 @@
+<!DOCTYPE html>
+<html lang="zh-cn" dir="ltr">
+    <head><meta charset='utf-8'>
+<meta name='viewport' content='width=device-width, initial-scale=1'><meta name='description' content="前言 队友缺一个，再加上自己本来就菜 导致这场打的比较不好，于是打算记录一下这几道题目 很多题还是很板子以及很有复学价值的 赛时 T2 星星 最早注意的题目">
+<title>2024杭电多校第一场</title>
+
+<link rel='canonical' href='https://ri-nai.github.io/p/07-20-2024%E6%9D%AD%E7%94%B5%E5%A4%9A%E6%A0%A1%E7%AC%AC%E4%B8%80%E5%9C%BA/'>
+
+<link rel="stylesheet" href="/scss/style.min.e40e11caa6b58f7bbe19aec02cdfd49619c4af8802f7b506bf16714a6b624923.css"><meta property='og:title' content="2024杭电多校第一场">
+<meta property='og:description' content="前言 队友缺一个，再加上自己本来就菜 导致这场打的比较不好，于是打算记录一下这几道题目 很多题还是很板子以及很有复学价值的 赛时 T2 星星 最早注意的题目">
+<meta property='og:url' content='https://ri-nai.github.io/p/07-20-2024%E6%9D%AD%E7%94%B5%E5%A4%9A%E6%A0%A1%E7%AC%AC%E4%B8%80%E5%9C%BA/'>
+<meta property='og:site_name' content='Reina'>
+<meta property='og:type' content='article'><meta property='article:section' content='Post' /><meta property='article:tag' content='算法竞赛' /><meta property='article:published_time' content='2024-07-20T02:57:29&#43;08:00'/><meta property='article:modified_time' content='2024-07-20T03:29:23&#43;08:00'/>
+<meta name="twitter:title" content="2024杭电多校第一场">
+<meta name="twitter:description" content="前言 队友缺一个，再加上自己本来就菜 导致这场打的比较不好，于是打算记录一下这几道题目 很多题还是很板子以及很有复学价值的 赛时 T2 星星 最早注意的题目">
+    <link rel="shortcut icon" href="/favicon.ico" />
+
+  
+
+<style>
+    :root {
+        --article-font-family: "Noto Serif SC", var(--base-font-family);
+    }
+</style>
+
+<script>
+		(function () {
+		    const customFont = document.createElement('link');
+		    customFont.href = "https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@400;700&display=swap";
+
+		    customFont.type = "text/css";
+		    customFont.rel = "stylesheet";
+
+		    document.head.appendChild(customFont);
+		}());
+</script>
+<script src="https://cubism.live2d.com/sdk-web/cubismcore/live2dcubismcore.min.js"></script>
+<script src="https://cdn.jsdelivr.net/gh/dylanNew/live2d/webgl/Live2D/lib/live2d.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/pixi.js@6.5.2/dist/browser/pixi.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/pixi-live2d-display/dist/index.min.js"></script>
+
+    </head>
+    <body class="
+    article-page
+    ">
+    <script>
+        (function() {
+            const colorSchemeKey = 'StackColorScheme';
+            if(!localStorage.getItem(colorSchemeKey)){
+                localStorage.setItem(colorSchemeKey, "auto");
+            }
+        })();
+    </script><script>
+    (function() {
+        const colorSchemeKey = 'StackColorScheme';
+        const colorSchemeItem = localStorage.getItem(colorSchemeKey);
+        const supportDarkMode = window.matchMedia('(prefers-color-scheme: dark)').matches === true;
+
+        if (colorSchemeItem == 'dark' || colorSchemeItem === 'auto' && supportDarkMode) {
+            
+
+            document.documentElement.dataset.scheme = 'dark';
+        } else {
+            document.documentElement.dataset.scheme = 'light';
+        }
+    })();
+</script>
+<div class="container main-container flex on-phone--column extended"><aside class="sidebar left-sidebar sticky ">
+    <button class="hamburger hamburger--spin" type="button" id="toggle-menu" aria-label="切换菜单">
+        <span class="hamburger-box">
+            <span class="hamburger-inner"></span>
+        </span>
+    </button>
+
+    <header>
+        
+            
+            <figure class="site-avatar">
+                <a href="/">
+                
+                    
+
+                    
+                        
+                        <img src="/img/avatar_huc190214a3a4edb04e084427cd2fdb258_33728_300x0_resize_q75_box.jpg" width="300"
+                            height="300" class="site-logo" loading="lazy" alt="Avatar">
+                    
+                
+                </a>
+                
+                    <span class="emoji">🥺</span>
+                
+            </figure>
+            
+        
+
+        <div class="site-meta">
+            <h1 class="site-name"><a href="/">Reina</a></h1>
+            <h2 class="site-description">倘若努力的尽头就是奇迹</h2>
+        </div>
+    </header><ol class="menu-social">
+            
+                <li>
+                    <a
+                        href='https://space.bilibili.com/4151993'
+                        target="_blank"
+                        title="Bilibili"
+                        rel="me"
+                    >
+                        
+                        
+                            <svg xmlns="http://www.w3.org/2000/svg" width="128" height="128" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1" d="M3 10a4 4 0 0 1 4-4h10a4 4 0 0 1 4 4v6a4 4 0 0 1-4 4H7a4 4 0 0 1-4-4zm5-7l2 3m6-3l-2 3m-5 7v-2m6 0v2"/></svg>
+
+                        
+                    </a>
+                </li>
+            
+                <li>
+                    <a
+                        href='https://github.com/Ri-Nai'
+                        target="_blank"
+                        title="GitHub"
+                        rel="me"
+                    >
+                        
+                        
+                            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-brand-github" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+  <path d="M9 19c-4.3 1.4 -4.3 -2.5 -6 -3m12 5v-3.5c0 -1 .1 -1.4 -.5 -2c2.8 -.3 5.5 -1.4 5.5 -6a4.6 4.6 0 0 0 -1.3 -3.2a4.2 4.2 0 0 0 -.1 -3.2s-1.1 -.3 -3.5 1.3a12.3 12.3 0 0 0 -6.2 0c-2.4 -1.6 -3.5 -1.3 -3.5 -1.3a4.2 4.2 0 0 0 -.1 3.2a4.6 4.6 0 0 0 -1.3 3.2c0 4.6 2.7 5.7 5.5 6c-.6 .6 -.6 1.2 -.5 2v3.5" />
+</svg>
+
+
+
+                        
+                    </a>
+                </li>
+            
+                <li>
+                    <a
+                        href='https://steamcommunity.com/profiles/76561198401122867/'
+                        target="_blank"
+                        title="Steam"
+                        rel="me"
+                    >
+                        
+                        
+                            <svg xmlns="http://www.w3.org/2000/svg" width="128" height="128" viewBox="0 0 1536 1536"><path fill="currentColor" d="M1242 519q0-80-57-136.5T1048 326t-136.5 57T855 519q0 80 56.5 136.5T1048 712t137-56.5t57-136.5m-610 588q0 83-58 140.5T434 1305q-56 0-103-29t-72-77q52 20 98 40q60 24 120-1.5t85-86.5q24-60-1.5-120T474 947l-82-33q22-5 42-5q82 0 140 57.5t58 140.5m904-819v960q0 119-84.5 203.5T1248 1536H288q-119 0-203.5-84.5T0 1248v-153l172 69q20 92 93.5 152t168.5 60q104 0 181-70t87-173l345-252q150 0 255.5-105.5T1408 521q0-150-105.5-255.5T1047 160q-148 0-253 104.5T687 517L462 839q-9-1-28-1q-75 0-137 37L0 756V288Q0 169 84.5 84.5T288 0h960q119 0 203.5 84.5T1536 288m-247 233q0 100-71 170.5T1047 762t-170.5-70.5T806 521t70.5-171t170.5-71q101 0 171.5 70.5T1289 521"/></svg>
+
+                        
+                    </a>
+                </li>
+            
+        </ol><ol class="menu" id="main-menu">
+        
+        
+        
+        
+        
+
+        
+            
+            
+            
+            
+        
+            
+            
+            
+            
+        
+            
+            
+            
+            
+        
+            
+            
+            
+            
+        
+
+        
+            
+                
+                    
+                
+            
+                
+            
+                
+            
+                
+            
+        
+
+        
+            
+            
+            <li id="home" class="current">
+            <a href='/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-home" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <polyline points="5 12 3 12 12 3 21 12 19 12" />
+  <path d="M5 12v7a2 2 0 0 0 2 2h10a2 2 0 0 0 2 -2v-7" />
+  <path d="M9 21v-6a2 2 0 0 1 2 -2h2a2 2 0 0 1 2 2v6" />
+</svg>
+
+
+
+                
+                <span>Home</span>
+            </a>
+        </li>
+        
+            
+            
+            <li id="about" class="">
+            <a href='/about' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-user" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="12" cy="7" r="4" />
+  <path d="M6 21v-2a4 4 0 0 1 4 -4h4a4 4 0 0 1 4 4v2" />
+</svg>
+
+
+
+                
+                <span>About</span>
+            </a>
+        </li>
+        
+            
+            
+            <li id="search" class="">
+            <a href='/search' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-search" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="10" cy="10" r="7" />
+  <line x1="21" y1="21" x2="15" y2="15" />
+</svg>
+
+
+
+                
+                <span>Search</span>
+            </a>
+        </li>
+        
+            
+            
+            <li id="Archives" class="">
+            <a href='/archives' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-archive" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <rect x="3" y="4" width="18" height="4" rx="2" />
+  <path d="M5 8v10a2 2 0 0 0 2 2h10a2 2 0 0 0 2 -2v-10" />
+  <line x1="10" y1="12" x2="14" y2="12" />
+</svg>
+
+
+
+                
+                <span>Archives</span>
+            </a>
+        </li>
+        
+        <li class="menu-bottom-section">
+            <ol class="menu">
+                    
+                        <li id="i18n-switch">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-language" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+  <path d="M4 5h7" />
+  <path d="M9 3v2c0 4.418 -2.239 8 -5 8" />
+  <path d="M5 9c-.003 2.144 2.952 3.908 6.7 4" />
+  <path d="M12 20l4 -9l4 9" />
+  <path d="M19.1 18h-6.2" />
+</svg>
+
+
+
+                            <select name="language" title="language" onchange="window.location.href = this.selectedOptions[0].value">
+                                
+                                    <option value="https://ri-nai.github.io/en/" >English</option>
+                                
+                                    <option value="https://ri-nai.github.io/" selected>中文</option>
+                                
+                                    <option value="https://ri-nai.github.io/ar/" >عربي</option>
+                                
+                            </select>
+                        </li>
+                    
+                
+
+                
+                    <li id="dark-mode-toggle">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-toggle-left" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="8" cy="12" r="2" />
+  <rect x="2" y="6" width="20" height="12" rx="6" />
+</svg>
+
+
+
+                        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-toggle-right" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="16" cy="12" r="2" />
+  <rect x="2" y="6" width="20" height="12" rx="6" />
+</svg>
+
+
+
+                        <span>暗色模式</span>
+                    </li>
+                
+            </ol>
+        </li>
+    </ol>
+</aside>
+
+    <aside class="sidebar right-sidebar sticky">
+        
+            
+                
+    <section class="widget archives">
+        <div class="widget-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-hash" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <line x1="5" y1="9" x2="19" y2="9" />
+  <line x1="5" y1="15" x2="19" y2="15" />
+  <line x1="11" y1="4" x2="7" y2="20" />
+  <line x1="17" y1="4" x2="13" y2="20" />
+</svg>
+
+
+
+        </div>
+        <h2 class="widget-title section-title">目录</h2>
+        
+        <div class="widget--toc">
+            <nav id="TableOfContents">
+  <ol>
+    <li><a href="#前言">前言</a></li>
+    <li><a href="#赛时">赛时</a>
+      <ol>
+        <li><a href="#t2-星星httpsacmhdueducnshowproblemphppid7434"><a href="https://acm.hdu.edu.cn/showproblem.php?pid=7434">T2 星星</a></a></li>
+        <li><a href="#t1-循环位移httpsacmhdueducnshowproblemphppid7433"><a href="https://acm.hdu.edu.cn/showproblem.php?pid=7433">T1 循环位移</a></a></li>
+        <li><a href="#t4-树httpsacmhdueducnshowproblemphppid7436"><a href="https://acm.hdu.edu.cn/showproblem.php?pid=7436">T4 树</a></a></li>
+      </ol>
+    </li>
+    <li><a href="#赛后">赛后</a>
+      <ol>
+        <li><a href="#t3-传送httpsacmhdueducnshowproblemphppid7435"><a href="https://acm.hdu.edu.cn/showproblem.php?pid=7435">T3 传送</a></a></li>
+      </ol>
+    </li>
+  </ol>
+</nav>
+        </div>
+    </section>
+
+            
+        
+    </aside>
+
+
+            <main class="main full-width">
+    <article class="main-article">
+    <header class="article-header">
+
+    <div class="article-details">
+    
+    <header class="article-category">
+        
+            <a href="/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/" style="background-color: #27e46f; color: #fff;">
+                学习笔记
+            </a>
+        
+    </header>
+    
+
+    <div class="article-title-wrapper">
+        <h2 class="article-title">
+            <a href="/p/07-20-2024%E6%9D%AD%E7%94%B5%E5%A4%9A%E6%A0%A1%E7%AC%AC%E4%B8%80%E5%9C%BA/">2024杭电多校第一场</a>
+        </h2>
+
+        
+    </div>
+
+    
+    
+    
+    
+    <footer class="article-time">
+        
+            <div>
+                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-calendar-time" width="56" height="56" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <path d="M11.795 21h-6.795a2 2 0 0 1 -2 -2v-12a2 2 0 0 1 2 -2h12a2 2 0 0 1 2 2v4" />
+  <circle cx="18" cy="18" r="4" />
+  <path d="M15 3v4" />
+  <path d="M7 3v4" />
+  <path d="M3 11h16" />
+  <path d="M18 16.496v1.504l1 1" />
+</svg>
+                <time class="article-time--published">Jul 20, 2024 02:57 CST</time>
+            </div>
+        
+        <div class="word-count">
+            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-file-description" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round" style="--darkreader-inline-stroke: currentColor;" data-darkreader-inline-stroke="">
+  <path stroke="none" d="M0 0h24v24H0z" fill="none" style="--darkreader-inline-stroke: none;" data-darkreader-inline-stroke=""></path>
+  <path d="M14 3v4a1 1 0 0 0 1 1h4"></path>
+  <path d="M17 21h-10a2 2 0 0 1 -2 -2v-14a2 2 0 0 1 2 -2h7l5 5v11a2 2 0 0 1 -2 2z"></path>
+  <path d="M9 17h6"></path>
+  <path d="M9 13h6"></path>
+</svg>
+
+            <p>1272字</p>
+        </div>
+        
+            <div>
+                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-clock" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="12" cy="12" r="9" />
+  <polyline points="12 7 12 12 15 15" />
+</svg>
+
+
+
+                <time class="article-time--reading">
+                    阅读时长: 3 分钟
+                </time>
+            </div>
+        
+    </footer>
+    
+
+    
+</div>
+
+</header>
+
+    <section class="article-content">
+    
+    
+    <h2 id="前言">前言
+</h2><p>队友缺一个，再加上自己本来就菜<br>
+导致这场打的比较不好，于是打算记录一下这几道题目<br>
+很多题还是很板子以及很有复学价值的</p>
+<h2 id="赛时">赛时
+</h2><h3 id="t2-星星httpsacmhdueducnshowproblemphppid7434"><a class="link" href="https://acm.hdu.edu.cn/showproblem.php?pid=7434"  target="_blank" rel="noopener"
+    >T2 星星</a>
+</h3><p>最早注意的题目，主要是我怕$n^2$过不了，所以一开始没敲，后来还问了下队友<br>
+就是一个简单的背包🎒<br>
+这道题还没让我意识到杭电多校评测机的强大👍</p>
+<div class="highlight"><pre tabindex="0" style="color:#abb2bf;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-cpp" data-lang="cpp"><span style="display:flex;"><span><span style="color:#e5c07b">void</span> <span style="color:#61afef;font-weight:bold">solve</span>()
+</span></span><span style="display:flex;"><span>{
+</span></span><span style="display:flex;"><span>    <span style="color:#e5c07b">int</span> <span style="color:#e06c75">n</span> <span style="color:#56b6c2">=</span> <span style="color:#e06c75">rd</span>();
+</span></span><span style="display:flex;"><span>    <span style="color:#e5c07b">int</span> <span style="color:#e06c75">k</span> <span style="color:#56b6c2">=</span> <span style="color:#e06c75">rd</span>();
+</span></span><span style="display:flex;"><span>    <span style="color:#e06c75">vector</span><span style="color:#56b6c2">&lt;</span><span style="color:#e06c75">ll</span><span style="color:#56b6c2">&gt;</span> <span style="color:#e06c75">dp</span>(<span style="color:#d19a66">4</span> <span style="color:#56b6c2">*</span> <span style="color:#e06c75">n</span> <span style="color:#56b6c2">+</span> <span style="color:#d19a66">1</span>, <span style="color:#d19a66">1e18</span>);
+</span></span><span style="display:flex;"><span>    <span style="color:#e06c75">dp</span>[<span style="color:#d19a66">0</span>] <span style="color:#56b6c2">=</span> <span style="color:#d19a66">0</span>;
+</span></span><span style="display:flex;"><span>    <span style="color:#c678dd">for</span> (<span style="color:#e5c07b">int</span> <span style="color:#e06c75">i</span> <span style="color:#56b6c2">=</span> <span style="color:#d19a66">1</span>; <span style="color:#e06c75">i</span> <span style="color:#56b6c2">&lt;=</span> <span style="color:#e06c75">n</span>; <span style="color:#56b6c2">++</span><span style="color:#e06c75">i</span>)
+</span></span><span style="display:flex;"><span>    {
+</span></span><span style="display:flex;"><span>        <span style="color:#e5c07b">int</span> <span style="color:#e06c75">a</span> <span style="color:#56b6c2">=</span> <span style="color:#e06c75">rd</span>(), <span style="color:#e06c75">b</span> <span style="color:#56b6c2">=</span> <span style="color:#e06c75">rd</span>(), <span style="color:#e06c75">c</span> <span style="color:#56b6c2">=</span> <span style="color:#e06c75">rd</span>(), <span style="color:#e06c75">d</span> <span style="color:#56b6c2">=</span> <span style="color:#e06c75">rd</span>();
+</span></span><span style="display:flex;"><span>        <span style="color:#c678dd">for</span> (<span style="color:#e5c07b">int</span> <span style="color:#e06c75">j</span> <span style="color:#56b6c2">=</span> <span style="color:#e06c75">min</span>(<span style="color:#d19a66">4</span> <span style="color:#56b6c2">*</span> <span style="color:#e06c75">i</span>, <span style="color:#e06c75">k</span>); <span style="color:#e06c75">j</span> <span style="color:#56b6c2">&gt;=</span> <span style="color:#d19a66">0</span>; <span style="color:#56b6c2">--</span><span style="color:#e06c75">j</span>)
+</span></span><span style="display:flex;"><span>        {
+</span></span><span style="display:flex;"><span>            <span style="color:#c678dd">if</span> (<span style="color:#e06c75">j</span> <span style="color:#56b6c2">-</span> <span style="color:#d19a66">1</span> <span style="color:#56b6c2">&gt;=</span> <span style="color:#d19a66">0</span>)
+</span></span><span style="display:flex;"><span>                <span style="color:#e06c75">dp</span>[<span style="color:#e06c75">j</span>] <span style="color:#56b6c2">=</span> <span style="color:#e06c75">min</span>(<span style="color:#e06c75">dp</span>[<span style="color:#e06c75">j</span>], <span style="color:#e06c75">dp</span>[<span style="color:#e06c75">j</span> <span style="color:#56b6c2">-</span> <span style="color:#d19a66">1</span>] <span style="color:#56b6c2">+</span> <span style="color:#e06c75">a</span>);
+</span></span><span style="display:flex;"><span>            <span style="color:#c678dd">if</span> (<span style="color:#e06c75">j</span> <span style="color:#56b6c2">-</span> <span style="color:#d19a66">2</span> <span style="color:#56b6c2">&gt;=</span> <span style="color:#d19a66">0</span>)
+</span></span><span style="display:flex;"><span>                <span style="color:#e06c75">dp</span>[<span style="color:#e06c75">j</span>] <span style="color:#56b6c2">=</span> <span style="color:#e06c75">min</span>(<span style="color:#e06c75">dp</span>[<span style="color:#e06c75">j</span>], <span style="color:#e06c75">dp</span>[<span style="color:#e06c75">j</span> <span style="color:#56b6c2">-</span> <span style="color:#d19a66">2</span>] <span style="color:#56b6c2">+</span> <span style="color:#e06c75">b</span>);
+</span></span><span style="display:flex;"><span>            <span style="color:#c678dd">if</span> (<span style="color:#e06c75">j</span> <span style="color:#56b6c2">-</span> <span style="color:#d19a66">3</span> <span style="color:#56b6c2">&gt;=</span> <span style="color:#d19a66">0</span>)
+</span></span><span style="display:flex;"><span>                <span style="color:#e06c75">dp</span>[<span style="color:#e06c75">j</span>] <span style="color:#56b6c2">=</span> <span style="color:#e06c75">min</span>(<span style="color:#e06c75">dp</span>[<span style="color:#e06c75">j</span>], <span style="color:#e06c75">dp</span>[<span style="color:#e06c75">j</span> <span style="color:#56b6c2">-</span> <span style="color:#d19a66">3</span>] <span style="color:#56b6c2">+</span> <span style="color:#e06c75">c</span>);
+</span></span><span style="display:flex;"><span>            <span style="color:#c678dd">if</span> (<span style="color:#e06c75">j</span> <span style="color:#56b6c2">-</span> <span style="color:#d19a66">4</span> <span style="color:#56b6c2">&gt;=</span> <span style="color:#d19a66">0</span>)
+</span></span><span style="display:flex;"><span>                <span style="color:#e06c75">dp</span>[<span style="color:#e06c75">j</span>] <span style="color:#56b6c2">=</span> <span style="color:#e06c75">min</span>(<span style="color:#e06c75">dp</span>[<span style="color:#e06c75">j</span>], <span style="color:#e06c75">dp</span>[<span style="color:#e06c75">j</span> <span style="color:#56b6c2">-</span> <span style="color:#d19a66">4</span>] <span style="color:#56b6c2">+</span> <span style="color:#e06c75">d</span>);
+</span></span><span style="display:flex;"><span>        }
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>    <span style="color:#e06c75">cout</span> <span style="color:#56b6c2">&lt;&lt;</span> <span style="color:#e06c75">dp</span>[<span style="color:#e06c75">k</span>] <span style="color:#56b6c2">&lt;&lt;</span> <span style="color:#98c379">&#39;\n&#39;</span>;
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><h3 id="t1-循环位移httpsacmhdueducnshowproblemphppid7433"><a class="link" href="https://acm.hdu.edu.cn/showproblem.php?pid=7433"  target="_blank" rel="noopener"
+    >T1 循环位移</a>
+</h3><p>第二道注意的题目<br>
+因为比赛前一天还在学<a class="link" href="/p/07-19-SA%e5%90%8e%e7%bc%80%e6%95%b0%e7%bb%84%e5%ad%a6%e4%b9%a0%e7%ac%94%e8%ae%b0" >后缀数组</a>，所以异常敏感<br>
+应该注意到$LCP &gt; n$就可以计入答案<br>
+然后敲了很错误的SA的代码，就只计算了交接处的点，应该是交界处直到延申到LCP仍然大于n处<br></p>
+<p>其实我也有想过跳车哈希，但是主要是哈希开map桶的想法有点过于常规了，而且是$nlog(n)$级别的，对于$10^6$级别的数据，我居然不敢这么做<br>
+高中的时候有时候觉得STL很慢还觉得是可行的，但是到了这里就不敢搞了是为什么呢，是因为前两场牛客老被卡吗<br>
+而且这场比赛的评测机极为强大，我并没有意识到<br></p>
+<p>队友过完12和8之后也来参与这道题的讨论，开展了一个奇怪的<code>KMP</code>的方法，觉得可行就敲了<br>
+耗了很多时间，最后还是打了哈希，结果怎么样了呢，我的<code>vector</code>TLE了，单哈希被卡了<br>
+<code>vector</code>可能是因为RE之类的 <del>最近拿<code>vector</code>打代码老是爆😭</del><br>
+我一直不相信自己单哈希被卡，不相信<code>vector</code>出问题，但是改了之后都对了<br>
+不知道怎么评价了</p>
+<div class="highlight"><pre tabindex="0" style="color:#abb2bf;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-cpp" data-lang="cpp"><span style="display:flex;"><span><span style="color:#7f848e">#include</span> <span style="color:#7f848e">&lt;bits/stdc++.h&gt;</span><span style="color:#7f848e">
+</span></span></span><span style="display:flex;"><span><span style="color:#7f848e"></span><span style="color:#c678dd">using</span> <span style="color:#c678dd">namespace</span> <span style="color:#e06c75">std</span>;
+</span></span><span style="display:flex;"><span><span style="color:#c678dd">typedef</span> <span style="color:#e5c07b">long</span> <span style="color:#e5c07b">long</span> <span style="color:#e06c75">ll</span>;
+</span></span><span style="display:flex;"><span><span style="color:#c678dd">typedef</span> <span style="color:#e06c75">pair</span><span style="color:#56b6c2">&lt;</span><span style="color:#e5c07b">int</span>, <span style="color:#e5c07b">int</span><span style="color:#56b6c2">&gt;</span> <span style="color:#e06c75">Pr</span>;
+</span></span><span style="display:flex;"><span><span style="color:#7f848e">#define End(X) return cout &lt;&lt; (X) &lt;&lt; &#39;\n&#39;, void()
+</span></span></span><span style="display:flex;"><span><span style="color:#7f848e"></span><span style="color:#e5c07b">bool</span> <span style="color:#e06c75">Nai</span>;
+</span></span><span style="display:flex;"><span><span style="color:#e5c07b">int</span> <span style="color:#61afef;font-weight:bold">rd</span>()
+</span></span><span style="display:flex;"><span>{
+</span></span><span style="display:flex;"><span>    <span style="color:#e5c07b">int</span> <span style="color:#e06c75">res</span> <span style="color:#56b6c2">=</span> <span style="color:#d19a66">0</span>, <span style="color:#e06c75">f</span> <span style="color:#56b6c2">=</span> <span style="color:#d19a66">1</span>;
+</span></span><span style="display:flex;"><span>    <span style="color:#e5c07b">char</span> <span style="color:#e06c75">c</span>;
+</span></span><span style="display:flex;"><span>    <span style="color:#c678dd">do</span>
+</span></span><span style="display:flex;"><span>        (<span style="color:#e06c75">c</span> <span style="color:#56b6c2">=</span> <span style="color:#e06c75">getchar</span>()) <span style="color:#56b6c2">==</span> <span style="color:#98c379">&#39;-&#39;</span> <span style="color:#56b6c2">&amp;&amp;</span> (<span style="color:#e06c75">f</span> <span style="color:#56b6c2">=</span> <span style="color:#56b6c2">-</span><span style="color:#d19a66">1</span>);
+</span></span><span style="display:flex;"><span>    <span style="color:#c678dd">while</span> (<span style="color:#56b6c2">!</span><span style="color:#e06c75">isdigit</span>(<span style="color:#e06c75">c</span>));
+</span></span><span style="display:flex;"><span>    <span style="color:#c678dd">while</span> (<span style="color:#e06c75">isdigit</span>(<span style="color:#e06c75">c</span>))
+</span></span><span style="display:flex;"><span>        <span style="color:#e06c75">res</span> <span style="color:#56b6c2">=</span> (<span style="color:#e06c75">c</span> <span style="color:#56b6c2">^</span> <span style="color:#d19a66">48</span>) <span style="color:#56b6c2">+</span> (<span style="color:#e06c75">res</span> <span style="color:#56b6c2">&lt;&lt;</span> <span style="color:#d19a66">1</span>) <span style="color:#56b6c2">+</span> (<span style="color:#e06c75">res</span> <span style="color:#56b6c2">&lt;&lt;</span> <span style="color:#d19a66">3</span>), <span style="color:#e06c75">c</span> <span style="color:#56b6c2">=</span> <span style="color:#e06c75">getchar</span>();
+</span></span><span style="display:flex;"><span>    <span style="color:#c678dd">return</span> <span style="color:#e06c75">res</span> <span style="color:#56b6c2">*</span> <span style="color:#e06c75">f</span>;
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span><span style="color:#e5c07b">bool</span> <span style="color:#e06c75">Ri</span>;
+</span></span><span style="display:flex;"><span><span style="color:#c678dd">const</span> <span style="color:#e5c07b">int</span> <span style="color:#e06c75">M</span> <span style="color:#56b6c2">=</span> (<span style="color:#d19a66">1</span> <span style="color:#56b6c2">&lt;&lt;</span> <span style="color:#d19a66">20</span>) <span style="color:#56b6c2">+</span> <span style="color:#d19a66">5</span>;
+</span></span><span style="display:flex;"><span><span style="color:#c678dd">const</span> <span style="color:#e5c07b">int</span> <span style="color:#e06c75">P1</span> <span style="color:#56b6c2">=</span> <span style="color:#d19a66">19260817</span>, <span style="color:#e06c75">mod1</span> <span style="color:#56b6c2">=</span> <span style="color:#d19a66">1e9</span> <span style="color:#56b6c2">+</span> <span style="color:#d19a66">7</span>, <span style="color:#e06c75">P2</span> <span style="color:#56b6c2">=</span> <span style="color:#d19a66">233</span>, <span style="color:#e06c75">mod2</span> <span style="color:#56b6c2">=</span> <span style="color:#d19a66">998244353</span>;
+</span></span><span style="display:flex;"><span><span style="color:#e5c07b">int</span> <span style="color:#e06c75">hsh1</span>[<span style="color:#e06c75">M</span> <span style="color:#56b6c2">+</span> <span style="color:#e06c75">M</span>], <span style="color:#e06c75">hsh2</span>[<span style="color:#e06c75">M</span> <span style="color:#56b6c2">+</span> <span style="color:#e06c75">M</span>], <span style="color:#e06c75">pw1</span>[<span style="color:#e06c75">M</span>], <span style="color:#e06c75">pw2</span>[<span style="color:#e06c75">M</span>], <span style="color:#e06c75">hshb1</span>[<span style="color:#e06c75">M</span>], <span style="color:#e06c75">hshb2</span>[<span style="color:#e06c75">M</span>];
+</span></span><span style="display:flex;"><span><span style="color:#e5c07b">int</span> <span style="color:#61afef;font-weight:bold">main</span>()
+</span></span><span style="display:flex;"><span>{
+</span></span><span style="display:flex;"><span>    <span style="color:#e06c75">ios</span><span style="color:#56b6c2">::</span><span style="color:#e06c75">sync_with_stdio</span>(<span style="color:#d19a66">0</span>);
+</span></span><span style="display:flex;"><span>    <span style="color:#7f848e">// freopen(&#34;Data.in&#34;, &#34;r&#34;, stdin);
+</span></span></span><span style="display:flex;"><span><span style="color:#7f848e"></span>    <span style="color:#e5c07b">int</span> <span style="color:#e06c75">t</span>;
+</span></span><span style="display:flex;"><span>    <span style="color:#e06c75">cin</span> <span style="color:#56b6c2">&gt;&gt;</span> <span style="color:#e06c75">t</span>;
+</span></span><span style="display:flex;"><span>    <span style="color:#e06c75">pw1</span>[<span style="color:#d19a66">0</span>] <span style="color:#56b6c2">=</span> <span style="color:#d19a66">1</span>, <span style="color:#e06c75">pw2</span>[<span style="color:#d19a66">0</span>] <span style="color:#56b6c2">=</span> <span style="color:#d19a66">1</span>;
+</span></span><span style="display:flex;"><span>    <span style="color:#c678dd">for</span> (<span style="color:#e5c07b">int</span> <span style="color:#e06c75">i</span> <span style="color:#56b6c2">=</span> <span style="color:#d19a66">1</span>; <span style="color:#e06c75">i</span> <span style="color:#56b6c2">&lt;</span> <span style="color:#e06c75">M</span>; <span style="color:#56b6c2">++</span><span style="color:#e06c75">i</span>)
+</span></span><span style="display:flex;"><span>        <span style="color:#e06c75">pw1</span>[<span style="color:#e06c75">i</span>] <span style="color:#56b6c2">=</span> <span style="color:#d19a66">1ll</span> <span style="color:#56b6c2">*</span> <span style="color:#e06c75">P1</span> <span style="color:#56b6c2">*</span> <span style="color:#e06c75">pw1</span>[<span style="color:#e06c75">i</span> <span style="color:#56b6c2">-</span> <span style="color:#d19a66">1</span>] <span style="color:#56b6c2">%</span> <span style="color:#e06c75">mod1</span>;
+</span></span><span style="display:flex;"><span>    <span style="color:#c678dd">for</span> (<span style="color:#e5c07b">int</span> <span style="color:#e06c75">i</span> <span style="color:#56b6c2">=</span> <span style="color:#d19a66">1</span>; <span style="color:#e06c75">i</span> <span style="color:#56b6c2">&lt;</span> <span style="color:#e06c75">M</span>; <span style="color:#56b6c2">++</span><span style="color:#e06c75">i</span>)
+</span></span><span style="display:flex;"><span>        <span style="color:#e06c75">pw2</span>[<span style="color:#e06c75">i</span>] <span style="color:#56b6c2">=</span> <span style="color:#d19a66">1ll</span> <span style="color:#56b6c2">*</span> <span style="color:#e06c75">P2</span> <span style="color:#56b6c2">*</span> <span style="color:#e06c75">pw2</span>[<span style="color:#e06c75">i</span> <span style="color:#56b6c2">-</span> <span style="color:#d19a66">1</span>] <span style="color:#56b6c2">%</span> <span style="color:#e06c75">mod2</span>;
+</span></span><span style="display:flex;"><span>    <span style="color:#c678dd">auto</span> <span style="color:#e06c75">solve</span> <span style="color:#56b6c2">=</span> [<span style="color:#56b6c2">&amp;</span>]()
+</span></span><span style="display:flex;"><span>    {
+</span></span><span style="display:flex;"><span>        <span style="color:#e06c75">string</span> <span style="color:#e06c75">a</span>, <span style="color:#e06c75">b</span>;
+</span></span><span style="display:flex;"><span>        <span style="color:#e06c75">cin</span> <span style="color:#56b6c2">&gt;&gt;</span> <span style="color:#e06c75">a</span> <span style="color:#56b6c2">&gt;&gt;</span> <span style="color:#e06c75">b</span>;
+</span></span><span style="display:flex;"><span>        <span style="color:#e06c75">string</span> <span style="color:#e06c75">t</span> <span style="color:#56b6c2">=</span> <span style="color:#e06c75">a</span> <span style="color:#56b6c2">+</span> <span style="color:#e06c75">a</span>;
+</span></span><span style="display:flex;"><span>        <span style="color:#e5c07b">int</span> <span style="color:#e06c75">n</span> <span style="color:#56b6c2">=</span> <span style="color:#e06c75">a</span>.<span style="color:#e06c75">size</span>(), <span style="color:#e06c75">m</span> <span style="color:#56b6c2">=</span> <span style="color:#e06c75">b</span>.<span style="color:#e06c75">size</span>();
+</span></span><span style="display:flex;"><span>        <span style="color:#c678dd">for</span> (<span style="color:#e5c07b">int</span> <span style="color:#e06c75">i</span> <span style="color:#56b6c2">=</span> <span style="color:#d19a66">1</span>; <span style="color:#e06c75">i</span> <span style="color:#56b6c2">&lt;</span> <span style="color:#e06c75">n</span> <span style="color:#56b6c2">+</span> <span style="color:#e06c75">n</span>; <span style="color:#56b6c2">++</span><span style="color:#e06c75">i</span>)
+</span></span><span style="display:flex;"><span>        {
+</span></span><span style="display:flex;"><span>            <span style="color:#e06c75">hsh1</span>[<span style="color:#e06c75">i</span>] <span style="color:#56b6c2">=</span> (<span style="color:#d19a66">1ll</span> <span style="color:#56b6c2">*</span> <span style="color:#e06c75">hsh1</span>[<span style="color:#e06c75">i</span> <span style="color:#56b6c2">-</span> <span style="color:#d19a66">1</span>] <span style="color:#56b6c2">*</span> <span style="color:#e06c75">P1</span> <span style="color:#56b6c2">%</span> <span style="color:#e06c75">mod1</span> <span style="color:#56b6c2">+</span> <span style="color:#e06c75">t</span>[<span style="color:#e06c75">i</span>]) <span style="color:#56b6c2">%</span> <span style="color:#e06c75">mod1</span>;
+</span></span><span style="display:flex;"><span>            <span style="color:#e06c75">hsh2</span>[<span style="color:#e06c75">i</span>] <span style="color:#56b6c2">=</span> (<span style="color:#d19a66">1ll</span> <span style="color:#56b6c2">*</span> <span style="color:#e06c75">hsh2</span>[<span style="color:#e06c75">i</span> <span style="color:#56b6c2">-</span> <span style="color:#d19a66">1</span>] <span style="color:#56b6c2">*</span> <span style="color:#e06c75">P2</span> <span style="color:#56b6c2">%</span> <span style="color:#e06c75">mod2</span> <span style="color:#56b6c2">+</span> <span style="color:#e06c75">t</span>[<span style="color:#e06c75">i</span>]) <span style="color:#56b6c2">%</span> <span style="color:#e06c75">mod2</span>;
+</span></span><span style="display:flex;"><span>        }
+</span></span><span style="display:flex;"><span>        <span style="color:#e06c75">map</span><span style="color:#56b6c2">&lt;</span><span style="color:#e06c75">pair</span><span style="color:#56b6c2">&lt;</span><span style="color:#e5c07b">int</span>, <span style="color:#e5c07b">int</span><span style="color:#56b6c2">&gt;</span>, <span style="color:#e5c07b">int</span><span style="color:#56b6c2">&gt;</span> <span style="color:#e06c75">has</span>;
+</span></span><span style="display:flex;"><span>        <span style="color:#c678dd">auto</span> <span style="color:#e06c75">get_hash</span> <span style="color:#56b6c2">=</span> [<span style="color:#56b6c2">&amp;</span>](<span style="color:#e5c07b">int</span> <span style="color:#e06c75">l</span>, <span style="color:#e5c07b">int</span> <span style="color:#e06c75">r</span>, <span style="color:#e5c07b">int</span> <span style="color:#56b6c2">*</span><span style="color:#e06c75">hash1</span>, <span style="color:#e5c07b">int</span> <span style="color:#56b6c2">*</span><span style="color:#e06c75">hash2</span>)
+</span></span><span style="display:flex;"><span>        {
+</span></span><span style="display:flex;"><span>            <span style="color:#c678dd">return</span> <span style="color:#e06c75">make_pair</span>((<span style="color:#e06c75">hash1</span>[<span style="color:#e06c75">r</span>] <span style="color:#56b6c2">-</span> <span style="color:#d19a66">1ll</span> <span style="color:#56b6c2">*</span> <span style="color:#e06c75">hash1</span>[<span style="color:#e06c75">l</span> <span style="color:#56b6c2">-</span> <span style="color:#d19a66">1</span>] <span style="color:#56b6c2">*</span> <span style="color:#e06c75">pw1</span>[<span style="color:#e06c75">r</span> <span style="color:#56b6c2">-</span> <span style="color:#e06c75">l</span> <span style="color:#56b6c2">+</span> <span style="color:#d19a66">1</span>] <span style="color:#56b6c2">%</span> <span style="color:#e06c75">mod1</span> <span style="color:#56b6c2">+</span> <span style="color:#e06c75">mod1</span>) <span style="color:#56b6c2">%</span> <span style="color:#e06c75">mod1</span>,
+</span></span><span style="display:flex;"><span>                             (<span style="color:#e06c75">hash2</span>[<span style="color:#e06c75">r</span>] <span style="color:#56b6c2">-</span> <span style="color:#d19a66">1ll</span> <span style="color:#56b6c2">*</span> <span style="color:#e06c75">hash2</span>[<span style="color:#e06c75">l</span> <span style="color:#56b6c2">-</span> <span style="color:#d19a66">1</span>] <span style="color:#56b6c2">*</span> <span style="color:#e06c75">pw2</span>[<span style="color:#e06c75">r</span> <span style="color:#56b6c2">-</span> <span style="color:#e06c75">l</span> <span style="color:#56b6c2">+</span> <span style="color:#d19a66">1</span>] <span style="color:#56b6c2">%</span> <span style="color:#e06c75">mod2</span> <span style="color:#56b6c2">+</span> <span style="color:#e06c75">mod2</span>) <span style="color:#56b6c2">%</span> <span style="color:#e06c75">mod2</span>);
+</span></span><span style="display:flex;"><span>        };
+</span></span><span style="display:flex;"><span>        <span style="color:#c678dd">for</span> (<span style="color:#e5c07b">int</span> <span style="color:#e06c75">i</span> <span style="color:#56b6c2">=</span> <span style="color:#d19a66">1</span>; <span style="color:#e06c75">i</span> <span style="color:#56b6c2">&lt;=</span> <span style="color:#e06c75">n</span>; <span style="color:#56b6c2">++</span><span style="color:#e06c75">i</span>)
+</span></span><span style="display:flex;"><span>            <span style="color:#e06c75">has</span>[<span style="color:#e06c75">get_hash</span>(<span style="color:#e06c75">i</span>, <span style="color:#e06c75">i</span> <span style="color:#56b6c2">+</span> <span style="color:#e06c75">n</span> <span style="color:#56b6c2">-</span> <span style="color:#d19a66">1</span>, <span style="color:#e06c75">hsh1</span>, <span style="color:#e06c75">hsh2</span>)] <span style="color:#56b6c2">=</span> <span style="color:#d19a66">1</span>;
+</span></span><span style="display:flex;"><span>        <span style="color:#c678dd">for</span> (<span style="color:#e5c07b">int</span> <span style="color:#e06c75">i</span> <span style="color:#56b6c2">=</span> <span style="color:#d19a66">1</span>; <span style="color:#e06c75">i</span> <span style="color:#56b6c2">&lt;=</span> <span style="color:#e06c75">m</span>; <span style="color:#56b6c2">++</span><span style="color:#e06c75">i</span>)
+</span></span><span style="display:flex;"><span>        {
+</span></span><span style="display:flex;"><span>            <span style="color:#e06c75">hshb1</span>[<span style="color:#e06c75">i</span>] <span style="color:#56b6c2">=</span> (<span style="color:#d19a66">1ll</span> <span style="color:#56b6c2">*</span> <span style="color:#e06c75">hshb1</span>[<span style="color:#e06c75">i</span> <span style="color:#56b6c2">-</span> <span style="color:#d19a66">1</span>] <span style="color:#56b6c2">*</span> <span style="color:#e06c75">P1</span> <span style="color:#56b6c2">%</span> <span style="color:#e06c75">mod1</span> <span style="color:#56b6c2">+</span> <span style="color:#e06c75">b</span>[<span style="color:#e06c75">i</span> <span style="color:#56b6c2">-</span> <span style="color:#d19a66">1</span>]) <span style="color:#56b6c2">%</span> <span style="color:#e06c75">mod1</span>;
+</span></span><span style="display:flex;"><span>            <span style="color:#e06c75">hshb2</span>[<span style="color:#e06c75">i</span>] <span style="color:#56b6c2">=</span> (<span style="color:#d19a66">1ll</span> <span style="color:#56b6c2">*</span> <span style="color:#e06c75">hshb2</span>[<span style="color:#e06c75">i</span> <span style="color:#56b6c2">-</span> <span style="color:#d19a66">1</span>] <span style="color:#56b6c2">*</span> <span style="color:#e06c75">P2</span> <span style="color:#56b6c2">%</span> <span style="color:#e06c75">mod2</span> <span style="color:#56b6c2">+</span> <span style="color:#e06c75">b</span>[<span style="color:#e06c75">i</span> <span style="color:#56b6c2">-</span> <span style="color:#d19a66">1</span>]) <span style="color:#56b6c2">%</span> <span style="color:#e06c75">mod2</span>;
+</span></span><span style="display:flex;"><span>        }
+</span></span><span style="display:flex;"><span>        <span style="color:#e5c07b">int</span> <span style="color:#e06c75">ans</span> <span style="color:#56b6c2">=</span> <span style="color:#d19a66">0</span>;
+</span></span><span style="display:flex;"><span>        <span style="color:#c678dd">for</span> (<span style="color:#e5c07b">int</span> <span style="color:#e06c75">i</span> <span style="color:#56b6c2">=</span> <span style="color:#d19a66">1</span>; <span style="color:#e06c75">i</span> <span style="color:#56b6c2">&lt;=</span> <span style="color:#e06c75">m</span>; <span style="color:#56b6c2">++</span><span style="color:#e06c75">i</span>)
+</span></span><span style="display:flex;"><span>        {
+</span></span><span style="display:flex;"><span>            <span style="color:#c678dd">if</span> (<span style="color:#e06c75">i</span> <span style="color:#56b6c2">+</span> <span style="color:#e06c75">n</span> <span style="color:#56b6c2">-</span> <span style="color:#d19a66">1</span> <span style="color:#56b6c2">&lt;=</span> <span style="color:#e06c75">m</span>)
+</span></span><span style="display:flex;"><span>            {
+</span></span><span style="display:flex;"><span>                <span style="color:#e5c07b">int</span> <span style="color:#e06c75">t</span> <span style="color:#56b6c2">=</span> <span style="color:#e06c75">has</span>[<span style="color:#e06c75">get_hash</span>(<span style="color:#e06c75">i</span>, <span style="color:#e06c75">i</span> <span style="color:#56b6c2">+</span> <span style="color:#e06c75">n</span> <span style="color:#56b6c2">-</span> <span style="color:#d19a66">1</span>, <span style="color:#e06c75">hshb1</span>, <span style="color:#e06c75">hshb2</span>)];
+</span></span><span style="display:flex;"><span>                <span style="color:#e06c75">ans</span> <span style="color:#56b6c2">+=</span> <span style="color:#e06c75">t</span>;
+</span></span><span style="display:flex;"><span>            }
+</span></span><span style="display:flex;"><span>        }
+</span></span><span style="display:flex;"><span>        <span style="color:#e06c75">cout</span> <span style="color:#56b6c2">&lt;&lt;</span> <span style="color:#e06c75">ans</span> <span style="color:#56b6c2">&lt;&lt;</span> <span style="color:#98c379">&#39;\n&#39;</span>;
+</span></span><span style="display:flex;"><span>    };
+</span></span><span style="display:flex;"><span>    <span style="color:#c678dd">while</span> (<span style="color:#e06c75">t</span><span style="color:#56b6c2">--</span>)
+</span></span><span style="display:flex;"><span>        <span style="color:#e06c75">solve</span>();
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><p>赛后补了SA的代码，因为不知道怎么样求到最近的第一串的$LCP$, 就搞了两个循环</p>
+<div class="highlight"><pre tabindex="0" style="color:#abb2bf;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-cpp" data-lang="cpp"><span style="display:flex;"><span><span style="color:#e5c07b">void</span> <span style="color:#61afef;font-weight:bold">solve</span>()
+</span></span><span style="display:flex;"><span>{
+</span></span><span style="display:flex;"><span>    <span style="color:#e06c75">string</span> <span style="color:#e06c75">a</span>, <span style="color:#e06c75">b</span>;
+</span></span><span style="display:flex;"><span>    <span style="color:#e06c75">cin</span> <span style="color:#56b6c2">&gt;&gt;</span> <span style="color:#e06c75">a</span> <span style="color:#56b6c2">&gt;&gt;</span> <span style="color:#e06c75">b</span>;
+</span></span><span style="display:flex;"><span>    <span style="color:#e06c75">string</span> <span style="color:#e06c75">s</span> <span style="color:#56b6c2">=</span> <span style="color:#e06c75">a</span>.<span style="color:#e06c75">substr</span>(<span style="color:#d19a66">1</span>, <span style="color:#e06c75">a</span>.<span style="color:#e06c75">size</span>() <span style="color:#56b6c2">-</span> <span style="color:#d19a66">1</span>) <span style="color:#56b6c2">+</span> <span style="color:#e06c75">a</span> <span style="color:#56b6c2">+</span> <span style="color:#98c379">&#34;-&#34;</span> <span style="color:#56b6c2">+</span> <span style="color:#e06c75">b</span>;
+</span></span><span style="display:flex;"><span>    <span style="color:#e06c75">SA_Array</span> <span style="color:#e06c75">S</span>(<span style="color:#e06c75">s</span>);
+</span></span><span style="display:flex;"><span>    <span style="color:#e5c07b">int</span> <span style="color:#e06c75">n</span> <span style="color:#56b6c2">=</span> <span style="color:#e06c75">a</span>.<span style="color:#e06c75">size</span>(), <span style="color:#e06c75">m</span> <span style="color:#56b6c2">=</span> <span style="color:#e06c75">b</span>.<span style="color:#e06c75">size</span>();
+</span></span><span style="display:flex;"><span>    <span style="color:#e5c07b">int</span> <span style="color:#e06c75">now</span> <span style="color:#56b6c2">=</span> <span style="color:#d19a66">0</span>;
+</span></span><span style="display:flex;"><span>    <span style="color:#e5c07b">int</span> <span style="color:#e06c75">ans</span> <span style="color:#56b6c2">=</span> <span style="color:#d19a66">0</span>;
+</span></span><span style="display:flex;"><span>    <span style="color:#e06c75">S</span>.<span style="color:#e06c75">show</span>();
+</span></span><span style="display:flex;"><span>    <span style="color:#e06c75">vector</span><span style="color:#56b6c2">&lt;</span><span style="color:#e5c07b">int</span><span style="color:#56b6c2">&gt;</span> <span style="color:#e06c75">L</span>(<span style="color:#e06c75">n</span> <span style="color:#56b6c2">+</span> <span style="color:#e06c75">n</span> <span style="color:#56b6c2">+</span> <span style="color:#e06c75">m</span> <span style="color:#56b6c2">+</span> <span style="color:#d19a66">1</span>), <span style="color:#e06c75">R</span>(<span style="color:#e06c75">n</span> <span style="color:#56b6c2">+</span> <span style="color:#e06c75">n</span> <span style="color:#56b6c2">+</span> <span style="color:#e06c75">m</span> <span style="color:#56b6c2">+</span> <span style="color:#d19a66">1</span>);
+</span></span><span style="display:flex;"><span>    <span style="color:#c678dd">for</span> (<span style="color:#e5c07b">int</span> <span style="color:#e06c75">i</span> <span style="color:#56b6c2">=</span> <span style="color:#d19a66">2</span>; <span style="color:#e06c75">i</span> <span style="color:#56b6c2">&lt;=</span> <span style="color:#e06c75">n</span> <span style="color:#56b6c2">+</span> <span style="color:#e06c75">n</span> <span style="color:#56b6c2">+</span> <span style="color:#e06c75">m</span>; <span style="color:#56b6c2">++</span><span style="color:#e06c75">i</span>)
+</span></span><span style="display:flex;"><span>    {
+</span></span><span style="display:flex;"><span>        <span style="color:#c678dd">if</span> (<span style="color:#e06c75">S</span>.<span style="color:#e06c75">SA</span>[<span style="color:#e06c75">i</span> <span style="color:#56b6c2">-</span> <span style="color:#d19a66">1</span>] <span style="color:#56b6c2">&lt;</span> <span style="color:#e06c75">n</span> <span style="color:#56b6c2">+</span> <span style="color:#e06c75">n</span>)
+</span></span><span style="display:flex;"><span>            <span style="color:#e06c75">now</span> <span style="color:#56b6c2">=</span> <span style="color:#e06c75">S</span>.<span style="color:#e06c75">height</span>[<span style="color:#e06c75">i</span>];
+</span></span><span style="display:flex;"><span>        <span style="color:#c678dd">else</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#e06c75">now</span> <span style="color:#56b6c2">=</span> <span style="color:#e06c75">min</span>(<span style="color:#e06c75">now</span>, <span style="color:#e06c75">S</span>.<span style="color:#e06c75">height</span>[<span style="color:#e06c75">i</span>]);
+</span></span><span style="display:flex;"><span>        <span style="color:#e06c75">L</span>[<span style="color:#e06c75">i</span>] <span style="color:#56b6c2">=</span> <span style="color:#e06c75">now</span>;
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>    <span style="color:#e06c75">now</span> <span style="color:#56b6c2">=</span> <span style="color:#d19a66">0</span>;
+</span></span><span style="display:flex;"><span>    <span style="color:#c678dd">for</span> (<span style="color:#e5c07b">int</span> <span style="color:#e06c75">i</span> <span style="color:#56b6c2">=</span> <span style="color:#e06c75">n</span> <span style="color:#56b6c2">+</span> <span style="color:#e06c75">n</span> <span style="color:#56b6c2">+</span> <span style="color:#e06c75">m</span>; <span style="color:#e06c75">i</span> <span style="color:#56b6c2">&gt;=</span> <span style="color:#d19a66">2</span>; <span style="color:#56b6c2">--</span><span style="color:#e06c75">i</span>)
+</span></span><span style="display:flex;"><span>    {
+</span></span><span style="display:flex;"><span>        <span style="color:#e06c75">R</span>[<span style="color:#e06c75">i</span>] <span style="color:#56b6c2">=</span> <span style="color:#e06c75">now</span>;
+</span></span><span style="display:flex;"><span>        <span style="color:#c678dd">if</span> (<span style="color:#e06c75">S</span>.<span style="color:#e06c75">SA</span>[<span style="color:#e06c75">i</span>] <span style="color:#56b6c2">&lt;</span> <span style="color:#e06c75">n</span> <span style="color:#56b6c2">+</span> <span style="color:#e06c75">n</span>)
+</span></span><span style="display:flex;"><span>            <span style="color:#e06c75">now</span> <span style="color:#56b6c2">=</span> <span style="color:#e06c75">S</span>.<span style="color:#e06c75">height</span>[<span style="color:#e06c75">i</span>];
+</span></span><span style="display:flex;"><span>        <span style="color:#c678dd">else</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#e06c75">now</span> <span style="color:#56b6c2">=</span> <span style="color:#e06c75">min</span>(<span style="color:#e06c75">now</span>, <span style="color:#e06c75">S</span>.<span style="color:#e06c75">height</span>[<span style="color:#e06c75">i</span>]);
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>    <span style="color:#c678dd">for</span> (<span style="color:#e5c07b">int</span> <span style="color:#e06c75">i</span> <span style="color:#56b6c2">=</span> <span style="color:#d19a66">2</span>; <span style="color:#e06c75">i</span> <span style="color:#56b6c2">&lt;=</span> <span style="color:#e06c75">n</span> <span style="color:#56b6c2">+</span> <span style="color:#e06c75">n</span> <span style="color:#56b6c2">+</span> <span style="color:#e06c75">m</span>; <span style="color:#56b6c2">++</span><span style="color:#e06c75">i</span>)
+</span></span><span style="display:flex;"><span>    {
+</span></span><span style="display:flex;"><span>        <span style="color:#c678dd">if</span> (<span style="color:#e06c75">S</span>.<span style="color:#e06c75">SA</span>[<span style="color:#e06c75">i</span>] <span style="color:#56b6c2">&gt;</span> <span style="color:#e06c75">n</span> <span style="color:#56b6c2">+</span> <span style="color:#e06c75">n</span>)
+</span></span><span style="display:flex;"><span>            <span style="color:#c678dd">if</span> (<span style="color:#e06c75">max</span>(<span style="color:#e06c75">L</span>[<span style="color:#e06c75">i</span>], <span style="color:#e06c75">R</span>[<span style="color:#e06c75">i</span>]) <span style="color:#56b6c2">&gt;=</span> <span style="color:#e06c75">n</span>)
+</span></span><span style="display:flex;"><span>                <span style="color:#56b6c2">++</span><span style="color:#e06c75">ans</span>;
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>    <span style="color:#e06c75">cout</span> <span style="color:#56b6c2">&lt;&lt;</span> <span style="color:#e06c75">ans</span> <span style="color:#56b6c2">&lt;&lt;</span> <span style="color:#98c379">&#39;\n&#39;</span>;
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><h3 id="t4-树httpsacmhdueducnshowproblemphppid7436"><a class="link" href="https://acm.hdu.edu.cn/showproblem.php?pid=7436"  target="_blank" rel="noopener"
+    >T4 树</a>
+</h3><h2 id="赛后">赛后
+</h2><h3 id="t3-传送httpsacmhdueducnshowproblemphppid7435"><a class="link" href="https://acm.hdu.edu.cn/showproblem.php?pid=7435"  target="_blank" rel="noopener"
+    >T3 传送</a>
+</h3>
+</section>
+
+
+    <footer class="article-footer">
+    
+    <section class="article-tags">
+        
+            <a href="/tags/%E7%AE%97%E6%B3%95%E7%AB%9E%E8%B5%9B/">算法竞赛</a>
+        
+    </section>
+
+
+    
+    <section class="article-copyright">
+        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-copyright" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="12" cy="12" r="9" />
+  <path d="M14.5 9a3.5 4 0 1 0 0 6" />
+</svg>
+
+
+
+        <span>Licensed under CC BY-NC-SA 4.0</span>
+    </section>
+    <section class="article-lastmod">
+        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-clock" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="12" cy="12" r="9" />
+  <polyline points="12 7 12 12 15 15" />
+</svg>
+
+
+
+        <span>
+            最后更新于 Jul 20, 2024 03:29 CST
+        </span>
+    </section></footer>
+
+
+    
+        <link 
+                rel="stylesheet" 
+                href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css"integrity="sha384-n8MVd4RsNIU0tAv4ct0nTaAbDJwPJzDEaqSD1odI&#43;WdtXRGWt2kTvGFasHpSy3SV"crossorigin="anonymous"
+            ><script 
+                src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js"integrity="sha384-XjKyOOlGwcjNTAIQHIpgOno0Hl1YQqzUOEleOLALmuqehneUG&#43;vnGctmUb0ZY0l8"crossorigin="anonymous"
+                defer
+                >
+            </script><script 
+                src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js"integrity="sha384-&#43;VBxd3r6XgURycqtZ117nYw44OOcIax56Z4dCRWbxyPt0Koah1uHoK0o4&#43;/RRE05"crossorigin="anonymous"
+                defer
+                >
+            </script><script>
+    window.addEventListener("DOMContentLoaded", () => {
+        renderMathInElement(document.body, {
+            delimiters: [
+                { left: "$$", right: "$$", display: true },
+                { left: "$", right: "$", display: false },
+                { left: "\\(", right: "\\)", display: false },
+                { left: "\\[", right: "\\]", display: true }
+            ],
+            ignoredClasses: ["gist"]
+        });})
+</script>
+    
+</article>
+
+
+    
+
+    
+
+<aside class="related-content--wrapper">
+    <h2 class="section-title">相关文章</h2>
+    <div class="related-content">
+        <div class="flex article-list--tile">
+            
+                
+<article class="">
+    <a href="/p/07-19-sa%E5%90%8E%E7%BC%80%E6%95%B0%E7%BB%84%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/">
+        
+        
+
+        <div class="article-details">
+            <h2 class="article-title">SA(后缀数组)学习笔记</h2>
+        </div>
+    </a>
+</article>
+
+            
+                
+<article class="">
+    <a href="/p/07-15-%E4%BF%A1%E7%A7%91%E5%A4%A7%E4%B8%80%E6%B1%82%E7%94%9F%E6%8C%87%E5%8D%97/">
+        
+        
+
+        <div class="article-details">
+            <h2 class="article-title">信科大一求生指南</h2>
+        </div>
+    </a>
+</article>
+
+            
+        </div>
+    </div>
+</aside>
+
+
+    
+        <script src="https://giscus.app/client.js"
+        data-repo="Ri-Nai/Ri-Nai.github.io"
+        data-repo-id="R_kgDOMWII_w"
+        data-category="Announcements"
+        data-category-id="DIC_kwDOMWII_84Cgx-V"
+        data-mapping="title"
+        data-strict="0"
+        data-reactions-enabled="1"
+        data-emit-metadata="0"
+        data-input-position="top"
+        data-theme="preferred_color_scheme"
+        data-lang="zh-CN"
+        data-loading="lazy"
+        crossorigin="anonymous"
+        async>
+</script>
+
+    
+
+    <footer class="site-footer">
+    <section class="copyright">
+        &copy;
+        
+        2024 Reina
+    </section>
+
+    <section class="powerby">
+        使用 <a href="https://gohugo.io/" target="_blank" rel="noopener">Hugo</a> 构建 <br />
+        主题 <b><a href="https://github.com/CaiJimmy/hugo-theme-stack" target="_blank" rel="noopener"
+                data-version="3.26.0">Stack</a></b> 由 <a href="https://jimmycai.com" target="_blank" rel="noopener">Jimmy</a> 设计
+    </section>
+    <canvas id="live2d-container"
+        style="position: fixed; bottom: 0; right: 0; width: 250px; height: 400px; pointer-events: auto; z-index: 1;">
+    </canvas>
+    <div id="toggle-button"
+        style="position: fixed; bottom: 400px; right: -22px; width: 30px; height: 30px; cursor: pointer; z-index: 2;">
+        ✖
+    </div>
+    <style>
+        .text-bubble {
+            position: fixed;
+            background-color: #ffe4e1;
+            border: 2px solid #ff69b4;
+            border-radius: 10px;
+            padding: 10px;
+            font-size: 14px;
+            color: #ff69b4;
+            z-index: 2;
+            opacity: 1;
+        }
+
+        #toggle-button {
+            font-size: 16px;
+            text-align: center;
+            line-height: 28px;
+            background-color: #ff69b4;
+            opacity: 0.3;
+            color: white;
+            border-radius: 50%;
+            transition: 600ms;
+            user-select:none;
+
+        }
+
+        #toggle-button:hover {
+            transform: translate(-22px, 0);
+            opacity: 1;
+        }
+
+        @keyframes bubble-animation {
+            0% {
+                opacity: 1;
+                transform: translateY(0);
+            }
+
+            100% {
+                opacity: 0;
+                transform: translateY(-50px);
+            }
+        }
+    </style>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', async function () {
+            const app = new PIXI.Application({
+                view: document.getElementById('live2d-container'),
+                autoStart: true,
+                transparent: true,
+                width: 250,
+                height: 400
+            });
+
+            try {
+                const model2 = await PIXI.live2d.Live2DModel.from("/aya_event217/aya_event217.model.json");
+                app.stage.addChild(model2);
+                model2.scale.set(0.15);
+                model2.x = -25;
+                model2.y = -20;
+                
+                model2.interactive = true;
+                model2.buttonMode = true;
+
+                
+                const showTextBubble = (x, y) => {
+                    const textBubble = document.createElement('div');
+                    textBubble.className = 'text-bubble';
+                    let Texts = ["丸山之上缤纷彩，老娘就是丸山彩！", "修哇修哇", "A to Z！A to Z！　天下を", "A to Z！A to Z！　取ります！", "PasPale入魂！Bang！！！！！", "一拳一个彩黑"]
+                    let l = Texts.length
+                    textBubble.innerText = Texts[Math.floor(Math.random() * l)];
+
+                    const randomOffsetX = (Math.random() - 0.5) * 100 - 50; 
+                    const randomOffsetY = Math.random() * 100 - 100; 
+
+                    textBubble.style.left = (x + randomOffsetX) + 'px';
+                    textBubble.style.bottom = (y + randomOffsetY) + 'px';
+                    textBubble.style.animation = "bubble-animation " + (Math.random() + 0.2) * 2.5 + "s forwards";
+                    document.body.appendChild(textBubble);
+
+                    
+                    textBubble.addEventListener('animationend', () => {
+                        textBubble.remove();
+                    });
+                };
+
+                
+                app.view.addEventListener('click', (event) => {
+                    const rect = app.view.getBoundingClientRect();
+                    const mouseX = event.clientX - rect.left;
+                    const mouseY = event.clientY - rect.top;
+
+                    if (model2.hitTest('head', mouseX, mouseY) && toggleButton.innerHTML != '🞅') {
+                        console.log('Head area clicked!');
+                        console.log(rect, mouseX, mouseY)
+                        showTextBubble(rect.left + mouseX / 2 - 25, 420);
+                        
+                        model2.motion('idle');  
+                    }
+                });
+                const toggleButton = document.getElementById('toggle-button');
+                const container = document.getElementById('live2d-container');
+                toggleButton.addEventListener('click', () => {
+                    if (model2.parent) {
+                        app.stage.removeChild(model2);
+                        container.style.visibility = 'hidden';
+                        toggleButton.innerHTML = '🞅'; 
+                    } else {
+                        container.style.visibility = 'visible'
+                        
+                        app.stage.addChild(model2);
+                        toggleButton.innerHTML = '✖'; 
+                    }
+                });
+
+            } catch (error) {
+                console.error('Error loading Live2D model:', error);
+            }
+        });
+    </script>
+    <script>
+        document.getElementById('toggle-button').click();
+        document.getElementById('toggle-button').click();
+    </script>
+</footer>
+
+
+    
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+    
+    <div class="pswp__bg"></div>
+
+    
+    <div class="pswp__scroll-wrap">
+
+        
+        <div class="pswp__container">
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+        </div>
+
+        
+        <div class="pswp__ui pswp__ui--hidden">
+
+            <div class="pswp__top-bar">
+
+                
+
+                <div class="pswp__counter"></div>
+
+                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+
+                <button class="pswp__button pswp__button--share" title="Share"></button>
+
+                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+
+                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+
+                
+                
+                <div class="pswp__preloader">
+                    <div class="pswp__preloader__icn">
+                        <div class="pswp__preloader__cut">
+                            <div class="pswp__preloader__donut"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                <div class="pswp__share-tooltip"></div>
+            </div>
+
+            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+            </button>
+
+            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+            </button>
+
+            <div class="pswp__caption">
+                <div class="pswp__caption__center"></div>
+            </div>
+
+        </div>
+
+    </div>
+
+</div><script 
+                src="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.js"integrity="sha256-ePwmChbbvXbsO02lbM3HoHbSHTHFAeChekF1xKJdleo="crossorigin="anonymous"
+                defer
+                >
+            </script><script 
+                src="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe-ui-default.min.js"integrity="sha256-UKkzOn/w1mBxRmLLGrSeyB4e1xbrp4xylgAWb3M42pU="crossorigin="anonymous"
+                defer
+                >
+            </script><link 
+                rel="stylesheet" 
+                href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/default-skin/default-skin.min.css"crossorigin="anonymous"
+            ><link 
+                rel="stylesheet" 
+                href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.css"crossorigin="anonymous"
+            >
+    
+
+            </main>
+        </div>
+        <script 
+                src="https://cdn.jsdelivr.net/npm/node-vibrant@3.1.6/dist/vibrant.min.js"integrity="sha256-awcR2jno4kI5X0zL8ex0vi2z&#43;KMkF24hUW8WePSA9HM="crossorigin="anonymous"
+                
+                >
+            </script><script type="text/javascript" src="/ts/main.js" defer></script>
+<script>
+    (function () {
+        const customFont = document.createElement('link');
+        customFont.href = "https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&display=swap";
+
+        customFont.type = "text/css";
+        customFont.rel = "stylesheet";
+
+        document.head.appendChild(customFont);
+    }());
+</script>
+
+    </body>
+</html>
