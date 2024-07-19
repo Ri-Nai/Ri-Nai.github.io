@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
     <channel>
-        <title>Posts on Reina</title>
-        <link>https://ri-nai.github.io/post/</link>
-        <description>Recent content in Posts on Reina</description>
+        <title>算法竞赛 on Reina</title>
+        <link>https://ri-nai.github.io/tags/%E7%AE%97%E6%B3%95%E7%AB%9E%E8%B5%9B/</link>
+        <description>Recent content in 算法竞赛 on Reina</description>
         <generator>Hugo -- gohugo.io</generator>
         <language>zh-cn</language>
         <copyright>Reina</copyright>
-        <lastBuildDate>Fri, 19 Jul 2024 02:50:38 +0800</lastBuildDate><atom:link href="https://ri-nai.github.io/post/index.xml" rel="self" type="application/rss+xml" /><item>
+        <lastBuildDate>Sat, 20 Jul 2024 01:33:01 +0800</lastBuildDate><atom:link href="https://ri-nai.github.io/tags/%E7%AE%97%E6%B3%95%E7%AB%9E%E8%B5%9B/index.xml" rel="self" type="application/rss+xml" /><item>
         <title>SA(后缀数组)学习笔记</title>
         <link>https://ri-nai.github.io/p/07-19-sa%E5%90%8E%E7%BC%80%E6%95%B0%E7%BB%84%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/</link>
         <pubDate>Fri, 19 Jul 2024 02:50:38 +0800</pubDate>
@@ -205,29 +205,6 @@
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#e06c75&#34;&gt;cout&lt;/span&gt; &lt;span style=&#34;color:#56b6c2&#34;&gt;&amp;lt;&amp;lt;&lt;/span&gt; &lt;span style=&#34;color:#e06c75&#34;&gt;ans&lt;/span&gt; &lt;span style=&#34;color:#56b6c2&#34;&gt;&amp;lt;&amp;lt;&lt;/span&gt; &lt;span style=&#34;color:#98c379&#34;&gt;&amp;#39;\n&amp;#39;&lt;/span&gt;;
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;}
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;</description>
-        </item>
-        <item>
-        <title>关于谷子与消费主义</title>
-        <link>https://ri-nai.github.io/p/07-18-%E5%85%B3%E4%BA%8E%E8%B0%B7%E5%AD%90%E4%B8%8E%E6%B6%88%E8%B4%B9%E4%B8%BB%E4%B9%89/</link>
-        <pubDate>Thu, 18 Jul 2024 22:09:51 +0800</pubDate>
-        
-        <guid>https://ri-nai.github.io/p/07-18-%E5%85%B3%E4%BA%8E%E8%B0%B7%E5%AD%90%E4%B8%8E%E6%B6%88%E8%B4%B9%E4%B8%BB%E4%B9%89/</guid>
-        <description>&lt;img src="https://ri-nai.github.io/p/07-18-%E5%85%B3%E4%BA%8E%E8%B0%B7%E5%AD%90%E4%B8%8E%E6%B6%88%E8%B4%B9%E4%B8%BB%E4%B9%89/cover.jpg" alt="Featured image of post 关于谷子与消费主义" /&gt;&lt;h1 id=&#34;喜报&#34;&gt;喜报
-&lt;/h1&gt;&lt;p&gt;我买了彩彩的谷子&lt;/p&gt;
-&lt;h2 id=&#34;关于谷子&#34;&gt;关于谷子
-&lt;/h2&gt;&lt;p&gt;日谷好贵&lt;br&gt;&lt;/p&gt;
-&lt;h2 id=&#34;heading&#34;&gt;
-&lt;/h2&gt;</description>
-        </item>
-        <item>
-        <title>信科大一求生指南</title>
-        <link>https://ri-nai.github.io/p/07-15-%E4%BF%A1%E7%A7%91%E5%A4%A7%E4%B8%80%E6%B1%82%E7%94%9F%E6%8C%87%E5%8D%97/</link>
-        <pubDate>Mon, 15 Jul 2024 06:00:25 +0800</pubDate>
-        
-        <guid>https://ri-nai.github.io/p/07-15-%E4%BF%A1%E7%A7%91%E5%A4%A7%E4%B8%80%E6%B1%82%E7%94%9F%E6%8C%87%E5%8D%97/</guid>
-        <description>&lt;p&gt;🚜可能没有施工&lt;br&gt;
-只是不发一篇文章主页很难看&lt;/p&gt;
-</description>
         </item>
         
     </channel>

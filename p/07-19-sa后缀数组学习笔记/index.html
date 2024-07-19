@@ -10,7 +10,7 @@
 <meta property='og:description' content="模板 #include &lt;bits/stdc++.h&gt; using namespace std; struct SA_Array { int n; string S; vector&lt;int&gt; SA, height, rk, lg2; vector&lt;vector&lt;int&gt;&gt; ST; SA_Array(string T) : n(T.size()), SA(n + 1), rk(n + 1), height(n + 1), ST(n + 1), lg2(n + 1) { S = T; S.push_back(0); for (int i = n; i &gt;= 1; --i) S[i] = S[i - 1]; S[0] = 0; init_SA(); init_height(); init_ST(); } void init_SA() { int">
 <meta property='og:url' content='https://ri-nai.github.io/p/07-19-sa%E5%90%8E%E7%BC%80%E6%95%B0%E7%BB%84%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/'>
 <meta property='og:site_name' content='Reina'>
-<meta property='og:type' content='article'><meta property='article:section' content='Post' /><meta property='article:tag' content='' /><meta property='article:published_time' content='2024-07-19T02:50:38&#43;08:00'/><meta property='article:modified_time' content='2024-07-19T02:58:34&#43;08:00'/>
+<meta property='og:type' content='article'><meta property='article:section' content='Post' /><meta property='article:tag' content='算法竞赛' /><meta property='article:published_time' content='2024-07-19T02:50:38&#43;08:00'/><meta property='article:modified_time' content='2024-07-20T02:38:42&#43;08:00'/>
 <meta name="twitter:title" content="SA(后缀数组)学习笔记">
 <meta name="twitter:description" content="模板 #include &lt;bits/stdc++.h&gt; using namespace std; struct SA_Array { int n; string S; vector&lt;int&gt; SA, height, rk, lg2; vector&lt;vector&lt;int&gt;&gt; ST; SA_Array(string T) : n(T.size()), SA(n + 1), rk(n + 1), height(n + 1), ST(n + 1), lg2(n + 1) { S = T; S.push_back(0); for (int i = n; i &gt;= 1; --i) S[i] = S[i - 1]; S[0] = 0; init_SA(); init_height(); init_ST(); } void init_SA() { int">
     <link rel="shortcut icon" href="/favicon.ico" />
@@ -356,7 +356,9 @@
     <li><a href="#理解及讲解">理解及讲解</a></li>
     <li><a href="#例题">例题</a>
       <ol>
-        <li><a href="#本质不同的子串的个数">本质不同的子串的个数</a></li>
+        <li><a href="#本质不同的子串的个数httpsacnowcodercomacmproblem237304"><a href="https://ac.nowcoder.com/acm/problem/237304">本质不同的子串的个数</a></a></li>
+        <li><a href="#两个字符串的lcs最长公共子串httpsacnowcodercomacmproblem237306"><a href="https://ac.nowcoder.com/acm/problem/237306">两个字符串的LCS（最长公共子串）</a></a></li>
+        <li><a href="#两个字符串的本质不同的子串的个数httpsacnowcodercomacmproblem237308"><a href="https://ac.nowcoder.com/acm/problem/237308">两个字符串的本质不同的子串的个数</a></a></li>
       </ol>
     </li>
   </ol>
@@ -420,7 +422,7 @@
   <path d="M9 13h6"></path>
 </svg>
 
-            <p>574字</p>
+            <p>1335字</p>
         </div>
         
             <div>
@@ -433,7 +435,7 @@
 
 
                 <time class="article-time--reading">
-                    阅读时长: 2 分钟
+                    阅读时长: 3 分钟
                 </time>
             </div>
         
@@ -550,9 +552,12 @@
 </span></span></code></pre></div><h2 id="理解及讲解">理解及讲解
 </h2><p>待更新</p>
 <h2 id="例题">例题
-</h2><h3 id="本质不同的子串的个数">本质不同的子串的个数
-</h3><p>排序后相邻两个后缀的最长前缀就是这两个后缀产生的重叠子串的个数<br>
-只需要在总的串数目中减去这些就好了<br></p>
+</h2><h3 id="本质不同的子串的个数httpsacnowcodercomacmproblem237304"><a class="link" href="https://ac.nowcoder.com/acm/problem/237304"  target="_blank" rel="noopener"
+    >本质不同的子串的个数</a>
+</h3><p>所有后缀的<strong>所有前缀</strong>即为所有子串<br>
+排序后相邻两个后缀的<strong>最长前缀</strong>就是这两个后缀产生的<strong>重叠子串的个数</strong><br>
+只需要在总的串数目中减去这些就好了<br>
+而如果不相邻的后缀的LCP, 必然是在他们之间的LCP里出现过的, 所以是已经被减掉了<br></p>
 <div class="highlight"><pre tabindex="0" style="color:#abb2bf;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-cpp" data-lang="cpp"><span style="display:flex;"><span><span style="color:#e5c07b">int</span> <span style="color:#61afef;font-weight:bold">main</span>()
 </span></span><span style="display:flex;"><span>{
 </span></span><span style="display:flex;"><span>    <span style="color:#e06c75">string</span> <span style="color:#e06c75">s</span>;
@@ -565,6 +570,77 @@
 </span></span><span style="display:flex;"><span>        <span style="color:#e06c75">ans</span> <span style="color:#56b6c2">-=</span> <span style="color:#e06c75">S</span>.<span style="color:#e06c75">height</span>[<span style="color:#e06c75">i</span>];
 </span></span><span style="display:flex;"><span>    <span style="color:#e06c75">cout</span> <span style="color:#56b6c2">&lt;&lt;</span> <span style="color:#e06c75">ans</span> <span style="color:#56b6c2">&lt;&lt;</span> <span style="color:#98c379">&#39;\n&#39;</span>;
 </span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><h3 id="两个字符串的lcs最长公共子串httpsacnowcodercomacmproblem237306"><a class="link" href="https://ac.nowcoder.com/acm/problem/237306"  target="_blank" rel="noopener"
+    >两个字符串的LCS（最长公共子串）</a>
+</h3><p>这里就涉及到后缀数组的一个比较重要的操作了<br>
+把两个字符串拼接起来，<strong>并在中间插入一个不存在的字符</strong><br>
+这个不存在很重要，不然height数组会因为<strong>第二个字符串的前缀</strong>的存在而导致错误<br>
+然后呢<strong>只需要</strong>将<strong>交接处</strong>的答案统计就好了<br>
+<strong>为什么只需要交界处呢？</strong><br>
+交界处后面如果连一堆相同的，那<strong>必然</strong>是交界处的最大<br>
+而我们只需要求<strong>最长</strong><br></p>
+<div class="highlight"><pre tabindex="0" style="color:#abb2bf;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-cpp" data-lang="cpp"><span style="display:flex;"><span><span style="color:#e5c07b">int</span> <span style="color:#61afef;font-weight:bold">main</span>()
+</span></span><span style="display:flex;"><span>{
+</span></span><span style="display:flex;"><span>    <span style="color:#e06c75">string</span> <span style="color:#e06c75">s</span>, <span style="color:#e06c75">t</span>;
+</span></span><span style="display:flex;"><span>    <span style="color:#e06c75">cin</span> <span style="color:#56b6c2">&gt;&gt;</span> <span style="color:#e06c75">s</span> <span style="color:#56b6c2">&gt;&gt;</span> <span style="color:#e06c75">t</span>;
+</span></span><span style="display:flex;"><span>    <span style="color:#e06c75">SA_Array</span> <span style="color:#e06c75">S</span>(<span style="color:#e06c75">s</span> <span style="color:#56b6c2">+</span> <span style="color:#98c379">&#34;!&#34;</span> <span style="color:#56b6c2">+</span> <span style="color:#e06c75">t</span>);
+</span></span><span style="display:flex;"><span>    <span style="color:#e5c07b">int</span> <span style="color:#e06c75">n</span> <span style="color:#56b6c2">=</span> <span style="color:#e06c75">s</span>.<span style="color:#e06c75">size</span>(), <span style="color:#e06c75">m</span> <span style="color:#56b6c2">=</span> <span style="color:#e06c75">t</span>.<span style="color:#e06c75">size</span>();
+</span></span><span style="display:flex;"><span>    <span style="color:#e5c07b">int</span> <span style="color:#e06c75">ans</span> <span style="color:#56b6c2">=</span> <span style="color:#d19a66">0</span>;
+</span></span><span style="display:flex;"><span>    <span style="color:#c678dd">for</span> (<span style="color:#e5c07b">int</span> <span style="color:#e06c75">i</span> <span style="color:#56b6c2">=</span> <span style="color:#d19a66">2</span>; <span style="color:#e06c75">i</span> <span style="color:#56b6c2">&lt;=</span> <span style="color:#e06c75">n</span> <span style="color:#56b6c2">+</span> <span style="color:#e06c75">m</span> <span style="color:#56b6c2">+</span> <span style="color:#d19a66">1</span>; <span style="color:#56b6c2">++</span><span style="color:#e06c75">i</span>)
+</span></span><span style="display:flex;"><span>        <span style="color:#c678dd">if</span> ((<span style="color:#e06c75">S</span>.<span style="color:#e06c75">SA</span>[<span style="color:#e06c75">i</span>] <span style="color:#56b6c2">&lt;=</span> <span style="color:#e06c75">n</span>) <span style="color:#56b6c2">^</span> (<span style="color:#e06c75">S</span>.<span style="color:#e06c75">SA</span>[<span style="color:#e06c75">i</span> <span style="color:#56b6c2">-</span> <span style="color:#d19a66">1</span>] <span style="color:#56b6c2">&lt;=</span> <span style="color:#e06c75">n</span>))
+</span></span><span style="display:flex;"><span>            <span style="color:#e06c75">ans</span> <span style="color:#56b6c2">=</span> <span style="color:#e06c75">max</span>(<span style="color:#e06c75">ans</span>, <span style="color:#e06c75">S</span>.<span style="color:#e06c75">height</span>[<span style="color:#e06c75">i</span>]);
+</span></span><span style="display:flex;"><span>    <span style="color:#e06c75">cout</span> <span style="color:#56b6c2">&lt;&lt;</span> <span style="color:#e06c75">ans</span> <span style="color:#56b6c2">&lt;&lt;</span> <span style="color:#98c379">&#39;\n&#39;</span>;
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><h3 id="两个字符串的本质不同的子串的个数httpsacnowcodercomacmproblem237308"><a class="link" href="https://ac.nowcoder.com/acm/problem/237308"  target="_blank" rel="noopener"
+    >两个字符串的本质不同的子串的个数</a>
+</h3><p>抄了神人的代码👍👍👍<br>
+原理还是比较复杂的，可能这道题和上面那道题都更适合用SAM（我还没学😭）<br>
+过了两天来重新复习一下这道题发现还是很难理解<br>
+注意到一个后缀有相邻的两个后缀<br>
+如果我们选择去计算所有height的和去统计共同子串的个数，我们会计算某个后缀的不同的前缀两次，这显然是我们不希望发生的<br>
+首先按照height大小<strong>降序</strong>排序，这样可以保证先计算出更长的前缀<br>
+然后使用并查集标记使用过的后缀，最后得到的相当于是一段一段区间拼起来<br>
+当两个区间拼起来的时候，如果两边都有<strong>统计过答案</strong>，就减去当前的LCP，毕竟这个被算了两次<br></p>
+<p>另一种方法是直接扫一遍，交界处相加，再减去交界处第二串之间的LCP，因为这些也是被算两次的量<br></p>
+<div class="highlight"><pre tabindex="0" style="color:#abb2bf;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-cpp" data-lang="cpp"><span style="display:flex;"><span><span style="color:#e5c07b">int</span> <span style="color:#61afef;font-weight:bold">main</span>()
+</span></span><span style="display:flex;"><span>{
+</span></span><span style="display:flex;"><span>    <span style="color:#e06c75">string</span> <span style="color:#e06c75">s</span>, <span style="color:#e06c75">t</span>;
+</span></span><span style="display:flex;"><span>    <span style="color:#e06c75">cin</span> <span style="color:#56b6c2">&gt;&gt;</span> <span style="color:#e06c75">s</span> <span style="color:#56b6c2">&gt;&gt;</span> <span style="color:#e06c75">t</span>;
+</span></span><span style="display:flex;"><span>    <span style="color:#e5c07b">int</span> <span style="color:#e06c75">n</span> <span style="color:#56b6c2">=</span> <span style="color:#e06c75">s</span>.<span style="color:#e06c75">size</span>();
+</span></span><span style="display:flex;"><span>    <span style="color:#e5c07b">int</span> <span style="color:#e06c75">m</span> <span style="color:#56b6c2">=</span> <span style="color:#e06c75">t</span>.<span style="color:#e06c75">size</span>();
+</span></span><span style="display:flex;"><span>    <span style="color:#e5c07b">int</span> <span style="color:#e06c75">p</span> <span style="color:#56b6c2">=</span> <span style="color:#e06c75">n</span> <span style="color:#56b6c2">+</span> <span style="color:#e06c75">m</span> <span style="color:#56b6c2">+</span> <span style="color:#d19a66">1</span>;
+</span></span><span style="display:flex;"><span>    <span style="color:#e06c75">SA_Array</span> <span style="color:#e06c75">S</span>(<span style="color:#e06c75">s</span> <span style="color:#56b6c2">+</span> <span style="color:#98c379">&#34;$&#34;</span> <span style="color:#56b6c2">+</span> <span style="color:#e06c75">t</span>);
+</span></span><span style="display:flex;"><span>    <span style="color:#e06c75">vector</span><span style="color:#56b6c2">&lt;</span><span style="color:#e5c07b">int</span><span style="color:#56b6c2">&gt;</span> <span style="color:#e06c75">fa</span>(<span style="color:#e06c75">p</span> <span style="color:#56b6c2">+</span> <span style="color:#d19a66">1</span>), <span style="color:#e06c75">state</span>(<span style="color:#e06c75">p</span> <span style="color:#56b6c2">+</span> <span style="color:#d19a66">1</span>);
+</span></span><span style="display:flex;"><span>    <span style="color:#c678dd">for</span> (<span style="color:#e5c07b">int</span> <span style="color:#e06c75">i</span> <span style="color:#56b6c2">=</span> <span style="color:#d19a66">1</span>; <span style="color:#e06c75">i</span> <span style="color:#56b6c2">&lt;=</span> <span style="color:#e06c75">p</span>; <span style="color:#56b6c2">++</span><span style="color:#e06c75">i</span>)
+</span></span><span style="display:flex;"><span>        <span style="color:#e06c75">fa</span>[<span style="color:#e06c75">i</span>] <span style="color:#56b6c2">=</span> <span style="color:#e06c75">i</span>, <span style="color:#e06c75">state</span>[<span style="color:#e06c75">i</span>] <span style="color:#56b6c2">=</span> <span style="color:#d19a66">1</span> <span style="color:#56b6c2">&lt;&lt;</span> (<span style="color:#e06c75">i</span> <span style="color:#56b6c2">&lt;=</span> <span style="color:#e06c75">n</span>);
+</span></span><span style="display:flex;"><span>    <span style="color:#c678dd">auto</span> <span style="color:#e06c75">find</span> <span style="color:#56b6c2">=</span> [<span style="color:#56b6c2">&amp;</span>](<span style="color:#e5c07b">int</span> <span style="color:#e06c75">u</span>)
+</span></span><span style="display:flex;"><span>    {
+</span></span><span style="display:flex;"><span>        <span style="color:#c678dd">while</span> (<span style="color:#e06c75">fa</span>[<span style="color:#e06c75">u</span>] <span style="color:#56b6c2">^</span> <span style="color:#e06c75">u</span>)
+</span></span><span style="display:flex;"><span>        {
+</span></span><span style="display:flex;"><span>            <span style="color:#e06c75">fa</span>[<span style="color:#e06c75">u</span>] <span style="color:#56b6c2">=</span> <span style="color:#e06c75">fa</span>[<span style="color:#e06c75">fa</span>[<span style="color:#e06c75">u</span>]];
+</span></span><span style="display:flex;"><span>            <span style="color:#e06c75">u</span> <span style="color:#56b6c2">=</span> <span style="color:#e06c75">fa</span>[<span style="color:#e06c75">u</span>];
+</span></span><span style="display:flex;"><span>        }
+</span></span><span style="display:flex;"><span>        <span style="color:#c678dd">return</span> <span style="color:#e06c75">u</span>;
+</span></span><span style="display:flex;"><span>    };
+</span></span><span style="display:flex;"><span>    <span style="color:#e5c07b">long</span> <span style="color:#e5c07b">long</span> <span style="color:#e06c75">ans</span> <span style="color:#56b6c2">=</span> <span style="color:#d19a66">0</span>;
+</span></span><span style="display:flex;"><span>    <span style="color:#e06c75">vector</span><span style="color:#56b6c2">&lt;</span><span style="color:#e06c75">vector</span><span style="color:#56b6c2">&lt;</span><span style="color:#e5c07b">int</span><span style="color:#56b6c2">&gt;&gt;</span> <span style="color:#e06c75">E</span>(<span style="color:#e06c75">p</span> <span style="color:#56b6c2">+</span> <span style="color:#d19a66">1</span>);
+</span></span><span style="display:flex;"><span>    <span style="color:#c678dd">for</span> (<span style="color:#e5c07b">int</span> <span style="color:#e06c75">i</span> <span style="color:#56b6c2">=</span> <span style="color:#d19a66">2</span>; <span style="color:#e06c75">i</span> <span style="color:#56b6c2">&lt;=</span> <span style="color:#e06c75">p</span>; <span style="color:#56b6c2">++</span><span style="color:#e06c75">i</span>)
+</span></span><span style="display:flex;"><span>        <span style="color:#e06c75">E</span>[<span style="color:#e06c75">S</span>.<span style="color:#e06c75">height</span>[<span style="color:#e06c75">i</span>]].<span style="color:#e06c75">push_back</span>(<span style="color:#e06c75">i</span>);
+</span></span><span style="display:flex;"><span>    <span style="color:#c678dd">for</span> (<span style="color:#e5c07b">int</span> <span style="color:#e06c75">i</span> <span style="color:#56b6c2">=</span> <span style="color:#e06c75">p</span>; <span style="color:#e06c75">i</span> <span style="color:#56b6c2">&gt;=</span> <span style="color:#d19a66">0</span>; <span style="color:#56b6c2">--</span><span style="color:#e06c75">i</span>)
+</span></span><span style="display:flex;"><span>        <span style="color:#c678dd">for</span> (<span style="color:#e5c07b">int</span> <span style="color:#e06c75">x</span> : <span style="color:#e06c75">E</span>[<span style="color:#e06c75">i</span>])
+</span></span><span style="display:flex;"><span>        {
+</span></span><span style="display:flex;"><span>            <span style="color:#e5c07b">int</span> <span style="color:#e06c75">u</span> <span style="color:#56b6c2">=</span> <span style="color:#e06c75">S</span>.<span style="color:#e06c75">SA</span>[<span style="color:#e06c75">x</span>], <span style="color:#e06c75">v</span> <span style="color:#56b6c2">=</span> <span style="color:#e06c75">S</span>.<span style="color:#e06c75">SA</span>[<span style="color:#e06c75">x</span> <span style="color:#56b6c2">-</span> <span style="color:#d19a66">1</span>];
+</span></span><span style="display:flex;"><span>            <span style="color:#e5c07b">int</span> <span style="color:#e06c75">val</span> <span style="color:#56b6c2">=</span> <span style="color:#e06c75">S</span>.<span style="color:#e06c75">height</span>[<span style="color:#e06c75">x</span>];
+</span></span><span style="display:flex;"><span>            <span style="color:#e06c75">u</span> <span style="color:#56b6c2">=</span> <span style="color:#e06c75">find</span>(<span style="color:#e06c75">u</span>), <span style="color:#e06c75">v</span> <span style="color:#56b6c2">=</span> <span style="color:#e06c75">find</span>(<span style="color:#e06c75">v</span>);
+</span></span><span style="display:flex;"><span>            <span style="color:#c678dd">if</span> (<span style="color:#e06c75">state</span>[<span style="color:#e06c75">u</span>] <span style="color:#56b6c2">==</span> <span style="color:#d19a66">3</span> <span style="color:#56b6c2">&amp;&amp;</span> <span style="color:#e06c75">state</span>[<span style="color:#e06c75">v</span>] <span style="color:#56b6c2">==</span> <span style="color:#d19a66">3</span>)
+</span></span><span style="display:flex;"><span>                <span style="color:#e06c75">ans</span> <span style="color:#56b6c2">-=</span> <span style="color:#e06c75">val</span>;
+</span></span><span style="display:flex;"><span>            <span style="color:#c678dd">if</span> (<span style="color:#e06c75">state</span>[<span style="color:#e06c75">u</span>] <span style="color:#56b6c2">+</span> <span style="color:#e06c75">state</span>[<span style="color:#e06c75">v</span>] <span style="color:#56b6c2">==</span> <span style="color:#d19a66">3</span>)
+</span></span><span style="display:flex;"><span>                <span style="color:#e06c75">ans</span> <span style="color:#56b6c2">+=</span> <span style="color:#e06c75">val</span>;
+</span></span><span style="display:flex;"><span>            <span style="color:#e06c75">fa</span>[<span style="color:#e06c75">v</span>] <span style="color:#56b6c2">=</span> <span style="color:#e06c75">u</span>;
+</span></span><span style="display:flex;"><span>            <span style="color:#e06c75">state</span>[<span style="color:#e06c75">u</span>] <span style="color:#56b6c2">|=</span> <span style="color:#e06c75">state</span>[<span style="color:#e06c75">v</span>];
+</span></span><span style="display:flex;"><span>        }
+</span></span><span style="display:flex;"><span>    <span style="color:#e06c75">cout</span> <span style="color:#56b6c2">&lt;&lt;</span> <span style="color:#e06c75">ans</span> <span style="color:#56b6c2">&lt;&lt;</span> <span style="color:#98c379">&#39;\n&#39;</span>;
+</span></span><span style="display:flex;"><span>}
 </span></span></code></pre></div>
 </section>
 
@@ -572,6 +648,8 @@
     <footer class="article-footer">
     
     <section class="article-tags">
+        
+            <a href="/tags/%E7%AE%97%E6%B3%95%E7%AB%9E%E8%B5%9B/">算法竞赛</a>
         
     </section>
 
@@ -598,7 +676,7 @@
 
 
         <span>
-            最后更新于 Jul 19, 2024 02:58 CST
+            最后更新于 Jul 20, 2024 02:38 CST
         </span>
     </section></footer>
 
@@ -901,6 +979,8 @@
                 rel="stylesheet" 
                 href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.css"crossorigin="anonymous"
             >
+    
+        <p> 最后更新于 2024 年 7 月 20 日</p>
     
 
             </main>
