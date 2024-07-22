@@ -13,7 +13,7 @@
         <pubDate>Sat, 20 Jul 2024 02:57:29 +0800</pubDate>
         
         <guid>https://ri-nai.github.io/p/07-20-2024%E6%9D%AD%E7%94%B5%E5%A4%9A%E6%A0%A1%E7%AC%AC%E4%B8%80%E5%9C%BA/</guid>
-        <description>&lt;h2 id=&#34;前言&#34;&gt;前言
+        <description>&lt;img src="https://ri-nai.github.io/p/07-20-2024%E6%9D%AD%E7%94%B5%E5%A4%9A%E6%A0%A1%E7%AC%AC%E4%B8%80%E5%9C%BA/cover.png" alt="Featured image of post 2024杭电多校第一场" /&gt;&lt;h2 id=&#34;前言&#34;&gt;前言
 &lt;/h2&gt;&lt;p&gt;队友有事所以缺一个人，再加上自己本来就菜&lt;br&gt;
 导致这场打的比较不好，于是打算记录一下这几道题目&lt;br&gt;
 很多题还是很板子以及很有复学价值的&lt;/p&gt;
@@ -741,7 +741,10 @@ $$
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        &lt;span style=&#34;color:#66d9ef&#34;&gt;if&lt;/span&gt; (S.SA[i] &lt;span style=&#34;color:#f92672&#34;&gt;&amp;lt;=&lt;/span&gt; n &lt;span style=&#34;color:#f92672&#34;&gt;&amp;amp;&amp;amp;&lt;/span&gt; S.SA[i &lt;span style=&#34;color:#f92672&#34;&gt;-&lt;/span&gt; &lt;span style=&#34;color:#ae81ff&#34;&gt;1&lt;/span&gt;] &lt;span style=&#34;color:#f92672&#34;&gt;&amp;gt;&lt;/span&gt; n)
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;            ans &lt;span style=&#34;color:#f92672&#34;&gt;+=&lt;/span&gt; (now1 &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; S.height[i]) &lt;span style=&#34;color:#f92672&#34;&gt;-&lt;/span&gt; now2, now2 &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#ae81ff&#34;&gt;0&lt;/span&gt;;
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    }
-&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;</description>
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h3 id=&#34;循环位移httpsacmhdueducnshowproblemphppid7433&#34;&gt;&lt;a class=&#34;link&#34; href=&#34;https://acm.hdu.edu.cn/showproblem.php?pid=7433&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;循环位移&lt;/a&gt;
+&lt;/h3&gt;&lt;p&gt;前两天多校打的题，题解在&lt;a class=&#34;link&#34; href=&#34;https://ri-nai.github.io/p/07-20-2024%e6%9d%ad%e7%94%b5%e5%a4%9a%e6%a0%a1%e7%ac%ac%e4%b8%80%e5%9c%ba/#t1-%e5%be%aa%e7%8e%af%e4%bd%8d%e7%a7%bbhttpsacmhdueducnshowproblemphppid7433&#34; &gt;多校博客&lt;/a&gt;里了&lt;/p&gt;
+</description>
         </item>
         
     </channel>
