@@ -443,6 +443,8 @@ $$
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        &lt;span style=&#34;color:#66d9ef&#34;&gt;void&lt;/span&gt; Merge(&lt;span style=&#34;color:#66d9ef&#34;&gt;int&lt;/span&gt; u, &lt;span style=&#34;color:#66d9ef&#34;&gt;int&lt;/span&gt; v)
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        {
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;            u &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; find(u), v &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; find(v);
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;            &lt;span style=&#34;color:#66d9ef&#34;&gt;if&lt;/span&gt; (u &lt;span style=&#34;color:#f92672&#34;&gt;==&lt;/span&gt; v)
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;                &lt;span style=&#34;color:#66d9ef&#34;&gt;return&lt;/span&gt;;
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;            &lt;span style=&#34;color:#66d9ef&#34;&gt;if&lt;/span&gt; (sz[u] &lt;span style=&#34;color:#f92672&#34;&gt;&amp;lt;&lt;/span&gt; sz[v])
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;                swap(u, v);
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;            fa[v] &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; u;
