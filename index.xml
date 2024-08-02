@@ -7,7 +7,21 @@
         <generator>Hugo -- gohugo.io</generator>
         <language>zh-cn</language>
         <copyright>Reina</copyright>
-        <lastBuildDate>Sat, 20 Jul 2024 02:57:29 +0800</lastBuildDate><atom:link href="https://ri-nai.github.io/index.xml" rel="self" type="application/rss+xml" /><item>
+        <lastBuildDate>Fri, 02 Aug 2024 01:52:29 +0800</lastBuildDate><atom:link href="https://ri-nai.github.io/index.xml" rel="self" type="application/rss+xml" /><item>
+        <title>歌词分享</title>
+        <link>https://ri-nai.github.io/p/08-02-%E6%AD%8C%E8%AF%8D%E5%88%86%E4%BA%AB/</link>
+        <pubDate>Fri, 02 Aug 2024 01:52:29 +0800</pubDate>
+        
+        <guid>https://ri-nai.github.io/p/08-02-%E6%AD%8C%E8%AF%8D%E5%88%86%E4%BA%AB/</guid>
+        <description>&lt;blockquote&gt;
+&lt;h2 id=&#34;82-天上的云让我分神--沈默沈默汗衫哥&#34;&gt;8.2 《天上的云让我分神》 —— 沈默沈默/汗衫哥
+&lt;/h2&gt;&lt;p&gt;谁有想起我，谁有讲起我，谁有唱起我&lt;br&gt;
+谁又忘记我，谁又妄议我，谁又放弃我&lt;br&gt;
+谁有赏析我，谁又藏起我，谁都当起我&lt;br&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+</description>
+        </item>
+        <item>
         <title>2024杭电多校第一场</title>
         <link>https://ri-nai.github.io/p/07-20-2024%E6%9D%AD%E7%94%B5%E5%A4%9A%E6%A0%A1%E7%AC%AC%E4%B8%80%E5%9C%BA/</link>
         <pubDate>Sat, 20 Jul 2024 02:57:29 +0800</pubDate>
@@ -49,7 +63,7 @@
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h3 id=&#34;t1-循环位移httpsacmhdueducnshowproblemphppid7433&#34;&gt;&lt;a class=&#34;link&#34; href=&#34;https://acm.hdu.edu.cn/showproblem.php?pid=7433&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
     &gt;T1 循环位移&lt;/a&gt;
 &lt;/h3&gt;&lt;p&gt;第二道注意的题目&lt;br&gt;
-因为比赛前一天还在学&lt;a class=&#34;link&#34; href=&#34;https://ri-nai.github.io/p/07-19-SA%e5%90%8e%e7%bc%80%e6%95%b0%e7%bb%84%e5%ad%a6%e4%b9%a0%e7%ac%94%e8%ae%b0&#34; &gt;后缀数组&lt;/a&gt;，所以异常敏感&lt;br&gt;
+因为比赛前一天还在学&lt;a class=&#34;link&#34; href=&#34;https://ri-nai.github.io/p/07-19-sa%e5%90%8e%e7%bc%80%e6%95%b0%e7%bb%84%e5%ad%a6%e4%b9%a0%e7%ac%94%e8%ae%b0&#34; &gt;后缀数组&lt;/a&gt;，所以异常敏感&lt;br&gt;
 应该注意到$LCP &amp;gt; n$就可以计入答案&lt;br&gt;
 然后敲了很错误的SA的代码，就只计算了交接处的点，应该是交界处直到延申到LCP仍然大于n处&lt;br&gt;&lt;/p&gt;
 &lt;p&gt;其实我也有想过跳车哈希，但是主要是哈希开map桶的想法有点过于常规了，而且是$nlog(n)$级别的，对于$10^6$级别的数据，我居然不敢这么做&lt;br&gt;

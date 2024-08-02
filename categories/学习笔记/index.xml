@@ -49,7 +49,7 @@
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h3 id=&#34;t1-循环位移httpsacmhdueducnshowproblemphppid7433&#34;&gt;&lt;a class=&#34;link&#34; href=&#34;https://acm.hdu.edu.cn/showproblem.php?pid=7433&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
     &gt;T1 循环位移&lt;/a&gt;
 &lt;/h3&gt;&lt;p&gt;第二道注意的题目&lt;br&gt;
-因为比赛前一天还在学&lt;a class=&#34;link&#34; href=&#34;https://ri-nai.github.io/p/07-19-SA%e5%90%8e%e7%bc%80%e6%95%b0%e7%bb%84%e5%ad%a6%e4%b9%a0%e7%ac%94%e8%ae%b0&#34; &gt;后缀数组&lt;/a&gt;，所以异常敏感&lt;br&gt;
+因为比赛前一天还在学&lt;a class=&#34;link&#34; href=&#34;https://ri-nai.github.io/p/07-19-sa%e5%90%8e%e7%bc%80%e6%95%b0%e7%bb%84%e5%ad%a6%e4%b9%a0%e7%ac%94%e8%ae%b0&#34; &gt;后缀数组&lt;/a&gt;，所以异常敏感&lt;br&gt;
 应该注意到$LCP &amp;gt; n$就可以计入答案&lt;br&gt;
 然后敲了很错误的SA的代码，就只计算了交接处的点，应该是交界处直到延申到LCP仍然大于n处&lt;br&gt;&lt;/p&gt;
 &lt;p&gt;其实我也有想过跳车哈希，但是主要是哈希开map桶的想法有点过于常规了，而且是$nlog(n)$级别的，对于$10^6$级别的数据，我居然不敢这么做&lt;br&gt;
