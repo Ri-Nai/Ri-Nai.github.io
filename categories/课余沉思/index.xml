@@ -2,31 +2,61 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
     <channel>
         <title>课余沉思 on Reina</title>
-        <link>https://ri-nai.github.io/categories/%E8%AF%BE%E4%BD%99%E6%B2%89%E6%80%9D/</link>
+        <link>http://localhost:1313/categories/%E8%AF%BE%E4%BD%99%E6%B2%89%E6%80%9D/</link>
         <description>Recent content in 课余沉思 on Reina</description>
         <generator>Hugo -- gohugo.io</generator>
         <language>zh-cn</language>
         <copyright>Reina</copyright>
-        <lastBuildDate>Mon, 15 Jul 2024 06:00:25 +0800</lastBuildDate><atom:link href="https://ri-nai.github.io/categories/%E8%AF%BE%E4%BD%99%E6%B2%89%E6%80%9D/index.xml" rel="self" type="application/rss+xml" /><item>
+        <lastBuildDate>Mon, 15 Jul 2024 06:00:25 +0800</lastBuildDate><atom:link href="http://localhost:1313/categories/%E8%AF%BE%E4%BD%99%E6%B2%89%E6%80%9D/index.xml" rel="self" type="application/rss+xml" /><item>
         <title>歌词分享</title>
-        <link>https://ri-nai.github.io/p/08-02-%E6%AD%8C%E8%AF%8D%E5%88%86%E4%BA%AB/</link>
+        <link>http://localhost:1313/p/08-02-%E6%AD%8C%E8%AF%8D%E5%88%86%E4%BA%AB/</link>
         <pubDate>Fri, 02 Aug 2024 01:52:29 +0800</pubDate>
         
-        <guid>https://ri-nai.github.io/p/08-02-%E6%AD%8C%E8%AF%8D%E5%88%86%E4%BA%AB/</guid>
-        <description>&lt;img src="https://ri-nai.github.io/p/08-02-%E6%AD%8C%E8%AF%8D%E5%88%86%E4%BA%AB/cover.png" alt="Featured image of post 歌词分享" /&gt;&lt;blockquote&gt;
-&lt;h2 id=&#34;82-天上的云让我分神--沈默沈默汗衫哥&#34;&gt;8.2 《天上的云让我分神》 —— 沈默沈默/汗衫哥
-&lt;/h2&gt;&lt;p&gt;谁有想起我，谁有讲起我，谁有唱起我&lt;br&gt;
+        <guid>http://localhost:1313/p/08-02-%E6%AD%8C%E8%AF%8D%E5%88%86%E4%BA%AB/</guid>
+        <description>&lt;img src="http://localhost:1313/p/08-02-%E6%AD%8C%E8%AF%8D%E5%88%86%E4%BA%AB/cover.png" alt="Featured image of post 歌词分享" /&gt;&lt;blockquote&gt;
+&lt;h2 id=&#34;82-天上的云让我分神&#34;&gt;8.2 《天上的云让我分神》
+&lt;/h2&gt;&lt;p&gt;&lt;strong&gt;—— 沈默沈默/汗衫哥&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;谁有想起我，谁有讲起我，谁有唱起我&lt;br&gt;
 谁又忘记我，谁又妄议我，谁又放弃我&lt;br&gt;
 谁有赏析我，谁又藏起我，谁都当起我&lt;br&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;blockquote&gt;
+&lt;h2 id=&#34;86-アンノウンマザーグース不为人知的鹅妈妈童谣unknown-mother-goose&#34;&gt;8.6 《アンノウン・マザーグース》不为人知的鹅妈妈童谣（Unknown Mother-Goose）
+&lt;/h2&gt;&lt;p&gt;&lt;strong&gt;—— wowaka/初音ミク&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;世界があたしを拒んでも 今、愛の唄 歌わせてくれないかな&lt;br&gt;
+即使世界将我拒绝 至少此刻、能否让我唱起爱的歌谣？&lt;br&gt;&lt;br&gt;
+もう一回 誰も知らないその想い&lt;br&gt;
+再一次 将那谁也不知道的思念&lt;br&gt;&lt;br&gt;
+この声に預けてみてもいいかな&lt;br&gt;
+试着寄托于这声音中也可以吗&lt;br&gt;&lt;br&gt;
+あなたには僕が見えるか？&lt;br&gt;
+在你眼中能够看见我吗？&lt;br&gt;&lt;br&gt;
+あなたには僕が見えるか？&lt;br&gt;
+在你眼中能够看见我吗？&lt;br&gt;&lt;br&gt;
+ガラクタばかり 投げつけられてきたその背中&lt;br&gt;
+总是被投掷着无用杂物的那个背影&lt;br&gt;&lt;br&gt;
+それでも好きと言えたなら&lt;br&gt;
+即使那样也能说出喜欢的话&lt;br&gt;&lt;br&gt;
+それでも好きを願えたら&lt;br&gt;
+即使那样也能想要喜欢的话&lt;br&gt;&lt;br&gt;
+ああ、あたしの全部に その意味はあると――&lt;br&gt;
+啊啊、那我的一切 就都有了意义——&lt;br&gt;&lt;br&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;blockquote&gt;
+&lt;h2 id=&#34;814-秦皇岛&#34;&gt;8.14 《秦皇岛》
+&lt;/h2&gt;&lt;p&gt;&lt;strong&gt;&amp;ndash; 万能青年旅店&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;站在能分割世界的桥&lt;br&gt;
+还是看不清 在那些时刻&lt;br&gt;
+遮蔽我们 黑暗的心 究竟是什么&lt;br&gt;&lt;/p&gt;
 &lt;/blockquote&gt;
 </description>
         </item>
         <item>
         <title>信科大一求生指南</title>
-        <link>https://ri-nai.github.io/p/07-15-%E4%BF%A1%E7%A7%91%E5%A4%A7%E4%B8%80%E6%B1%82%E7%94%9F%E6%8C%87%E5%8D%97/</link>
+        <link>http://localhost:1313/p/07-15-%E4%BF%A1%E7%A7%91%E5%A4%A7%E4%B8%80%E6%B1%82%E7%94%9F%E6%8C%87%E5%8D%97/</link>
         <pubDate>Mon, 15 Jul 2024 06:00:25 +0800</pubDate>
         
-        <guid>https://ri-nai.github.io/p/07-15-%E4%BF%A1%E7%A7%91%E5%A4%A7%E4%B8%80%E6%B1%82%E7%94%9F%E6%8C%87%E5%8D%97/</guid>
+        <guid>http://localhost:1313/p/07-15-%E4%BF%A1%E7%A7%91%E5%A4%A7%E4%B8%80%E6%B1%82%E7%94%9F%E6%8C%87%E5%8D%97/</guid>
         <description>&lt;p&gt;🚜可能没有施工&lt;br&gt;
 只是不发一篇文章主页很难看&lt;/p&gt;
 </description>

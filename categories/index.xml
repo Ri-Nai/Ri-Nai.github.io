@@ -2,33 +2,33 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
     <channel>
         <title>Categories on Reina</title>
-        <link>https://ri-nai.github.io/categories/</link>
+        <link>http://localhost:1313/categories/</link>
         <description>Recent content in Categories on Reina</description>
         <generator>Hugo -- gohugo.io</generator>
         <language>zh-cn</language>
         <copyright>Reina</copyright>
-        <lastBuildDate>Fri, 02 Aug 2024 01:52:29 +0800</lastBuildDate><atom:link href="https://ri-nai.github.io/categories/index.xml" rel="self" type="application/rss+xml" /><item>
+        <lastBuildDate>Wed, 07 Aug 2024 18:16:28 +0800</lastBuildDate><atom:link href="http://localhost:1313/categories/index.xml" rel="self" type="application/rss+xml" /><item>
         <title>课余沉思</title>
-        <link>https://ri-nai.github.io/categories/%E8%AF%BE%E4%BD%99%E6%B2%89%E6%80%9D/</link>
+        <link>http://localhost:1313/categories/%E8%AF%BE%E4%BD%99%E6%B2%89%E6%80%9D/</link>
         <pubDate>Mon, 15 Jul 2024 06:00:25 +0800</pubDate>
         
-        <guid>https://ri-nai.github.io/categories/%E8%AF%BE%E4%BD%99%E6%B2%89%E6%80%9D/</guid>
-        <description>&lt;img src="https://ri-nai.github.io/categories/%E8%AF%BE%E4%BD%99%E6%B2%89%E6%80%9D/cover.jpg" alt="Featured image of post 课余沉思" /&gt;</description>
+        <guid>http://localhost:1313/categories/%E8%AF%BE%E4%BD%99%E6%B2%89%E6%80%9D/</guid>
+        <description>&lt;img src="http://localhost:1313/categories/%E8%AF%BE%E4%BD%99%E6%B2%89%E6%80%9D/cover.jpg" alt="Featured image of post 课余沉思" /&gt;</description>
         </item>
         <item>
         <title>生活碎片</title>
-        <link>https://ri-nai.github.io/categories/%E7%94%9F%E6%B4%BB%E7%A2%8E%E7%89%87/</link>
+        <link>http://localhost:1313/categories/%E7%94%9F%E6%B4%BB%E7%A2%8E%E7%89%87/</link>
         <pubDate>Mon, 15 Jul 2024 06:00:25 +0800</pubDate>
         
-        <guid>https://ri-nai.github.io/categories/%E7%94%9F%E6%B4%BB%E7%A2%8E%E7%89%87/</guid>
-        <description>&lt;img src="https://ri-nai.github.io/categories/%E7%94%9F%E6%B4%BB%E7%A2%8E%E7%89%87/cover.jpg" alt="Featured image of post 生活碎片" /&gt;</description>
+        <guid>http://localhost:1313/categories/%E7%94%9F%E6%B4%BB%E7%A2%8E%E7%89%87/</guid>
+        <description>&lt;img src="http://localhost:1313/categories/%E7%94%9F%E6%B4%BB%E7%A2%8E%E7%89%87/cover.jpg" alt="Featured image of post 生活碎片" /&gt;</description>
         </item>
         <item>
         <title>学习笔记</title>
-        <link>https://ri-nai.github.io/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/</link>
+        <link>http://localhost:1313/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/</link>
         <pubDate>Mon, 15 Jul 2024 06:00:25 +0800</pubDate>
         
-        <guid>https://ri-nai.github.io/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/</guid>
+        <guid>http://localhost:1313/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/</guid>
         <description></description>
         </item>
         

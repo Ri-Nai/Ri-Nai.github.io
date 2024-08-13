@@ -1,0 +1,1210 @@
+<!DOCTYPE html>
+<html lang="zh-cn" dir="ltr">
+    <head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script><meta charset='utf-8'>
+<meta name='viewport' content='width=device-width, initial-scale=1'><meta name='description' content="模板（抄自jiangly） struct SAM { static constexpr int ALPHABET_SIZE = 26; struct Node { int len; int link; std::array&lt;int, ALPHABET_SIZE&gt; next; Node() : len{}, link{}, next{} {} }; std::vector&lt;Node&gt; t; SAM() { init(); } SAM(string s) { init(); int p = 1; for (char c : s) p = extend(p, c); } void init() { t.assign(2, Node()); t[0].next.fill(1); t[0].len">
+<title>SAM(后缀自动机)学习笔记</title>
+
+<link rel='canonical' href='http://localhost:1313/p/08-07-sam%E5%90%8E%E7%BC%80%E8%87%AA%E5%8A%A8%E6%9C%BA%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/'>
+
+<link rel="stylesheet" href="/scss/style.min.e40e11caa6b58f7bbe19aec02cdfd49619c4af8802f7b506bf16714a6b624923.css"><meta property='og:title' content="SAM(后缀自动机)学习笔记">
+<meta property='og:description' content="模板（抄自jiangly） struct SAM { static constexpr int ALPHABET_SIZE = 26; struct Node { int len; int link; std::array&lt;int, ALPHABET_SIZE&gt; next; Node() : len{}, link{}, next{} {} }; std::vector&lt;Node&gt; t; SAM() { init(); } SAM(string s) { init(); int p = 1; for (char c : s) p = extend(p, c); } void init() { t.assign(2, Node()); t[0].next.fill(1); t[0].len">
+<meta property='og:url' content='http://localhost:1313/p/08-07-sam%E5%90%8E%E7%BC%80%E8%87%AA%E5%8A%A8%E6%9C%BA%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/'>
+<meta property='og:site_name' content='Reina'>
+<meta property='og:type' content='article'><meta property='article:section' content='Post' /><meta property='article:tag' content='算法竞赛' /><meta property='article:published_time' content='2024-08-07T18:16:28&#43;08:00'/><meta property='article:modified_time' content='2024-08-08T19:41:00&#43;08:00'/>
+<meta name="twitter:title" content="SAM(后缀自动机)学习笔记">
+<meta name="twitter:description" content="模板（抄自jiangly） struct SAM { static constexpr int ALPHABET_SIZE = 26; struct Node { int len; int link; std::array&lt;int, ALPHABET_SIZE&gt; next; Node() : len{}, link{}, next{} {} }; std::vector&lt;Node&gt; t; SAM() { init(); } SAM(string s) { init(); int p = 1; for (char c : s) p = extend(p, c); } void init() { t.assign(2, Node()); t[0].next.fill(1); t[0].len">
+    <link rel="shortcut icon" href="/favicon.ico" />
+
+  
+
+<style>
+    :root {
+        --article-font-family: "Noto Serif SC", var(--base-font-family);
+    }
+</style>
+
+<script>
+		(function () {
+		    const customFont = document.createElement('link');
+		    customFont.href = "https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@400;700&display=swap";
+
+		    customFont.type = "text/css";
+		    customFont.rel = "stylesheet";
+
+		    document.head.appendChild(customFont);
+		}());
+</script>
+<script src="https://cubism.live2d.com/sdk-web/cubismcore/live2dcubismcore.min.js"></script>
+<script src="https://cdn.jsdelivr.net/gh/dylanNew/live2d/webgl/Live2D/lib/live2d.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/pixi.js@6.5.2/dist/browser/pixi.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/pixi-live2d-display/dist/index.min.js"></script>
+
+    </head>
+    <body class="
+    article-page
+    ">
+    <script>
+        (function() {
+            const colorSchemeKey = 'StackColorScheme';
+            if(!localStorage.getItem(colorSchemeKey)){
+                localStorage.setItem(colorSchemeKey, "auto");
+            }
+        })();
+    </script><script>
+    (function() {
+        const colorSchemeKey = 'StackColorScheme';
+        const colorSchemeItem = localStorage.getItem(colorSchemeKey);
+        const supportDarkMode = window.matchMedia('(prefers-color-scheme: dark)').matches === true;
+
+        if (colorSchemeItem == 'dark' || colorSchemeItem === 'auto' && supportDarkMode) {
+            
+
+            document.documentElement.dataset.scheme = 'dark';
+        } else {
+            document.documentElement.dataset.scheme = 'light';
+        }
+    })();
+</script>
+<div class="container main-container flex on-phone--column extended"><aside class="sidebar left-sidebar sticky ">
+    <button class="hamburger hamburger--spin" type="button" id="toggle-menu" aria-label="切换菜单">
+        <span class="hamburger-box">
+            <span class="hamburger-inner"></span>
+        </span>
+    </button>
+
+    <header>
+        
+            
+            <figure class="site-avatar">
+                <a href="/">
+                
+                    
+
+                    
+                        
+                        <img src="/img/avatar_huc190214a3a4edb04e084427cd2fdb258_33728_300x0_resize_q75_box.jpg" width="300"
+                            height="300" class="site-logo" loading="lazy" alt="Avatar">
+                    
+                
+                </a>
+                
+                    <span class="emoji">🥺</span>
+                
+            </figure>
+            
+        
+
+        <div class="site-meta">
+            <h1 class="site-name"><a href="/">Reina</a></h1>
+            <h2 class="site-description">倘若努力的尽头就是奇迹</h2>
+        </div>
+    </header><ol class="menu-social">
+            
+                <li>
+                    <a
+                        href='https://space.bilibili.com/4151993'
+                        target="_blank"
+                        title="Bilibili"
+                        rel="me"
+                    >
+                        
+                        
+                            <svg xmlns="http://www.w3.org/2000/svg" width="128" height="128" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1" d="M3 10a4 4 0 0 1 4-4h10a4 4 0 0 1 4 4v6a4 4 0 0 1-4 4H7a4 4 0 0 1-4-4zm5-7l2 3m6-3l-2 3m-5 7v-2m6 0v2"/></svg>
+
+                        
+                    </a>
+                </li>
+            
+                <li>
+                    <a
+                        href='https://github.com/Ri-Nai'
+                        target="_blank"
+                        title="GitHub"
+                        rel="me"
+                    >
+                        
+                        
+                            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-brand-github" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+  <path d="M9 19c-4.3 1.4 -4.3 -2.5 -6 -3m12 5v-3.5c0 -1 .1 -1.4 -.5 -2c2.8 -.3 5.5 -1.4 5.5 -6a4.6 4.6 0 0 0 -1.3 -3.2a4.2 4.2 0 0 0 -.1 -3.2s-1.1 -.3 -3.5 1.3a12.3 12.3 0 0 0 -6.2 0c-2.4 -1.6 -3.5 -1.3 -3.5 -1.3a4.2 4.2 0 0 0 -.1 3.2a4.6 4.6 0 0 0 -1.3 3.2c0 4.6 2.7 5.7 5.5 6c-.6 .6 -.6 1.2 -.5 2v3.5" />
+</svg>
+
+
+
+                        
+                    </a>
+                </li>
+            
+                <li>
+                    <a
+                        href='https://steamcommunity.com/profiles/76561198401122867/'
+                        target="_blank"
+                        title="Steam"
+                        rel="me"
+                    >
+                        
+                        
+                            <svg xmlns="http://www.w3.org/2000/svg" width="128" height="128" viewBox="0 0 1536 1536"><path fill="currentColor" d="M1242 519q0-80-57-136.5T1048 326t-136.5 57T855 519q0 80 56.5 136.5T1048 712t137-56.5t57-136.5m-610 588q0 83-58 140.5T434 1305q-56 0-103-29t-72-77q52 20 98 40q60 24 120-1.5t85-86.5q24-60-1.5-120T474 947l-82-33q22-5 42-5q82 0 140 57.5t58 140.5m904-819v960q0 119-84.5 203.5T1248 1536H288q-119 0-203.5-84.5T0 1248v-153l172 69q20 92 93.5 152t168.5 60q104 0 181-70t87-173l345-252q150 0 255.5-105.5T1408 521q0-150-105.5-255.5T1047 160q-148 0-253 104.5T687 517L462 839q-9-1-28-1q-75 0-137 37L0 756V288Q0 169 84.5 84.5T288 0h960q119 0 203.5 84.5T1536 288m-247 233q0 100-71 170.5T1047 762t-170.5-70.5T806 521t70.5-171t170.5-71q101 0 171.5 70.5T1289 521"/></svg>
+
+                        
+                    </a>
+                </li>
+            
+        </ol><ol class="menu" id="main-menu">
+        
+        
+        
+        
+        
+
+        
+            
+            
+            
+            
+        
+            
+            
+            
+            
+        
+            
+            
+            
+            
+        
+            
+            
+            
+            
+        
+
+        
+            
+                
+                    
+                
+            
+                
+            
+                
+            
+                
+            
+        
+
+        
+            
+            
+            <li id="home" class="current">
+            <a href='/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-home" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <polyline points="5 12 3 12 12 3 21 12 19 12" />
+  <path d="M5 12v7a2 2 0 0 0 2 2h10a2 2 0 0 0 2 -2v-7" />
+  <path d="M9 21v-6a2 2 0 0 1 2 -2h2a2 2 0 0 1 2 2v6" />
+</svg>
+
+
+
+                
+                <span>Home</span>
+            </a>
+        </li>
+        
+            
+            
+            <li id="about" class="">
+            <a href='/about' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-user" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="12" cy="7" r="4" />
+  <path d="M6 21v-2a4 4 0 0 1 4 -4h4a4 4 0 0 1 4 4v2" />
+</svg>
+
+
+
+                
+                <span>About</span>
+            </a>
+        </li>
+        
+            
+            
+            <li id="search" class="">
+            <a href='/search' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-search" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="10" cy="10" r="7" />
+  <line x1="21" y1="21" x2="15" y2="15" />
+</svg>
+
+
+
+                
+                <span>Search</span>
+            </a>
+        </li>
+        
+            
+            
+            <li id="Archives" class="">
+            <a href='/archives' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-archive" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <rect x="3" y="4" width="18" height="4" rx="2" />
+  <path d="M5 8v10a2 2 0 0 0 2 2h10a2 2 0 0 0 2 -2v-10" />
+  <line x1="10" y1="12" x2="14" y2="12" />
+</svg>
+
+
+
+                
+                <span>Archives</span>
+            </a>
+        </li>
+        
+        <li class="menu-bottom-section">
+            <ol class="menu">
+                    
+                        <li id="i18n-switch">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-language" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+  <path d="M4 5h7" />
+  <path d="M9 3v2c0 4.418 -2.239 8 -5 8" />
+  <path d="M5 9c-.003 2.144 2.952 3.908 6.7 4" />
+  <path d="M12 20l4 -9l4 9" />
+  <path d="M19.1 18h-6.2" />
+</svg>
+
+
+
+                            <select name="language" title="language" onchange="window.location.href = this.selectedOptions[0].value">
+                                
+                                    <option value="http://localhost:1313/en/" >English</option>
+                                
+                                    <option value="http://localhost:1313/" selected>中文</option>
+                                
+                                    <option value="http://localhost:1313/ar/" >عربي</option>
+                                
+                            </select>
+                        </li>
+                    
+                
+
+                
+                    <li id="dark-mode-toggle">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-toggle-left" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="8" cy="12" r="2" />
+  <rect x="2" y="6" width="20" height="12" rx="6" />
+</svg>
+
+
+
+                        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-toggle-right" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="16" cy="12" r="2" />
+  <rect x="2" y="6" width="20" height="12" rx="6" />
+</svg>
+
+
+
+                        <span>暗色模式</span>
+                    </li>
+                
+            </ol>
+        </li>
+    </ol>
+</aside>
+
+    <aside class="sidebar right-sidebar sticky">
+        
+            
+                
+    <section class="widget archives">
+        <div class="widget-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-hash" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <line x1="5" y1="9" x2="19" y2="9" />
+  <line x1="5" y1="15" x2="19" y2="15" />
+  <line x1="11" y1="4" x2="7" y2="20" />
+  <line x1="17" y1="4" x2="13" y2="20" />
+</svg>
+
+
+
+        </div>
+        <h2 class="widget-title section-title">目录</h2>
+        
+        <div class="widget--toc">
+            <nav id="TableOfContents">
+  <ol>
+    <li><a href="#模板抄自jiangly">模板（抄自<strong>jiangly</strong>）</a>
+      <ol>
+        <li><a href="#基本操作">基本操作</a>
+          <ol>
+            <li><a href="#move">move</a></li>
+            <li><a href="#del_head">del_head</a></li>
+            <li><a href="#build_ord">Build_Ord</a></li>
+            <li><a href="#build_edge">Build_Edge</a></li>
+          </ol>
+        </li>
+      </ol>
+    </li>
+    <li><a href="#理解及讲解">理解及讲解</a></li>
+    <li><a href="#例题">例题</a>
+      <ol>
+        <li><a href="#p2408-不同子串的个数httpswwwluogucomcnproblemp2408"><a href="https://www.luogu.com.cn/problem/P2408">P2408 不同子串的个数</a></a></li>
+        <li><a href="#p3804-模板后缀自动机samhttpswwwluogucomcnproblemp3804"><a href="https://www.luogu.com.cn/problem/P3804">P3804 【模板】后缀自动机（SAM）</a></a></li>
+        <li><a href="#两个字符串的lcs最长公共子串httpsacnowcodercomacmproblem237306"><a href="https://ac.nowcoder.com/acm/problem/237306">两个字符串的LCS（最长公共子串）</a></a></li>
+        <li><a href="#p3975-tjoi2015-弦论httpswwwluogucomcnproblemp3975"><a href="https://www.luogu.com.cn/problem/P3975">P3975 [TJOI2015] 弦论</a></a></li>
+        <li><a href="#cf235c-cyclical-questhttpcodeforcescomproblemsetproblem235c"><a href="http://codeforces.com/problemset/problem/235/C">CF235C Cyclical Quest</a></a></li>
+      </ol>
+    </li>
+    <li><a href="#heading"></a></li>
+  </ol>
+</nav>
+        </div>
+    </section>
+
+            
+        
+    </aside>
+
+
+            <main class="main full-width">
+    <article class="main-article">
+    <header class="article-header">
+
+    <div class="article-details">
+    
+    <header class="article-category">
+        
+            <a href="/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/" style="background-color: #27e46f; color: #fff;">
+                学习笔记
+            </a>
+        
+    </header>
+    
+
+    <div class="article-title-wrapper">
+        <h2 class="article-title">
+            <a href="/p/08-07-sam%E5%90%8E%E7%BC%80%E8%87%AA%E5%8A%A8%E6%9C%BA%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/">SAM(后缀自动机)学习笔记</a>
+        </h2>
+
+        
+    </div>
+
+    
+    
+    
+    
+    <footer class="article-time">
+        
+            <div>
+                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-calendar-time" width="56" height="56" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <path d="M11.795 21h-6.795a2 2 0 0 1 -2 -2v-12a2 2 0 0 1 2 -2h12a2 2 0 0 1 2 2v4" />
+  <circle cx="18" cy="18" r="4" />
+  <path d="M15 3v4" />
+  <path d="M7 3v4" />
+  <path d="M3 11h16" />
+  <path d="M18 16.496v1.504l1 1" />
+</svg>
+                <time class="article-time--published">Aug 07, 2024 18:16 CST</time>
+            </div>
+        
+        <div class="word-count">
+            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-file-description" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round" style="--darkreader-inline-stroke: currentColor;" data-darkreader-inline-stroke="">
+  <path stroke="none" d="M0 0h24v24H0z" fill="none" style="--darkreader-inline-stroke: none;" data-darkreader-inline-stroke=""></path>
+  <path d="M14 3v4a1 1 0 0 0 1 1h4"></path>
+  <path d="M17 21h-10a2 2 0 0 1 -2 -2v-14a2 2 0 0 1 2 -2h7l5 5v11a2 2 0 0 1 -2 2z"></path>
+  <path d="M9 17h6"></path>
+  <path d="M9 13h6"></path>
+</svg>
+
+            <p>1849字</p>
+        </div>
+        
+            <div>
+                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-clock" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="12" cy="12" r="9" />
+  <polyline points="12 7 12 12 15 15" />
+</svg>
+
+
+
+                <time class="article-time--reading">
+                    阅读时长: 4 分钟
+                </time>
+            </div>
+        
+    </footer>
+    
+
+    
+</div>
+
+</header>
+
+    <section class="article-content">
+    
+    
+    <h2 id="模板抄自jiangly">模板（抄自<strong>jiangly</strong>）
+</h2><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-cpp" data-lang="cpp"><span style="display:flex;"><span><span style="color:#66d9ef">struct</span> <span style="color:#a6e22e">SAM</span>
+</span></span><span style="display:flex;"><span>{
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">static</span> <span style="color:#66d9ef">constexpr</span> <span style="color:#66d9ef">int</span> ALPHABET_SIZE <span style="color:#f92672">=</span> <span style="color:#ae81ff">26</span>;
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">struct</span> <span style="color:#a6e22e">Node</span>
+</span></span><span style="display:flex;"><span>    {
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">int</span> len;
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">int</span> link;
+</span></span><span style="display:flex;"><span>        std<span style="color:#f92672">::</span>array<span style="color:#f92672">&lt;</span><span style="color:#66d9ef">int</span>, ALPHABET_SIZE<span style="color:#f92672">&gt;</span> next;
+</span></span><span style="display:flex;"><span>        Node() <span style="color:#f92672">:</span> len{}, link{}, next{} {}
+</span></span><span style="display:flex;"><span>    };
+</span></span><span style="display:flex;"><span>    std<span style="color:#f92672">::</span>vector<span style="color:#f92672">&lt;</span>Node<span style="color:#f92672">&gt;</span> t;
+</span></span><span style="display:flex;"><span>    SAM()
+</span></span><span style="display:flex;"><span>    {
+</span></span><span style="display:flex;"><span>        init();
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>    SAM(string s)
+</span></span><span style="display:flex;"><span>    {
+</span></span><span style="display:flex;"><span>        init();
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">int</span> p <span style="color:#f92672">=</span> <span style="color:#ae81ff">1</span>;
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">for</span> (<span style="color:#66d9ef">char</span> c : s)
+</span></span><span style="display:flex;"><span>            p <span style="color:#f92672">=</span> extend(p, c);
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">init</span>()
+</span></span><span style="display:flex;"><span>    {
+</span></span><span style="display:flex;"><span>        t.assign(<span style="color:#ae81ff">2</span>, Node());
+</span></span><span style="display:flex;"><span>        t[<span style="color:#ae81ff">0</span>].next.fill(<span style="color:#ae81ff">1</span>);
+</span></span><span style="display:flex;"><span>        t[<span style="color:#ae81ff">0</span>].len <span style="color:#f92672">=</span> <span style="color:#f92672">-</span><span style="color:#ae81ff">1</span>;
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">int</span> <span style="color:#a6e22e">newNode</span>()
+</span></span><span style="display:flex;"><span>    {
+</span></span><span style="display:flex;"><span>        t.emplace_back();
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">return</span> t.size() <span style="color:#f92672">-</span> <span style="color:#ae81ff">1</span>;
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">int</span> <span style="color:#a6e22e">extend</span>(<span style="color:#66d9ef">int</span> p, <span style="color:#66d9ef">int</span> c)
+</span></span><span style="display:flex;"><span>    {
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">if</span> (t[p].next[c])
+</span></span><span style="display:flex;"><span>        {
+</span></span><span style="display:flex;"><span>            <span style="color:#66d9ef">int</span> q <span style="color:#f92672">=</span> t[p].next[c];
+</span></span><span style="display:flex;"><span>            <span style="color:#66d9ef">if</span> (t[q].len <span style="color:#f92672">==</span> t[p].len <span style="color:#f92672">+</span> <span style="color:#ae81ff">1</span>)
+</span></span><span style="display:flex;"><span>            {
+</span></span><span style="display:flex;"><span>                <span style="color:#66d9ef">return</span> q;
+</span></span><span style="display:flex;"><span>            }
+</span></span><span style="display:flex;"><span>            <span style="color:#66d9ef">int</span> r <span style="color:#f92672">=</span> newNode();
+</span></span><span style="display:flex;"><span>            t[r].len <span style="color:#f92672">=</span> t[p].len <span style="color:#f92672">+</span> <span style="color:#ae81ff">1</span>;
+</span></span><span style="display:flex;"><span>            t[r].link <span style="color:#f92672">=</span> t[q].link;
+</span></span><span style="display:flex;"><span>            t[r].next <span style="color:#f92672">=</span> t[q].next;
+</span></span><span style="display:flex;"><span>            t[q].link <span style="color:#f92672">=</span> r;
+</span></span><span style="display:flex;"><span>            <span style="color:#66d9ef">while</span> (t[p].next[c] <span style="color:#f92672">==</span> q)
+</span></span><span style="display:flex;"><span>            {
+</span></span><span style="display:flex;"><span>                t[p].next[c] <span style="color:#f92672">=</span> r;
+</span></span><span style="display:flex;"><span>                p <span style="color:#f92672">=</span> t[p].link;
+</span></span><span style="display:flex;"><span>            }
+</span></span><span style="display:flex;"><span>            <span style="color:#66d9ef">return</span> r;
+</span></span><span style="display:flex;"><span>        }
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">int</span> cur <span style="color:#f92672">=</span> newNode();
+</span></span><span style="display:flex;"><span>        t[cur].len <span style="color:#f92672">=</span> t[p].len <span style="color:#f92672">+</span> <span style="color:#ae81ff">1</span>;
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">while</span> (<span style="color:#f92672">!</span>t[p].next[c])
+</span></span><span style="display:flex;"><span>        {
+</span></span><span style="display:flex;"><span>            t[p].next[c] <span style="color:#f92672">=</span> cur;
+</span></span><span style="display:flex;"><span>            p <span style="color:#f92672">=</span> t[p].link;
+</span></span><span style="display:flex;"><span>        }
+</span></span><span style="display:flex;"><span>        t[cur].link <span style="color:#f92672">=</span> extend(p, c);
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">return</span> cur;
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">int</span> <span style="color:#a6e22e">extend</span>(<span style="color:#66d9ef">int</span> p, <span style="color:#66d9ef">char</span> c, <span style="color:#66d9ef">char</span> offset <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;a&#39;</span>)
+</span></span><span style="display:flex;"><span>    {
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">return</span> extend(p, c <span style="color:#f92672">-</span> offset);
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">int</span> <span style="color:#a6e22e">next</span>(<span style="color:#66d9ef">int</span> p, <span style="color:#66d9ef">int</span> x)
+</span></span><span style="display:flex;"><span>    {
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">return</span> t[p].next[x];
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">int</span> <span style="color:#a6e22e">next</span>(<span style="color:#66d9ef">int</span> p, <span style="color:#66d9ef">char</span> c, <span style="color:#66d9ef">char</span> offset <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;a&#39;</span>)
+</span></span><span style="display:flex;"><span>    {
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">return</span> next(p, c <span style="color:#f92672">-</span> <span style="color:#e6db74">&#39;a&#39;</span>);
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">int</span> <span style="color:#a6e22e">link</span>(<span style="color:#66d9ef">int</span> p)
+</span></span><span style="display:flex;"><span>    {
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">return</span> t[p].link;
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">int</span> <span style="color:#a6e22e">len</span>(<span style="color:#66d9ef">int</span> p)
+</span></span><span style="display:flex;"><span>    {
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">return</span> t[p].len;
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">int</span> <span style="color:#a6e22e">size</span>()
+</span></span><span style="display:flex;"><span>    {
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">return</span> t.size();
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>};
+</span></span></code></pre></div><h3 id="基本操作">基本操作
+</h3><h4 id="move">move
+</h4><p>用于直接用于子串匹配，跟着后缀自动机的节点走，失配就回到<code>link</code>结点，并且重置已匹配的最大长度</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-cpp" data-lang="cpp"><span style="display:flex;"><span><span style="color:#66d9ef">void</span> <span style="color:#a6e22e">move</span>(<span style="color:#66d9ef">int</span> <span style="color:#f92672">&amp;</span>p, <span style="color:#66d9ef">int</span> <span style="color:#f92672">&amp;</span>l, <span style="color:#66d9ef">char</span> c)
+</span></span><span style="display:flex;"><span>{
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">while</span> (<span style="color:#f92672">!</span>next(p, c))
+</span></span><span style="display:flex;"><span>        l <span style="color:#f92672">=</span> len(p <span style="color:#f92672">=</span> link(p));
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">++</span>l;
+</span></span><span style="display:flex;"><span>    p <span style="color:#f92672">=</span> next(p, c);
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><h4 id="del_head">del_head
+</h4><p>用于删除头节点，在限制匹配长度的时候使用</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-cpp" data-lang="cpp"><span style="display:flex;"><span><span style="color:#66d9ef">void</span> <span style="color:#a6e22e">del_head</span>(<span style="color:#66d9ef">int</span> <span style="color:#f92672">&amp;</span>p, <span style="color:#66d9ef">int</span> <span style="color:#f92672">&amp;</span>l, <span style="color:#66d9ef">int</span> limit)
+</span></span><span style="display:flex;"><span>{
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">if</span> (l <span style="color:#f92672">&gt;</span> limit <span style="color:#f92672">&amp;&amp;</span> <span style="color:#f92672">--</span>l <span style="color:#f92672">==</span> len(link(p)))
+</span></span><span style="display:flex;"><span>        p <span style="color:#f92672">=</span> link(p);
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><h4 id="build_ord">Build_Ord
+</h4><p>用于建立拓扑序，显然拓扑序在后面的最大后缀长度肯定大</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-cpp" data-lang="cpp"><span style="display:flex;"><span><span style="color:#66d9ef">void</span> <span style="color:#a6e22e">Build_Ord</span>()
+</span></span><span style="display:flex;"><span>{
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">int</span> m <span style="color:#f92672">=</span> size();
+</span></span><span style="display:flex;"><span>    vector<span style="color:#f92672">&lt;</span><span style="color:#66d9ef">int</span><span style="color:#f92672">&gt;</span> cnt(n <span style="color:#f92672">+</span> <span style="color:#ae81ff">1</span>);
+</span></span><span style="display:flex;"><span>    ord.resize(m);
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">for</span> (<span style="color:#66d9ef">int</span> i <span style="color:#f92672">=</span> <span style="color:#ae81ff">1</span>; i <span style="color:#f92672">&lt;</span> m; <span style="color:#f92672">++</span>i)
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">++</span>cnt[t[i].len];
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">for</span> (<span style="color:#66d9ef">int</span> i <span style="color:#f92672">=</span> <span style="color:#ae81ff">1</span>; i <span style="color:#f92672">&lt;=</span> n; <span style="color:#f92672">++</span>i)
+</span></span><span style="display:flex;"><span>        cnt[i] <span style="color:#f92672">+=</span> cnt[i <span style="color:#f92672">-</span> <span style="color:#ae81ff">1</span>];
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">for</span> (<span style="color:#66d9ef">int</span> i <span style="color:#f92672">=</span> <span style="color:#ae81ff">1</span>; i <span style="color:#f92672">&lt;</span> m; <span style="color:#f92672">++</span>i)
+</span></span><span style="display:flex;"><span>        ord[cnt[t[i].len]<span style="color:#f92672">--</span>] <span style="color:#f92672">=</span> i;
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">for</span> (<span style="color:#66d9ef">int</span> i <span style="color:#f92672">=</span> m <span style="color:#f92672">-</span> <span style="color:#ae81ff">1</span>; i <span style="color:#f92672">&gt;=</span> <span style="color:#ae81ff">1</span>; <span style="color:#f92672">--</span>i)
+</span></span><span style="display:flex;"><span>    {
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">int</span> p <span style="color:#f92672">=</span> ord[i];
+</span></span><span style="display:flex;"><span>        t[t[p].link].sz <span style="color:#f92672">+=</span> t[p].sz;
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><h4 id="build_edge">Build_Edge
+</h4><p>建边，用于更直观的dfs遍历后缀树</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-cpp" data-lang="cpp"><span style="display:flex;"><span><span style="color:#66d9ef">void</span> <span style="color:#a6e22e">Build_Edge</span>()
+</span></span><span style="display:flex;"><span>{
+</span></span><span style="display:flex;"><span>    E.resize(size());
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">for</span> (<span style="color:#66d9ef">int</span> i <span style="color:#f92672">=</span> <span style="color:#ae81ff">2</span>; i <span style="color:#f92672">&lt;</span> size(); <span style="color:#f92672">++</span>i)
+</span></span><span style="display:flex;"><span>        E[t[i].link].push_back(i);
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><h2 id="理解及讲解">理解及讲解
+</h2><p>待更新</p>
+<h2 id="例题">例题
+</h2><h3 id="p2408-不同子串的个数httpswwwluogucomcnproblemp2408"><a class="link" href="https://www.luogu.com.cn/problem/P2408"  target="_blank" rel="noopener"
+    >P2408 不同子串的个数</a>
+</h3><p>在插入的过程中加入一段就可以了，最后直接输出ans<br>
+后缀树上每个点都代表等价类的子串的数量，<code>len - link.len</code>就是这段的包含的子串的数量，不会重复计算</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-cpp" data-lang="cpp"><span style="display:flex;"><span>SAM(string s)
+</span></span><span style="display:flex;"><span>{
+</span></span><span style="display:flex;"><span>    init();
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">int</span> p <span style="color:#f92672">=</span> <span style="color:#ae81ff">1</span>;
+</span></span><span style="display:flex;"><span>    ans <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>;
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">for</span> (<span style="color:#66d9ef">char</span> c : s)
+</span></span><span style="display:flex;"><span>    {
+</span></span><span style="display:flex;"><span>        p <span style="color:#f92672">=</span> extend(p, c);
+</span></span><span style="display:flex;"><span>        ans <span style="color:#f92672">+=</span> t[p].len <span style="color:#f92672">-</span> t[t[p].link].len;
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><h3 id="p3804-模板后缀自动机samhttpswwwluogucomcnproblemp3804"><a class="link" href="https://www.luogu.com.cn/problem/P3804"  target="_blank" rel="noopener"
+    >P3804 【模板】后缀自动机（SAM）</a>
+</h3><p>引入一个sz数组，表示这个等价类里有多少个endpos<br>
+这个sz的初始化是直接根据字符串原先的前缀赋值的<br>
+如果他是一个前缀，那他必定包含一个新的endpos，而不能直接按照常规的dfs一样给叶子结点赋值为1</p>
+<p>这题要求求出$len \times cnt$的最大值，直接在dfs里做就好了</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-cpp" data-lang="cpp"><span style="display:flex;"><span>string s;
+</span></span><span style="display:flex;"><span>cin <span style="color:#f92672">&gt;&gt;</span> s;
+</span></span><span style="display:flex;"><span>SAM <span style="color:#a6e22e">S</span>(s);
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">int</span> n <span style="color:#f92672">=</span> s.size();
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">int</span> m <span style="color:#f92672">=</span> S.size();
+</span></span><span style="display:flex;"><span>vector<span style="color:#f92672">&lt;</span>vector<span style="color:#f92672">&lt;</span><span style="color:#66d9ef">int</span><span style="color:#f92672">&gt;&gt;</span> E(m <span style="color:#f92672">+</span> <span style="color:#ae81ff">1</span>);
+</span></span><span style="display:flex;"><span>vector<span style="color:#f92672">&lt;</span><span style="color:#66d9ef">int</span><span style="color:#f92672">&gt;</span> sz(m <span style="color:#f92672">+</span> <span style="color:#ae81ff">1</span>);
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">for</span> (<span style="color:#66d9ef">int</span> i <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>, p <span style="color:#f92672">=</span> <span style="color:#ae81ff">1</span>; i <span style="color:#f92672">&lt;</span> n; <span style="color:#f92672">++</span>i)
+</span></span><span style="display:flex;"><span>    sz[p <span style="color:#f92672">=</span> S.next(p, s[i])] <span style="color:#f92672">=</span> <span style="color:#ae81ff">1</span>;
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">for</span> (<span style="color:#66d9ef">int</span> i <span style="color:#f92672">=</span> <span style="color:#ae81ff">2</span>; i <span style="color:#f92672">&lt;</span> m; <span style="color:#f92672">++</span>i)
+</span></span><span style="display:flex;"><span>    E[S.t[i].link].push_back(i);
+</span></span><span style="display:flex;"><span>ll ans <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>;
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">auto</span> dfs <span style="color:#f92672">=</span> [<span style="color:#f92672">&amp;</span>](<span style="color:#66d9ef">auto</span> self, <span style="color:#66d9ef">int</span> u) <span style="color:#f92672">-&gt;</span> <span style="color:#66d9ef">void</span>
+</span></span><span style="display:flex;"><span>{
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">for</span> (<span style="color:#66d9ef">int</span> v : E[u])
+</span></span><span style="display:flex;"><span>    {
+</span></span><span style="display:flex;"><span>        self(self, v);
+</span></span><span style="display:flex;"><span>        sz[u] <span style="color:#f92672">+=</span> sz[v];
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">if</span> (sz[u] <span style="color:#f92672">&gt;</span> <span style="color:#ae81ff">1</span>)
+</span></span><span style="display:flex;"><span>        ans <span style="color:#f92672">=</span> max(ans, <span style="color:#ae81ff">1ll</span> <span style="color:#f92672">*</span> sz[u] <span style="color:#f92672">*</span> S.t[u].len);
+</span></span><span style="display:flex;"><span>};
+</span></span><span style="display:flex;"><span>dfs(dfs, <span style="color:#ae81ff">1</span>);
+</span></span><span style="display:flex;"><span>cout <span style="color:#f92672">&lt;&lt;</span> ans <span style="color:#f92672">&lt;&lt;</span> <span style="color:#e6db74">&#39;\n&#39;</span>;
+</span></span></code></pre></div><h3 id="两个字符串的lcs最长公共子串httpsacnowcodercomacmproblem237306"><a class="link" href="https://ac.nowcoder.com/acm/problem/237306"  target="_blank" rel="noopener"
+    >两个字符串的LCS（最长公共子串）</a>
+</h3><p>其实是想做多个字符串的LCS的，但是交在洛谷上UE了🤗<br>
+首先先是拿一个最小的字符串来建SAM，然后每个字符串去跑匹配，匹配不到就去link结点（就像AC自动机一样），并且重置当前的长度<br>
+我们要对每个endpos的答案求最小值的最大值<br>
+注意到我们每次求出的答案是在一个等价类上得到的，所以需要传递给它的link结点，这里写懒了直接dfs了（常数领域大神）</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-cpp" data-lang="cpp"><span style="display:flex;"><span><span style="color:#66d9ef">void</span> <span style="color:#a6e22e">Build_Tree</span>()
+</span></span><span style="display:flex;"><span>{
+</span></span><span style="display:flex;"><span>    E.resize(size());
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">for</span> (<span style="color:#66d9ef">int</span> i <span style="color:#f92672">=</span> <span style="color:#ae81ff">2</span>; i <span style="color:#f92672">&lt;</span> size(); <span style="color:#f92672">++</span>i)
+</span></span><span style="display:flex;"><span>        E[t[i].link].push_back(i);
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">void</span> <span style="color:#a6e22e">modify</span>(string s)
+</span></span><span style="display:flex;"><span>{
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">int</span> p <span style="color:#f92672">=</span> <span style="color:#ae81ff">1</span>, l <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>;
+</span></span><span style="display:flex;"><span>    vector<span style="color:#f92672">&lt;</span><span style="color:#66d9ef">int</span><span style="color:#f92672">&gt;</span> mx(size());
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">for</span> (<span style="color:#66d9ef">char</span> c : s)
+</span></span><span style="display:flex;"><span>    {
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">while</span> (<span style="color:#f92672">!</span>next(p, c))
+</span></span><span style="display:flex;"><span>            p <span style="color:#f92672">=</span> link(p), l <span style="color:#f92672">=</span> len(p);
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">int</span> q <span style="color:#f92672">=</span> next(p, c);
+</span></span><span style="display:flex;"><span>        mx[q] <span style="color:#f92672">=</span> max(mx[q], <span style="color:#f92672">++</span>l);
+</span></span><span style="display:flex;"><span>        p <span style="color:#f92672">=</span> q;
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">auto</span> dfs <span style="color:#f92672">=</span> [<span style="color:#f92672">&amp;</span>](<span style="color:#66d9ef">auto</span> self, <span style="color:#66d9ef">int</span> u) <span style="color:#f92672">-&gt;</span> <span style="color:#66d9ef">void</span>
+</span></span><span style="display:flex;"><span>    {
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">for</span> (<span style="color:#66d9ef">int</span> v : E[u])
+</span></span><span style="display:flex;"><span>            self(self, v), mx[u] <span style="color:#f92672">=</span> max(mx[u], mx[v]);
+</span></span><span style="display:flex;"><span>        t[u].res <span style="color:#f92672">=</span> min(t[u].res, mx[u]);
+</span></span><span style="display:flex;"><span>    };
+</span></span><span style="display:flex;"><span>    dfs(dfs, <span style="color:#ae81ff">1</span>);
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">int</span> <span style="color:#a6e22e">get_res</span>()
+</span></span><span style="display:flex;"><span>{
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">int</span> res <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>;
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">for</span> (<span style="color:#66d9ef">int</span> i <span style="color:#f92672">=</span> <span style="color:#ae81ff">1</span>; i <span style="color:#f92672">&lt;</span> size(); <span style="color:#f92672">++</span>i)
+</span></span><span style="display:flex;"><span>        res <span style="color:#f92672">=</span> max(res, t[i].res);
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">return</span> res;
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">void</span> <span style="color:#a6e22e">solve</span>()
+</span></span><span style="display:flex;"><span>{
+</span></span><span style="display:flex;"><span>    vector<span style="color:#f92672">&lt;</span>string<span style="color:#f92672">&gt;</span> S;
+</span></span><span style="display:flex;"><span>    string tmp;
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">while</span> (cin <span style="color:#f92672">&gt;&gt;</span> tmp)
+</span></span><span style="display:flex;"><span>        S.push_back(tmp);
+</span></span><span style="display:flex;"><span>    sort(S.begin(), S.end(),
+</span></span><span style="display:flex;"><span>            [<span style="color:#f92672">&amp;</span>](string s1, string s2)
+</span></span><span style="display:flex;"><span>            {
+</span></span><span style="display:flex;"><span>                <span style="color:#66d9ef">return</span> s1.size() <span style="color:#f92672">&lt;</span> s2.size();
+</span></span><span style="display:flex;"><span>            });
+</span></span><span style="display:flex;"><span>    SAM str(S[<span style="color:#ae81ff">0</span>]);
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">for</span> (<span style="color:#66d9ef">int</span> i <span style="color:#f92672">=</span> <span style="color:#ae81ff">1</span>; i <span style="color:#f92672">&lt;</span> S.size(); <span style="color:#f92672">++</span>i)
+</span></span><span style="display:flex;"><span>        str.modify(S[i]);
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">int</span> ans <span style="color:#f92672">=</span> str.get_res();
+</span></span><span style="display:flex;"><span>    cout <span style="color:#f92672">&lt;&lt;</span> ans <span style="color:#f92672">&lt;&lt;</span> <span style="color:#e6db74">&#39;\n&#39;</span>;
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><h3 id="p3975-tjoi2015-弦论httpswwwluogucomcnproblemp3975"><a class="link" href="https://www.luogu.com.cn/problem/P3975"  target="_blank" rel="noopener"
+    >P3975 [TJOI2015] 弦论</a>
+</h3><p>这题要求求第k大的子串，由于从根节点开始，每个结点就直接指向了一个子串<br>
+我们这个遍历的路径就实际相当于线段树上二分<br>
+如果<code>t = 0</code>的话就是给每个点的sz设置成1，否则就为sz<br>
+然后我们应该开一个新的dp数组用来存这个结点下面有多少个子串，可以拓扑排序，也可以dfs<br>
+细节比较多，譬如根节点不应该有sz，然后最后那里的的<code>while (k &gt; 0)</code>不能直接写成<code>while (k)</code>， 否则因为<code>k &lt;= num</code>，有可能sz会直接把<code>k</code>减到0</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-cpp" data-lang="cpp"><span style="display:flex;"><span><span style="color:#66d9ef">void</span> <span style="color:#a6e22e">work</span>(<span style="color:#66d9ef">int</span> k)
+</span></span><span style="display:flex;"><span>{
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">int</span> m <span style="color:#f92672">=</span> size();
+</span></span><span style="display:flex;"><span>    vector<span style="color:#f92672">&lt;</span>ll<span style="color:#f92672">&gt;</span> num(m);
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">for</span> (<span style="color:#66d9ef">int</span> i <span style="color:#f92672">=</span> m <span style="color:#f92672">-</span> <span style="color:#ae81ff">1</span>; i <span style="color:#f92672">&gt;=</span> <span style="color:#ae81ff">1</span>; <span style="color:#f92672">--</span>i)
+</span></span><span style="display:flex;"><span>    {
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">int</span> p <span style="color:#f92672">=</span> ord[i];
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">if</span> (p <span style="color:#f92672">!=</span> <span style="color:#ae81ff">1</span>)
+</span></span><span style="display:flex;"><span>            num[p] <span style="color:#f92672">=</span> t[p].sz;
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">for</span> (<span style="color:#66d9ef">int</span> j <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>; j <span style="color:#f92672">&lt;</span> <span style="color:#ae81ff">26</span>; <span style="color:#f92672">++</span>j)
+</span></span><span style="display:flex;"><span>        {
+</span></span><span style="display:flex;"><span>            <span style="color:#66d9ef">int</span> q <span style="color:#f92672">=</span> next(p, j);
+</span></span><span style="display:flex;"><span>            <span style="color:#66d9ef">if</span> (q)
+</span></span><span style="display:flex;"><span>                num[p] <span style="color:#f92672">+=</span> num[q];
+</span></span><span style="display:flex;"><span>        }
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">if</span> (num[<span style="color:#ae81ff">1</span>] <span style="color:#f92672">&lt;</span> k)
+</span></span><span style="display:flex;"><span>        End(<span style="color:#f92672">-</span><span style="color:#ae81ff">1</span>);
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">int</span> now <span style="color:#f92672">=</span> <span style="color:#ae81ff">1</span>;
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">while</span> (k <span style="color:#f92672">&gt;</span> <span style="color:#ae81ff">0</span>)
+</span></span><span style="display:flex;"><span>    {
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">for</span> (<span style="color:#66d9ef">int</span> i <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>; i <span style="color:#f92672">&lt;</span> <span style="color:#ae81ff">26</span>; <span style="color:#f92672">++</span>i)
+</span></span><span style="display:flex;"><span>        {
+</span></span><span style="display:flex;"><span>            <span style="color:#66d9ef">int</span> nxt <span style="color:#f92672">=</span> next(now, i);
+</span></span><span style="display:flex;"><span>            <span style="color:#66d9ef">if</span> (k <span style="color:#f92672">&lt;=</span> num[nxt])
+</span></span><span style="display:flex;"><span>            {
+</span></span><span style="display:flex;"><span>                putchar(i <span style="color:#f92672">+</span> <span style="color:#e6db74">&#39;a&#39;</span>);
+</span></span><span style="display:flex;"><span>                now <span style="color:#f92672">=</span> nxt;
+</span></span><span style="display:flex;"><span>                k <span style="color:#f92672">-=</span> t[nxt].sz;
+</span></span><span style="display:flex;"><span>                <span style="color:#66d9ef">break</span>;
+</span></span><span style="display:flex;"><span>            }
+</span></span><span style="display:flex;"><span>            k <span style="color:#f92672">-=</span> num[next(now, i)];
+</span></span><span style="display:flex;"><span>        }
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">void</span> <span style="color:#a6e22e">solve</span>()
+</span></span><span style="display:flex;"><span>{
+</span></span><span style="display:flex;"><span>    string s;
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">int</span> t, k;
+</span></span><span style="display:flex;"><span>    cin <span style="color:#f92672">&gt;&gt;</span> s;
+</span></span><span style="display:flex;"><span>    cin <span style="color:#f92672">&gt;&gt;</span> t <span style="color:#f92672">&gt;&gt;</span> k;
+</span></span><span style="display:flex;"><span>    SAM S(s);
+</span></span><span style="display:flex;"><span>    S.Build_ord(t);
+</span></span><span style="display:flex;"><span>    S.work(k);
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><h3 id="cf235c-cyclical-questhttpcodeforcescomproblemsetproblem235c"><a class="link" href="http://codeforces.com/problemset/problem/235/C"  target="_blank" rel="noopener"
+    >CF235C Cyclical Quest</a>
+</h3><p>题目大意是求出主串内有多少个子串是存在于给出的多个循环同构子串的<br>
+这nm不是，前几天杭电多校吗，下次请标明出处<br>
+<del>但是我修改了代码去交杭电多校MLE了，逆天</del><br>
+这题还是加强挺多的了感觉，因为有多次询问，hash显得不大现实，然后SA也显得比较难操作<br>
+这里用SAM就好了<br></p>
+<p>使用上面给出的删除头节点的操作，我们就可以限制当前匹配串的长度<br>
+然后统计答案的时候，只需要标记一下vis就可以了<br></p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-cpp" data-lang="cpp"><span style="display:flex;"><span>string s;
+</span></span><span style="display:flex;"><span>cin <span style="color:#f92672">&gt;&gt;</span> s;
+</span></span><span style="display:flex;"><span>SAM <span style="color:#a6e22e">S</span>(s);
+</span></span><span style="display:flex;"><span>S.Build_ord();
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">int</span> q;
+</span></span><span style="display:flex;"><span>cin <span style="color:#f92672">&gt;&gt;</span> q;
+</span></span><span style="display:flex;"><span>vector<span style="color:#f92672">&lt;</span><span style="color:#66d9ef">int</span><span style="color:#f92672">&gt;</span> vis(S.size());
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">for</span> (<span style="color:#66d9ef">int</span> Q <span style="color:#f92672">=</span> <span style="color:#ae81ff">1</span>; Q <span style="color:#f92672">&lt;=</span> q; <span style="color:#f92672">++</span>Q)
+</span></span><span style="display:flex;"><span>{
+</span></span><span style="display:flex;"><span>    string t;
+</span></span><span style="display:flex;"><span>    cin <span style="color:#f92672">&gt;&gt;</span> t;
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">int</span> p <span style="color:#f92672">=</span> <span style="color:#ae81ff">1</span>, l <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>;
+</span></span><span style="display:flex;"><span>    ll ans <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>;
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">for</span> (<span style="color:#66d9ef">int</span> i <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>; i <span style="color:#f92672">&lt;</span> t.size(); <span style="color:#f92672">++</span>i)
+</span></span><span style="display:flex;"><span>    {
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">while</span> (<span style="color:#f92672">!</span>S.next(p, t[i]))
+</span></span><span style="display:flex;"><span>            p <span style="color:#f92672">=</span> S.link(p), l <span style="color:#f92672">=</span> S.len(p);
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">++</span>l;
+</span></span><span style="display:flex;"><span>        p <span style="color:#f92672">=</span> S.next(p, t[i]);
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">for</span> (<span style="color:#66d9ef">int</span> i <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>; i <span style="color:#f92672">&lt;</span> t.size(); <span style="color:#f92672">++</span>i)
+</span></span><span style="display:flex;"><span>    {
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">if</span> (l <span style="color:#f92672">&gt;=</span> t.size())
+</span></span><span style="display:flex;"><span>        {
+</span></span><span style="display:flex;"><span>            <span style="color:#f92672">--</span>l;
+</span></span><span style="display:flex;"><span>            <span style="color:#66d9ef">if</span> (l <span style="color:#f92672">==</span> S.len(S.link(p)))
+</span></span><span style="display:flex;"><span>                p <span style="color:#f92672">=</span> S.link(p);
+</span></span><span style="display:flex;"><span>        }
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">while</span> (<span style="color:#f92672">!</span>S.next(p, t[i]))
+</span></span><span style="display:flex;"><span>            p <span style="color:#f92672">=</span> S.link(p), l <span style="color:#f92672">=</span> S.len(p);
+</span></span><span style="display:flex;"><span>        p <span style="color:#f92672">=</span> S.next(p, t[i]);
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">++</span>l;
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">if</span> (vis[p] <span style="color:#f92672">&lt;</span> Q <span style="color:#f92672">&amp;&amp;</span> l <span style="color:#f92672">==</span> t.size())
+</span></span><span style="display:flex;"><span>        {
+</span></span><span style="display:flex;"><span>            vis[p] <span style="color:#f92672">=</span> Q;
+</span></span><span style="display:flex;"><span>            ans <span style="color:#f92672">+=</span> S.t[p].sz;
+</span></span><span style="display:flex;"><span>        }
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>    cout <span style="color:#f92672">&lt;&lt;</span> ans <span style="color:#f92672">&lt;&lt;</span> <span style="color:#e6db74">&#39;\n&#39;</span>;
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><p>由于这个题我才想起来要把move写到我的模板里<br></p>
+<h2 id="heading">
+</h2>
+</section>
+
+
+    <footer class="article-footer">
+    
+    <section class="article-tags">
+        
+            <a href="/tags/%E7%AE%97%E6%B3%95%E7%AB%9E%E8%B5%9B/">算法竞赛</a>
+        
+    </section>
+
+
+    
+    <section class="article-copyright">
+        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-copyright" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="12" cy="12" r="9" />
+  <path d="M14.5 9a3.5 4 0 1 0 0 6" />
+</svg>
+
+
+
+        <span>Licensed under CC BY-NC-SA 4.0</span>
+    </section>
+    <section class="article-lastmod">
+        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-clock" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="12" cy="12" r="9" />
+  <polyline points="12 7 12 12 15 15" />
+</svg>
+
+
+
+        <span>
+            最后更新于 Aug 08, 2024 19:41 CST
+        </span>
+    </section></footer>
+
+
+    
+        <link 
+                rel="stylesheet" 
+                href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css"integrity="sha384-n8MVd4RsNIU0tAv4ct0nTaAbDJwPJzDEaqSD1odI&#43;WdtXRGWt2kTvGFasHpSy3SV"crossorigin="anonymous"
+            ><script 
+                src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js"integrity="sha384-XjKyOOlGwcjNTAIQHIpgOno0Hl1YQqzUOEleOLALmuqehneUG&#43;vnGctmUb0ZY0l8"crossorigin="anonymous"
+                defer
+                >
+            </script><script 
+                src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js"integrity="sha384-&#43;VBxd3r6XgURycqtZ117nYw44OOcIax56Z4dCRWbxyPt0Koah1uHoK0o4&#43;/RRE05"crossorigin="anonymous"
+                defer
+                >
+            </script><script>
+    window.addEventListener("DOMContentLoaded", () => {
+        renderMathInElement(document.body, {
+            delimiters: [
+                { left: "$$", right: "$$", display: true },
+                { left: "$", right: "$", display: false },
+                { left: "\\(", right: "\\)", display: false },
+                { left: "\\[", right: "\\]", display: true }
+            ],
+            ignoredClasses: ["gist"]
+        });})
+</script>
+    
+</article>
+
+
+    
+
+    
+
+<aside class="related-content--wrapper">
+    <h2 class="section-title">相关文章</h2>
+    <div class="related-content">
+        <div class="flex article-list--tile">
+            
+                
+<article class="has-image">
+    <a href="/p/07-20-2024%E6%9D%AD%E7%94%B5%E5%A4%9A%E6%A0%A1%E7%AC%AC%E4%B8%80%E5%9C%BA/">
+        
+        
+            <div class="article-image">
+                <img src="/p/07-20-2024%E6%9D%AD%E7%94%B5%E5%A4%9A%E6%A0%A1%E7%AC%AC%E4%B8%80%E5%9C%BA/cover.c7d85c7c14f00dde9edeba1bfd1a6626_hu3d7cb6d3be57db5c0c33b5376683c59c_150641_250x150_fill_box_smart1_3.png" 
+                        width="250" 
+                        height="150" 
+                        loading="lazy"
+                        alt="Featured image of post 2024杭电多校第一场"
+                        data-key="07 20 2024杭电多校第一场" 
+                        data-hash="md5-x9hcfBTwDd6e3rob/RpmJg==">
+                
+            </div>
+        
+
+        <div class="article-details">
+            <h2 class="article-title">2024杭电多校第一场</h2>
+        </div>
+    </a>
+</article>
+
+            
+                
+<article class="">
+    <a href="/p/07-19-sa%E5%90%8E%E7%BC%80%E6%95%B0%E7%BB%84%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/">
+        
+        
+
+        <div class="article-details">
+            <h2 class="article-title">SA(后缀数组)学习笔记</h2>
+        </div>
+    </a>
+</article>
+
+            
+                
+<article class="">
+    <a href="/p/07-15-%E4%BF%A1%E7%A7%91%E5%A4%A7%E4%B8%80%E6%B1%82%E7%94%9F%E6%8C%87%E5%8D%97/">
+        
+        
+
+        <div class="article-details">
+            <h2 class="article-title">信科大一求生指南</h2>
+        </div>
+    </a>
+</article>
+
+            
+        </div>
+    </div>
+</aside>
+
+
+    
+        <script src="https://giscus.app/client.js"
+        data-repo="Ri-Nai/Ri-Nai.github.io"
+        data-repo-id="R_kgDOMWII_w"
+        data-category="Announcements"
+        data-category-id="DIC_kwDOMWII_84Cgx-V"
+        data-mapping="title"
+        data-strict="0"
+        data-reactions-enabled="1"
+        data-emit-metadata="0"
+        data-input-position="top"
+        data-theme="preferred_color_scheme"
+        data-lang="zh-CN"
+        data-loading="lazy"
+        crossorigin="anonymous"
+        async>
+</script>
+
+    
+
+    <footer class="site-footer">
+    <section class="copyright">
+        &copy;
+        
+        2024 Reina
+    </section>
+
+    <section class="powerby">
+        使用 <a href="https://gohugo.io/" target="_blank" rel="noopener">Hugo</a> 构建 <br />
+        主题 <b><a href="https://github.com/CaiJimmy/hugo-theme-stack" target="_blank" rel="noopener"
+                data-version="3.26.0">Stack</a></b> 由 <a href="https://jimmycai.com" target="_blank" rel="noopener">Jimmy</a> 设计
+    </section>
+    <canvas id="live2d-container"
+        style="position: fixed; bottom: 0; right: 0; width: 250px; height: 400px; pointer-events: auto; z-index: 1;">
+    </canvas>
+    <div id="toggle-button"
+        style="position: fixed; bottom: 400px; right: -22px; width: 30px; height: 30px; cursor: pointer; z-index: 2;">
+        ✖
+    </div>
+    <style>
+        .text-bubble {
+            position: fixed;
+            background-color: #ffe4e1;
+            border: 2px solid #ff69b4;
+            border-radius: 10px;
+            padding: 10px;
+            font-size: 14px;
+            color: #ff69b4;
+            z-index: 2;
+            opacity: 1;
+        }
+
+        #toggle-button {
+            font-size: 16px;
+            text-align: center;
+            line-height: 28px;
+            background-color: #ff69b4;
+            opacity: 0.3;
+            color: white;
+            border-radius: 50%;
+            transition: 600ms;
+            user-select:none;
+
+        }
+
+        #toggle-button:hover {
+            transform: translate(-22px, 0);
+            opacity: 1;
+        }
+
+        @keyframes bubble-animation {
+            0% {
+                opacity: 1;
+                transform: translateY(0);
+            }
+
+            100% {
+                opacity: 0;
+                transform: translateY(-50px);
+            }
+        }
+    </style>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', async function () {
+            const app = new PIXI.Application({
+                view: document.getElementById('live2d-container'),
+                autoStart: true,
+                transparent: true,
+                width: 250,
+                height: 400
+            });
+
+            try {
+                const model2 = await PIXI.live2d.Live2DModel.from("/aya_event217/aya_event217.model.json");
+                app.stage.addChild(model2);
+                model2.scale.set(0.15);
+                model2.x = -25;
+                model2.y = -20;
+                
+                model2.interactive = true;
+                model2.buttonMode = true;
+
+                
+                const showTextBubble = (x, y) => {
+                    const textBubble = document.createElement('div');
+                    textBubble.className = 'text-bubble';
+                    let Texts = ["丸山之上缤纷彩，老娘就是丸山彩！", "修哇修哇", "A to Z！A to Z！　天下を", "A to Z！A to Z！　取ります！", "PasPale入魂！Bang！！！！！", "一拳一个彩黑"]
+                    let l = Texts.length
+                    textBubble.innerText = Texts[Math.floor(Math.random() * l)];
+
+                    const randomOffsetX = (Math.random() - 0.5) * 100 - 50; 
+                    const randomOffsetY = Math.random() * 100 - 100; 
+
+                    textBubble.style.left = (x + randomOffsetX) + 'px';
+                    textBubble.style.bottom = (y + randomOffsetY) + 'px';
+                    textBubble.style.animation = "bubble-animation " + (Math.random() + 0.2) * 2.5 + "s forwards";
+                    document.body.appendChild(textBubble);
+
+                    
+                    textBubble.addEventListener('animationend', () => {
+                        textBubble.remove();
+                    });
+                };
+
+                
+                app.view.addEventListener('click', (event) => {
+                    const rect = app.view.getBoundingClientRect();
+                    const mouseX = event.clientX - rect.left;
+                    const mouseY = event.clientY - rect.top;
+
+                    if (model2.hitTest('head', mouseX, mouseY) && toggleButton.innerHTML != '🞅') {
+                        console.log('Head area clicked!');
+                        console.log(rect, mouseX, mouseY)
+                        showTextBubble(rect.left + mouseX / 2 - 25, 420);
+                        
+                        model2.motion('idle');  
+                    }
+                });
+                const toggleButton = document.getElementById('toggle-button');
+                const container = document.getElementById('live2d-container');
+                toggleButton.addEventListener('click', () => {
+                    if (model2.parent) {
+                        app.stage.removeChild(model2);
+                        container.style.visibility = 'hidden';
+                        toggleButton.innerHTML = '🞅'; 
+                    } else {
+                        container.style.visibility = 'visible'
+                        
+                        app.stage.addChild(model2);
+                        toggleButton.innerHTML = '✖'; 
+                    }
+                });
+
+            } catch (error) {
+                console.error('Error loading Live2D model:', error);
+            }
+        });
+    </script>
+</footer>
+
+
+    
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+    
+    <div class="pswp__bg"></div>
+
+    
+    <div class="pswp__scroll-wrap">
+
+        
+        <div class="pswp__container">
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+        </div>
+
+        
+        <div class="pswp__ui pswp__ui--hidden">
+
+            <div class="pswp__top-bar">
+
+                
+
+                <div class="pswp__counter"></div>
+
+                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+
+                <button class="pswp__button pswp__button--share" title="Share"></button>
+
+                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+
+                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+
+                
+                
+                <div class="pswp__preloader">
+                    <div class="pswp__preloader__icn">
+                        <div class="pswp__preloader__cut">
+                            <div class="pswp__preloader__donut"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                <div class="pswp__share-tooltip"></div>
+            </div>
+
+            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+            </button>
+
+            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+            </button>
+
+            <div class="pswp__caption">
+                <div class="pswp__caption__center"></div>
+            </div>
+
+        </div>
+
+    </div>
+
+</div><script 
+                src="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.js"integrity="sha256-ePwmChbbvXbsO02lbM3HoHbSHTHFAeChekF1xKJdleo="crossorigin="anonymous"
+                defer
+                >
+            </script><script 
+                src="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe-ui-default.min.js"integrity="sha256-UKkzOn/w1mBxRmLLGrSeyB4e1xbrp4xylgAWb3M42pU="crossorigin="anonymous"
+                defer
+                >
+            </script><link 
+                rel="stylesheet" 
+                href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/default-skin/default-skin.min.css"crossorigin="anonymous"
+            ><link 
+                rel="stylesheet" 
+                href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.css"crossorigin="anonymous"
+            >
+    
+        <p> 最后更新于 2024 年 8 月 8 日</p>
+    
+
+            </main>
+        </div>
+        <script 
+                src="https://cdn.jsdelivr.net/npm/node-vibrant@3.1.6/dist/vibrant.min.js"integrity="sha256-awcR2jno4kI5X0zL8ex0vi2z&#43;KMkF24hUW8WePSA9HM="crossorigin="anonymous"
+                
+                >
+            </script><script type="text/javascript" src="/ts/main.js" defer></script>
+<script>
+    (function () {
+        const customFont = document.createElement('link');
+        customFont.href = "https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&display=swap";
+
+        customFont.type = "text/css";
+        customFont.rel = "stylesheet";
+
+        document.head.appendChild(customFont);
+    }());
+</script>
+
+    </body>
+</html>
