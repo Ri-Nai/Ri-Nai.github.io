@@ -2,17 +2,17 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
     <channel>
         <title>Tags on Reina</title>
-        <link>http://localhost:1313/tags/</link>
+        <link>https://ri-nai.github.io/tags/</link>
         <description>Recent content in Tags on Reina</description>
         <generator>Hugo -- gohugo.io</generator>
         <language>zh-cn</language>
         <copyright>Reina</copyright>
-        <lastBuildDate>Wed, 07 Aug 2024 18:16:28 +0800</lastBuildDate><atom:link href="http://localhost:1313/tags/index.xml" rel="self" type="application/rss+xml" /><item>
+        <lastBuildDate>Wed, 07 Aug 2024 18:16:28 +0800</lastBuildDate><atom:link href="https://ri-nai.github.io/tags/index.xml" rel="self" type="application/rss+xml" /><item>
         <title>算法竞赛</title>
-        <link>http://localhost:1313/tags/%E7%AE%97%E6%B3%95%E7%AB%9E%E8%B5%9B/</link>
+        <link>https://ri-nai.github.io/tags/%E7%AE%97%E6%B3%95%E7%AB%9E%E8%B5%9B/</link>
         <pubDate>Sat, 20 Jul 2024 01:33:01 +0800</pubDate>
         
-        <guid>http://localhost:1313/tags/%E7%AE%97%E6%B3%95%E7%AB%9E%E8%B5%9B/</guid>
+        <guid>https://ri-nai.github.io/tags/%E7%AE%97%E6%B3%95%E7%AB%9E%E8%B5%9B/</guid>
         <description></description>
         </item>
         

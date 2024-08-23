@@ -2,33 +2,33 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
     <channel>
         <title>Pages on Reina</title>
-        <link>http://localhost:1313/page/</link>
+        <link>https://ri-nai.github.io/page/</link>
         <description>Recent content in Pages on Reina</description>
         <generator>Hugo -- gohugo.io</generator>
         <language>zh-cn</language>
-        <copyright>Reina</copyright><atom:link href="http://localhost:1313/page/index.xml" rel="self" type="application/rss+xml" /><item>
+        <copyright>Reina</copyright><atom:link href="https://ri-nai.github.io/page/index.xml" rel="self" type="application/rss+xml" /><item>
         <title>Archives</title>
-        <link>http://localhost:1313/archives/</link>
+        <link>https://ri-nai.github.io/archives/</link>
         <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
         
-        <guid>http://localhost:1313/archives/</guid>
+        <guid>https://ri-nai.github.io/archives/</guid>
         <description></description>
         </item>
         <item>
         <title>Search</title>
-        <link>http://localhost:1313/search/</link>
+        <link>https://ri-nai.github.io/search/</link>
         <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
         
-        <guid>http://localhost:1313/search/</guid>
+        <guid>https://ri-nai.github.io/search/</guid>
         <description></description>
         </item>
         <item>
         <title>关于我的，这些那些</title>
-        <link>http://localhost:1313/about/</link>
+        <link>https://ri-nai.github.io/about/</link>
         <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
         
-        <guid>http://localhost:1313/about/</guid>
-        <description>&lt;img src="http://localhost:1313/about/img/About.jpg" alt="Featured image of post 关于我的，这些那些" /&gt;&lt;h2 id=&#34;为什么呀&#34;&gt;⏲️为什么呀
+        <guid>https://ri-nai.github.io/about/</guid>
+        <description>&lt;img src="https://ri-nai.github.io/about/img/About.jpg" alt="Featured image of post 关于我的，这些那些" /&gt;&lt;h2 id=&#34;为什么呀&#34;&gt;⏲️为什么呀
 &lt;/h2&gt;&lt;p&gt;看到一位大佬搭了一个于是自己也很想搭，于是就有了这个博客&lt;br&gt;
 搭了我挺久的，感觉搭了一个晚上加上一个夜晚🛏️&lt;br&gt;
 主要是右下角可爱的彩彩折腾我太久时间了，调试的时候出了很多问题，但是看到自家的女儿呆在这里还是很幸福啊🥰&lt;br&gt;
@@ -91,10 +91,10 @@
 《赛博朋克：边缘行者》真的是当时刚看到PV的时候就觉得会很出色，我对赛博朋克类的主题真的很感兴趣，很久很久以前就很想玩2077了，但是今年才玩上。&lt;br&gt;&lt;/p&gt;
 &lt;h4 id=&#34;贴近生活的&#34;&gt;贴近生活的
 &lt;/h4&gt;&lt;p&gt;以前很喜欢P.A.Works的动画，包括且不限于《白箱》《花开伊吕波》《来自风平浪静的明天》，我应该挂了快三年的松前绪花的头像，同时《白箱》也是我至今为止最喜欢的动画之一，主要是因为P.A.Works的动画都很贴近现实，看见她们清新如水的生活会心生愉悦&lt;br&gt;&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;http://localhost:1313/about/img/Ohana.jpg&#34;
+&lt;p&gt;&lt;img src=&#34;https://ri-nai.github.io/about/img/Ohana.jpg&#34;
 	width=&#34;806&#34;
 	height=&#34;805&#34;
-	srcset=&#34;http://localhost:1313/about/img/Ohana_huadd75bb261a5e4379fcff69b5e23e69b_74361_480x0_resize_q75_box.jpg 480w, http://localhost:1313/about/img/Ohana_huadd75bb261a5e4379fcff69b5e23e69b_74361_1024x0_resize_q75_box.jpg 1024w&#34;
+	srcset=&#34;https://ri-nai.github.io/about/img/Ohana_huadd75bb261a5e4379fcff69b5e23e69b_74361_480x0_resize_q75_box.jpg 480w, https://ri-nai.github.io/about/img/Ohana_huadd75bb261a5e4379fcff69b5e23e69b_74361_1024x0_resize_q75_box.jpg 1024w&#34;
 	loading=&#34;lazy&#34;
 	
 		alt=&#34;松前绪花&#34;
@@ -145,10 +145,10 @@
 &lt;/h3&gt;&lt;p&gt;自己其实到现在也没有特别喜欢的角色，能让我说出自己喜欢&lt;strong&gt;一辈子&lt;/strong&gt;的那种&lt;br&gt;
 可能在17年之前还是能说出这种话的，后来就失去了喜欢一个角色&lt;strong&gt;一辈子&lt;/strong&gt;的能力&lt;br&gt;
 就是以前头像一直都在换，只有近一年来间断性得保留了现在这个&lt;strong&gt;久石奏&lt;/strong&gt;的头像&lt;br&gt;&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;http://localhost:1313/about/img/Kanade.jpg&#34;
+&lt;p&gt;&lt;img src=&#34;https://ri-nai.github.io/about/img/Kanade.jpg&#34;
 	width=&#34;640&#34;
 	height=&#34;640&#34;
-	srcset=&#34;http://localhost:1313/about/img/Kanade_huc190214a3a4edb04e084427cd2fdb258_33728_480x0_resize_q75_box.jpg 480w, http://localhost:1313/about/img/Kanade_huc190214a3a4edb04e084427cd2fdb258_33728_1024x0_resize_q75_box.jpg 1024w&#34;
+	srcset=&#34;https://ri-nai.github.io/about/img/Kanade_huc190214a3a4edb04e084427cd2fdb258_33728_480x0_resize_q75_box.jpg 480w, https://ri-nai.github.io/about/img/Kanade_huc190214a3a4edb04e084427cd2fdb258_33728_1024x0_resize_q75_box.jpg 1024w&#34;
 	loading=&#34;lazy&#34;
 	
 		alt=&#34;久石奏&#34;
