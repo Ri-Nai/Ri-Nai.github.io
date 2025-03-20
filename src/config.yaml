@@ -22,3 +22,7 @@ menu:
     title: Steam
     url: https://steamcommunity.com/id/Reina__/
     icon: ./assets/icons/steam.svg
+  - name: portal-2d
+    title: Portal
+    url: https://ri-nai.github.io/Portal-2D/
+    icon: ./assets/icons/aperture.svg
