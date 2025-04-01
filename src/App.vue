@@ -16,24 +16,27 @@ for (const path in images) {
 }
 
 const bgUrl = ref<string | null>(null)
-const avatarUrl = ref<string | null>(config?.avatar || null)
+const avatarUrl = ref<string | null>(null)
 
+// 修改图片加载逻辑
 if (config.background) {
-  config.background = images[config.background]?.default || '';
-  bgUrl.value = config.background;
+  const bgPath = config.background.replace('./', '')
+  bgUrl.value = images[`./${bgPath}`]?.default || ''
+  console.log('Background URL:', bgUrl.value)
 }
 
 if (config.avatar) {
-  config.avatar = images[config.avatar]?.default || '';
-  avatarUrl.value = config.avatar;
+  const avatarPath = config.avatar.replace('./', '')
+  avatarUrl.value = images[`./${avatarPath}`]?.default || ''
+  console.log('Avatar URL:', avatarUrl.value)
 }
 
 for (const item of config.menu) {
   if (item.icon) {
-    item.icon = images[item.icon]?.default || '';
+    const iconPath = item.icon.replace('./', '')
+    item.icon = images[`./${iconPath}`]?.default || ''
   }
 }
-
 
 console.log('config:', config)
 
@@ -47,26 +50,115 @@ import PersonalMenu from './components/PersonalMenu.vue'
   <BackgroundImage :imageUrl="bgUrl" />
   <FadeIn>
     <Ri_NaiAvatar :imageUrl="avatarUrl" />
-    <h2> Reina </h2>
-    <h4 style="margin-top: 0em;"> 如果努力的尽头就是奇迹 </h4>
+    <div class="text-content">
+      <h2 class="name">Reina</h2>
+      <h4 class="motto">如果努力的尽头就是奇迹</h4>
+    </div>
     <PersonalMenu :items="config.menu" />
   </FadeIn>
 </template>
 
 
 <style scoped>
-.logo {
-  height: 6em;
-  padding: 1.5em;
-  will-change: filter;
-  transition: filter 300ms;
+.text-content {
+  text-align: center;
+  margin: 1.5rem 0;
+  font-family: "PingFang SC", "Microsoft YaHei", sans-serif;
 }
 
-.logo:hover {
-  filter: drop-shadow(0 0 2em #646cffaa);
+.name {
+  font-size: 3.5rem;
+  font-weight: 600;
+  margin: 0;
+  background: linear-gradient(45deg, #646cff, #42b883);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: gradient 8s ease infinite;
+  text-shadow: 
+    0 0 1px rgba(255, 255, 255, 0.1),
+    0 0 2px rgba(255, 255, 255, 0.1),
+    0 0 4px rgba(255, 255, 255, 0.1),
+    0 0 8px rgba(255, 255, 255, 0.1),
+    0 0 16px rgba(255, 255, 255, 0.1);
+  letter-spacing: 1px;
+  font-family: "PingFang SC", "Microsoft YaHei", sans-serif;
+  position: relative;
 }
 
-.logo.vue:hover {
-  filter: drop-shadow(0 0 2em #42b883aa);
+.name::after {
+  content: 'Reina';
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(45deg, #646cff, #42b883);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: gradient 8s ease infinite;
+  filter: blur(8px);
+  opacity: 0.5;
+  z-index: -1;
+}
+
+.motto {
+  font-size: 1.3rem;
+  color: rgba(255, 255, 255, 0.9);
+  margin: 0.8rem 0;
+  font-weight: 300;
+  text-shadow: 
+    0 0 1px rgba(0, 0, 0, 0.1),
+    0 0 2px rgba(0, 0, 0, 0.1),
+    0 0 4px rgba(0, 0, 0, 0.1);
+  letter-spacing: 2px;
+  font-family: "PingFang SC", "Microsoft YaHei", sans-serif;
+  position: relative;
+}
+
+.motto::after {
+  content: '如果努力的尽头就是奇迹';
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  color: rgba(255, 255, 255, 0.3);
+  text-shadow: none;
+  z-index: -1;
+}
+
+@keyframes gradient {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+@media (prefers-color-scheme: light) {
+  .motto {
+    color: rgba(0, 0, 0, 0.8);
+  }
+  
+  .motto::after {
+    color: rgba(0, 0, 0, 0.1);
+  }
+}
+
+@media (max-width: 768px) {
+  .name {
+    font-size: 2.8rem;
+  }
+  
+  .motto {
+    font-size: 1.1rem;
+    letter-spacing: 1px;
+  }
 }
 </style>

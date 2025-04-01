@@ -12,43 +12,48 @@ defineProps<{ imageUrl: string | null }>()
 
 <style scoped>
 .avatar {
-  width: 100px;
-  height: 100px;
+  width: 120px;
+  height: 120px;
   border-radius: 50%;
-  border: 2px solid #fff;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-
-  transition: cubic-bezier(0.215, 0.61, 0.355, 1);
-  transition-duration: 3s;
-
+  border: 3px solid rgba(255, 255, 255, 0.8);
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
+  transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
   user-select: none;
   -webkit-user-select: none;
+  position: relative;
+  overflow: hidden;
+}
 
-  animation: drop-shadow-animation 3s infinite;
-
-  transition: cubic-bezier(0.215, 0.61, 0.355, 1) 3s;
-
+.avatar::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  border-radius: 50%;
+  background: linear-gradient(45deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+  transform: translateX(-100%);
+  transition: transform 0.6s;
 }
 
 .avatar:hover {
-  filter: drop-shadow(0 0 4em #646cffaa);
+  transform: scale(1.05);
+  border-color: rgba(255, 255, 255, 1);
+  box-shadow: 0 0 30px rgba(100, 108, 255, 0.4);
 }
 
-@keyframes drop-shadow-animation {
-  0% {
-    filter: drop-shadow(0 0 2em #646cffaa);
-  }
-  50% {
-    filter: drop-shadow(0 0 4em #646cffaa);
-  }
-  100% {
-    filter: drop-shadow(0 0 2em #646cffaa);
-  }
+.avatar:hover::before {
+  transform: translateX(100%);
 }
 
 @media (prefers-color-scheme: light) {
   .avatar {
-    border: 2px solid #000;
+    border: 3px solid rgba(0, 0, 0, 0.8);
+  }
+  
+  .avatar:hover {
+    border-color: rgba(0, 0, 0, 1);
   }
 }
 </style>
