@@ -131,15 +131,15 @@ onMounted(async () => {
   }
 
   .menu-button-title {
-    color: rgba(0, 0, 0, 0.8);
+    color: rgba(241, 235, 235, 0.8);
   }
 
   .menu-button:hover .menu-button-title {
-    color: #000;
+    color: inherit;
   }
 
   .menu-button:hover .menu-button-icon :deep(svg) {
-    fill: #000;
+    color: inherit;
   }
 }
 </style>

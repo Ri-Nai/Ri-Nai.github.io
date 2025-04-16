@@ -70,19 +70,19 @@ import PersonalMenu from './components/PersonalMenu.vue'
   font-size: 3.5rem;
   font-weight: 600;
   margin: 0;
-  background: linear-gradient(45deg, #646cff, #42b883);
+  background: linear-gradient(45deg, #d364ff, #5442b8);
   -webkit-background-clip: text;
   background-clip: text;
   -webkit-text-fill-color: transparent;
   animation: gradient 8s ease infinite;
-  text-shadow: 
+  text-shadow:
     0 0 1px rgba(255, 255, 255, 0.1),
     0 0 2px rgba(255, 255, 255, 0.1),
     0 0 4px rgba(255, 255, 255, 0.1),
     0 0 8px rgba(255, 255, 255, 0.1),
     0 0 16px rgba(255, 255, 255, 0.1);
   letter-spacing: 1px;
-  font-family: "PingFang SC", "Microsoft YaHei", sans-serif;
+  font-family: "JetBrains Mono","Cascadia Code", "monospace", "PingFang SC", "Microsoft YaHei", sans-serif;
   position: relative;
 }
 
@@ -93,7 +93,7 @@ import PersonalMenu from './components/PersonalMenu.vue'
   top: 0;
   width: 100%;
   height: 100%;
-  background: linear-gradient(45deg, #646cff, #42b883);
+  background: linear-gradient(45deg, #d364ff, #5442b8);
   -webkit-background-clip: text;
   background-clip: text;
   -webkit-text-fill-color: transparent;
@@ -108,7 +108,7 @@ import PersonalMenu from './components/PersonalMenu.vue'
   color: rgba(255, 255, 255, 0.9);
   margin: 0.8rem 0;
   font-weight: 300;
-  text-shadow: 
+  text-shadow:
     0 0 1px rgba(0, 0, 0, 0.1),
     0 0 2px rgba(0, 0, 0, 0.1),
     0 0 4px rgba(0, 0, 0, 0.1);
@@ -133,9 +133,11 @@ import PersonalMenu from './components/PersonalMenu.vue'
   0% {
     background-position: 0% 50%;
   }
+
   50% {
     background-position: 100% 50%;
   }
+
   100% {
     background-position: 0% 50%;
   }
@@ -143,9 +145,9 @@ import PersonalMenu from './components/PersonalMenu.vue'
 
 @media (prefers-color-scheme: light) {
   .motto {
-    color: rgba(0, 0, 0, 0.8);
+    color: rgba(46, 46, 46, 0.8);
   }
-  
+
   .motto::after {
     color: rgba(0, 0, 0, 0.1);
   }
@@ -155,7 +157,7 @@ import PersonalMenu from './components/PersonalMenu.vue'
   .name {
     font-size: 2.8rem;
   }
-  
+
   .motto {
     font-size: 1.1rem;
     letter-spacing: 1px;
