@@ -4,7 +4,7 @@ avatar: ./assets/avatar.jpg
 menu:
   - name: blog
     title: Blog
-    url: Hugo-Blog/
+    url: astro-blog
     icon: ./assets/icons/archives.svg
   - name: github
     title: GitHub
